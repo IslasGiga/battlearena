@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		794840111EC09C7800239F64 /* ScenarioTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 794840101EC09C7800239F64 /* ScenarioTiles.sks */; };
 		79DE87B91EC0953900CAE28D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE87B81EC0953900CAE28D /* AppDelegate.swift */; };
 		79DE87BB1EC0953900CAE28D /* BattleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79DE87BA1EC0953900CAE28D /* BattleScene.sks */; };
 		79DE87BD1EC0953900CAE28D /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79DE87BC1EC0953900CAE28D /* Actions.sks */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		794840101EC09C7800239F64 /* ScenarioTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ScenarioTiles.sks; sourceTree = "<group>"; };
 		79DE87B51EC0953900CAE28D /* Battle Arena.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Battle Arena.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79DE87B81EC0953900CAE28D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79DE87BA1EC0953900CAE28D /* BattleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BattleScene.sks; sourceTree = "<group>"; };
@@ -81,6 +83,14 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
+		7948400F1EC09C4E00239F64 /* Tiles */ = {
+			isa = PBXGroup;
+			children = (
+				794840101EC09C7800239F64 /* ScenarioTiles.sks */,
+			);
+			name = Tiles;
+			sourceTree = "<group>";
+		};
 		79DE87AC1EC0953900CAE28D = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +114,7 @@
 				79DE87B81EC0953900CAE28D /* AppDelegate.swift */,
 				7948400A1EC09A3000239F64 /* Scenes */,
 				79DE87BC1EC0953900CAE28D /* Actions.sks */,
+				7948400F1EC09C4E00239F64 /* Tiles */,
 				79DE87C21EC0953900CAE28D /* Main.storyboard */,
 				7948400B1EC09A5200239F64 /* Controllers */,
 				79DE87C51EC0953900CAE28D /* Assets.xcassets */,
@@ -178,6 +189,7 @@
 				79DE87C61EC0953900CAE28D /* Assets.xcassets in Resources */,
 				79DE87C91EC0953900CAE28D /* LaunchScreen.storyboard in Resources */,
 				79DE87BD1EC0953900CAE28D /* Actions.sks in Resources */,
+				794840111EC09C7800239F64 /* ScenarioTiles.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
