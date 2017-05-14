@@ -22,7 +22,7 @@ class Card: GKEntity {
         
         self.addComponent(SpriteComponent(name: name))
         
-        self.addComponent(LevelComponent(level: level, xp: xp))
+       // self.addComponent(LevelComponent(level: level, xp: xp))
     }
     
     required init?(coder aDecoder: NSCoder) {
