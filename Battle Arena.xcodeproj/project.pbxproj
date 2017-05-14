@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77A5DB691EC910EE00816306 /* battlearena.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77A5DB671EC910EE00816306 /* battlearena.xcdatamodeld */; };
 		794840111EC09C7800239F64 /* ScenarioTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 794840101EC09C7800239F64 /* ScenarioTiles.sks */; };
 		798D5EF41EC5D7F3009EEA2E /* InfoCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798D5EF31EC5D7F3009EEA2E /* InfoCardComponent.swift */; };
 		798D5EF61EC5D8ED009EEA2E /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798D5EF51EC5D8ED009EEA2E /* SpriteComponent.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		77A5DB681EC910EE00816306 /* battlearena.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = battlearena.xcdatamodel; sourceTree = "<group>"; };
 		794840101EC09C7800239F64 /* ScenarioTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ScenarioTiles.sks; sourceTree = "<group>"; };
 		798D5EF31EC5D7F3009EEA2E /* InfoCardComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCardComponent.swift; sourceTree = "<group>"; };
 		798D5EF51EC5D8ED009EEA2E /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				79DE87C51EC0953900CAE28D /* Assets.xcassets */,
 				79DE87C71EC0953900CAE28D /* LaunchScreen.storyboard */,
 				79DE87CA1EC0953900CAE28D /* Info.plist */,
+				77A5DB671EC910EE00816306 /* battlearena.xcdatamodeld */,
 			);
 			path = "Battle Arena";
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				7996F5121EC20D5700044471 /* MovementComponent.swift in Sources */,
 				7996F50A1EC20C5900044471 /* ConstructionCard.swift in Sources */,
 				798D5EF61EC5D8ED009EEA2E /* SpriteComponent.swift in Sources */,
+				77A5DB691EC910EE00816306 /* battlearena.xcdatamodeld in Sources */,
 				79F4ED9B1EC49C83008BFEB8 /* LevelCardComponent.swift in Sources */,
 				79F4ED991EC49C55008BFEB8 /* AtackComponent.swift in Sources */,
 				7996F5081EC20C1900044471 /* CharacterCard.swift in Sources */,
@@ -421,6 +425,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		77A5DB671EC910EE00816306 /* battlearena.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				77A5DB681EC910EE00816306 /* battlearena.xcdatamodel */,
+			);
+			currentVersion = 77A5DB681EC910EE00816306 /* battlearena.xcdatamodel */;
+			path = battlearena.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 79DE87AD1EC0953900CAE28D /* Project object */;
 }
