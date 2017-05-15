@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		77A5DB691EC910EE00816306 /* battlearena.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77A5DB671EC910EE00816306 /* battlearena.xcdatamodeld */; };
 		794840111EC09C7800239F64 /* ScenarioTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 794840101EC09C7800239F64 /* ScenarioTiles.sks */; };
+		7971C2E51EC9E6BB0030A9A9 /* SecundaryTower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971C2E41EC9E6BB0030A9A9 /* SecundaryTower.swift */; };
+		7971C2E71EC9E8A40030A9A9 /* PrimaryTower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971C2E61EC9E8A40030A9A9 /* PrimaryTower.swift */; };
 		798D5EF41EC5D7F3009EEA2E /* InfoCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798D5EF31EC5D7F3009EEA2E /* InfoCardComponent.swift */; };
 		798D5EF61EC5D8ED009EEA2E /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798D5EF51EC5D8ED009EEA2E /* SpriteComponent.swift */; };
 		798D5EF81EC5DCE9009EEA2E /* EntitiesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798D5EF71EC5DCE9009EEA2E /* EntitiesManager.swift */; };
@@ -37,6 +39,8 @@
 /* Begin PBXFileReference section */
 		77A5DB681EC910EE00816306 /* battlearena.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = battlearena.xcdatamodel; sourceTree = "<group>"; };
 		794840101EC09C7800239F64 /* ScenarioTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ScenarioTiles.sks; sourceTree = "<group>"; };
+		7971C2E41EC9E6BB0030A9A9 /* SecundaryTower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecundaryTower.swift; sourceTree = "<group>"; };
+		7971C2E61EC9E8A40030A9A9 /* PrimaryTower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryTower.swift; sourceTree = "<group>"; };
 		798D5EF31EC5D7F3009EEA2E /* InfoCardComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCardComponent.swift; sourceTree = "<group>"; };
 		798D5EF51EC5D8ED009EEA2E /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
 		798D5EF71EC5DCE9009EEA2E /* EntitiesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntitiesManager.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 				7996F5071EC20C1900044471 /* CharacterCard.swift */,
 				7996F50B1EC20C6800044471 /* MagicCard.swift */,
 				7996F5091EC20C5900044471 /* ConstructionCard.swift */,
+				7971C2E41EC9E6BB0030A9A9 /* SecundaryTower.swift */,
+				7971C2E61EC9E8A40030A9A9 /* PrimaryTower.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -262,8 +268,10 @@
 				79DE87BF1EC0953900CAE28D /* BattleScene.swift in Sources */,
 				79DE87C11EC0953900CAE28D /* GameViewController.swift in Sources */,
 				7996F50E1EC20C7C00044471 /* Player.swift in Sources */,
+				7971C2E71EC9E8A40030A9A9 /* PrimaryTower.swift in Sources */,
 				798D5EFE1EC5FCF2009EEA2E /* SplashScreenScene.swift in Sources */,
 				79DE87B91EC0953900CAE28D /* AppDelegate.swift in Sources */,
+				7971C2E51EC9E6BB0030A9A9 /* SecundaryTower.swift in Sources */,
 				7996F50C1EC20C6800044471 /* MagicCard.swift in Sources */,
 				798D5EF41EC5D7F3009EEA2E /* InfoCardComponent.swift in Sources */,
 				7996F5061EC20BF600044471 /* Card.swift in Sources */,
