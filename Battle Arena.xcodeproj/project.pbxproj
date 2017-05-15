@@ -105,6 +105,7 @@
 				798D5EF71EC5DCE9009EEA2E /* EntitiesManager.swift */,
 			);
 			name = Model;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		7948400D1EC09A7D00239F64 /* Entities */ = {
@@ -144,7 +145,6 @@
 		79DE87AC1EC0953900CAE28D = {
 			isa = PBXGroup;
 			children = (
-				7948400C1EC09A7100239F64 /* Model */,
 				79DE87B71EC0953900CAE28D /* Battle Arena */,
 				79DE87B61EC0953900CAE28D /* Products */,
 			);
@@ -161,6 +161,7 @@
 		79DE87B71EC0953900CAE28D /* Battle Arena */ = {
 			isa = PBXGroup;
 			children = (
+				7948400C1EC09A7100239F64 /* Model */,
 				79DE87B81EC0953900CAE28D /* AppDelegate.swift */,
 				7948400A1EC09A3000239F64 /* Scenes */,
 				79DE87BC1EC0953900CAE28D /* Actions.sks */,
