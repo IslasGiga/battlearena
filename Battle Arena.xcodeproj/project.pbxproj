@@ -21,7 +21,6 @@
 		7996F5081EC20C1900044471 /* CharacterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7996F5071EC20C1900044471 /* CharacterCard.swift */; };
 		7996F50A1EC20C5900044471 /* ConstructionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7996F5091EC20C5900044471 /* ConstructionCard.swift */; };
 		7996F50C1EC20C6800044471 /* MagicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7996F50B1EC20C6800044471 /* MagicCard.swift */; };
-		7996F50E1EC20C7C00044471 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7996F50D1EC20C7C00044471 /* Player.swift */; };
 		7996F5101EC20D2100044471 /* HealthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7996F50F1EC20D2100044471 /* HealthComponent.swift */; };
 		7996F5121EC20D5700044471 /* MovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7996F5111EC20D5700044471 /* MovementComponent.swift */; };
 		79DE87B91EC0953900CAE28D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE87B81EC0953900CAE28D /* AppDelegate.swift */; };
@@ -51,7 +50,6 @@
 		7996F5071EC20C1900044471 /* CharacterCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterCard.swift; sourceTree = "<group>"; };
 		7996F5091EC20C5900044471 /* ConstructionCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructionCard.swift; sourceTree = "<group>"; };
 		7996F50B1EC20C6800044471 /* MagicCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicCard.swift; sourceTree = "<group>"; };
-		7996F50D1EC20C7C00044471 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		7996F50F1EC20D2100044471 /* HealthComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthComponent.swift; sourceTree = "<group>"; };
 		7996F5111EC20D5700044471 /* MovementComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementComponent.swift; sourceTree = "<group>"; };
 		79DE87B51EC0953900CAE28D /* Battle Arena.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Battle Arena.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,7 +102,6 @@
 			children = (
 				7948400E1EC09A9000239F64 /* Components */,
 				7948400D1EC09A7D00239F64 /* Entities */,
-				7996F50D1EC20C7C00044471 /* Player.swift */,
 				798D5EF71EC5DCE9009EEA2E /* EntitiesManager.swift */,
 			);
 			name = Model;
@@ -267,7 +264,6 @@
 				7996F5101EC20D2100044471 /* HealthComponent.swift in Sources */,
 				79DE87BF1EC0953900CAE28D /* BattleScene.swift in Sources */,
 				79DE87C11EC0953900CAE28D /* GameViewController.swift in Sources */,
-				7996F50E1EC20C7C00044471 /* Player.swift in Sources */,
 				7971C2E71EC9E8A40030A9A9 /* PrimaryTower.swift in Sources */,
 				798D5EFE1EC5FCF2009EEA2E /* SplashScreenScene.swift in Sources */,
 				79DE87B91EC0953900CAE28D /* AppDelegate.swift in Sources */,
