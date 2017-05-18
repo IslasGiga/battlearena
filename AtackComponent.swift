@@ -10,15 +10,17 @@ import GameplayKit
 import SpriteKit
 
 class AtackComponent: GKComponent {
-
+    
     let atackPoints: Int
     let atackSpeed: Int
     let atackArea: Int
+    let atackRange: CGFloat
     
-    init(atackPoints: Int, atackSpeed: Int, atackArea: Int){
+    init(atackPoints: Int, atackSpeed: Int, atackArea: Int, atackRange: CGFloat){
         self.atackSpeed = atackSpeed
         self.atackPoints = atackPoints
         self.atackArea = atackArea
+        self.atackRange = atackRange
         super.init()
     }
     

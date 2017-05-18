@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		237A64B91ECE23FE008389EB /* CharacterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A64B21ECE23FE008389EB /* CharacterState.swift */; };
+		237A64BA1ECE23FE008389EB /* IdleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A64B31ECE23FE008389EB /* IdleState.swift */; };
+		237A64BB1ECE23FE008389EB /* MoveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A64B41ECE23FE008389EB /* MoveState.swift */; };
+		237A64BC1ECE23FE008389EB /* AtackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A64B51ECE23FE008389EB /* AtackState.swift */; };
+		237A64BD1ECE23FE008389EB /* DeadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A64B61ECE23FE008389EB /* DeadState.swift */; };
+		237A64BE1ECE23FE008389EB /* SpawningState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A64B71ECE23FE008389EB /* SpawningState.swift */; };
+		237A64BF1ECE23FE008389EB /* NotPlayedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A64B81ECE23FE008389EB /* NotPlayedState.swift */; };
+		237A64C11ECE24EE008389EB /* TargetIndexComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237A64C01ECE24EE008389EB /* TargetIndexComponent.swift */; };
 		77A5DB691EC910EE00816306 /* battlearena.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77A5DB671EC910EE00816306 /* battlearena.xcdatamodeld */; };
 		794840111EC09C7800239F64 /* ScenarioTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 794840101EC09C7800239F64 /* ScenarioTiles.sks */; };
 		7971C2E51EC9E6BB0030A9A9 /* SecundaryTower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971C2E41EC9E6BB0030A9A9 /* SecundaryTower.swift */; };
@@ -36,6 +44,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		237A64B21ECE23FE008389EB /* CharacterState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterState.swift; sourceTree = "<group>"; };
+		237A64B31ECE23FE008389EB /* IdleState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdleState.swift; sourceTree = "<group>"; };
+		237A64B41ECE23FE008389EB /* MoveState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveState.swift; sourceTree = "<group>"; };
+		237A64B51ECE23FE008389EB /* AtackState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtackState.swift; sourceTree = "<group>"; };
+		237A64B61ECE23FE008389EB /* DeadState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadState.swift; sourceTree = "<group>"; };
+		237A64B71ECE23FE008389EB /* SpawningState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpawningState.swift; sourceTree = "<group>"; };
+		237A64B81ECE23FE008389EB /* NotPlayedState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotPlayedState.swift; sourceTree = "<group>"; };
+		237A64C01ECE24EE008389EB /* TargetIndexComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetIndexComponent.swift; sourceTree = "<group>"; };
 		77A5DB681EC910EE00816306 /* battlearena.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = battlearena.xcdatamodel; sourceTree = "<group>"; };
 		794840101EC09C7800239F64 /* ScenarioTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ScenarioTiles.sks; sourceTree = "<group>"; };
 		7971C2E41EC9E6BB0030A9A9 /* SecundaryTower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecundaryTower.swift; sourceTree = "<group>"; };
@@ -77,6 +93,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		237A64B11ECE23B9008389EB /* CharacterStates */ = {
+			isa = PBXGroup;
+			children = (
+				237A64B21ECE23FE008389EB /* CharacterState.swift */,
+				237A64B31ECE23FE008389EB /* IdleState.swift */,
+				237A64B41ECE23FE008389EB /* MoveState.swift */,
+				237A64B51ECE23FE008389EB /* AtackState.swift */,
+				237A64B61ECE23FE008389EB /* DeadState.swift */,
+				237A64B71ECE23FE008389EB /* SpawningState.swift */,
+				237A64B81ECE23FE008389EB /* NotPlayedState.swift */,
+			);
+			name = CharacterStates;
+			sourceTree = "<group>";
+		};
 		7948400A1EC09A3000239F64 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +143,7 @@
 			children = (
 				7996F5051EC20BF600044471 /* Card.swift */,
 				7996F5071EC20C1900044471 /* CharacterCard.swift */,
+				237A64B11ECE23B9008389EB /* CharacterStates */,
 				7996F50B1EC20C6800044471 /* MagicCard.swift */,
 				7996F5091EC20C5900044471 /* ConstructionCard.swift */,
 				7971C2E41EC9E6BB0030A9A9 /* SecundaryTower.swift */,
@@ -130,6 +161,7 @@
 				79F4ED9A1EC49C83008BFEB8 /* LevelCardComponent.swift */,
 				798D5EF31EC5D7F3009EEA2E /* InfoCardComponent.swift */,
 				798D5EF51EC5D8ED009EEA2E /* SpriteComponent.swift */,
+				237A64C01ECE24EE008389EB /* TargetIndexComponent.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -257,19 +289,27 @@
 				7996F5121EC20D5700044471 /* MovementComponent.swift in Sources */,
 				7996F50A1EC20C5900044471 /* ConstructionCard.swift in Sources */,
 				798D5EF61EC5D8ED009EEA2E /* SpriteComponent.swift in Sources */,
+				237A64BB1ECE23FE008389EB /* MoveState.swift in Sources */,
+				237A64BD1ECE23FE008389EB /* DeadState.swift in Sources */,
+				237A64C11ECE24EE008389EB /* TargetIndexComponent.swift in Sources */,
 				77A5DB691EC910EE00816306 /* battlearena.xcdatamodeld in Sources */,
+				237A64BE1ECE23FE008389EB /* SpawningState.swift in Sources */,
 				79F4ED9B1EC49C83008BFEB8 /* LevelCardComponent.swift in Sources */,
+				237A64BF1ECE23FE008389EB /* NotPlayedState.swift in Sources */,
 				79F4ED991EC49C55008BFEB8 /* AtackComponent.swift in Sources */,
 				7996F5081EC20C1900044471 /* CharacterCard.swift in Sources */,
 				798D5EF81EC5DCE9009EEA2E /* EntitiesManager.swift in Sources */,
 				7996F5101EC20D2100044471 /* HealthComponent.swift in Sources */,
 				79DE87BF1EC0953900CAE28D /* BattleScene.swift in Sources */,
+				237A64B91ECE23FE008389EB /* CharacterState.swift in Sources */,
 				79DE87C11EC0953900CAE28D /* GameViewController.swift in Sources */,
 				7971C2E71EC9E8A40030A9A9 /* PrimaryTower.swift in Sources */,
 				798D5EFE1EC5FCF2009EEA2E /* SplashScreenScene.swift in Sources */,
 				79DE87B91EC0953900CAE28D /* AppDelegate.swift in Sources */,
 				7971C2E51EC9E6BB0030A9A9 /* SecundaryTower.swift in Sources */,
 				7996F50C1EC20C6800044471 /* MagicCard.swift in Sources */,
+				237A64BC1ECE23FE008389EB /* AtackState.swift in Sources */,
+				237A64BA1ECE23FE008389EB /* IdleState.swift in Sources */,
 				798D5EF41EC5D7F3009EEA2E /* InfoCardComponent.swift in Sources */,
 				7996F5061EC20BF600044471 /* Card.swift in Sources */,
 			);

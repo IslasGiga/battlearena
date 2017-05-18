@@ -11,18 +11,18 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadSpashScreenScene()
+        self.loadBattleScene()
         
         
     }
-
+    
     override var shouldAutorotate: Bool {
         return true
     }
-
+    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return .allButUpsideDown
@@ -30,39 +30,39 @@ class GameViewController: UIViewController {
             return .all
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
     }
-
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
-//    if let scene = GKScene(fileNamed: "BattleScene") {
-//        
-//        // Get the SKScene from the loaded GKScene
-//        if let sceneNode = scene.rootNode as! BattleScene? {
-//            
-//            // Copy gameplay related content over to the scene
-//            sceneNode.entities = scene.entities
-//            sceneNode.graphs = scene.graphs
-//            
-//            // Set the scale mode to scale to fit the window
-//            sceneNode.scaleMode = .aspectFill
-//            
-//            // Present the scene
-//            if let view = self.view as! SKView? {
-//                view.presentScene(sceneNode)
-//                
-//                view.ignoresSiblingOrder = true
-//                
-//                view.showsFPS = true
-//                view.showsNodeCount = true
-//            }
-//        }
-//    }
+    //    if let scene = GKScene(fileNamed: "BattleScene") {
+    //
+    //        // Get the SKScene from the loaded GKScene
+    //        if let sceneNode = scene.rootNode as! BattleScene? {
+    //
+    //            // Copy gameplay related content over to the scene
+    //            sceneNode.entities = scene.entities
+    //            sceneNode.graphs = scene.graphs
+    //
+    //            // Set the scale mode to scale to fit the window
+    //            sceneNode.scaleMode = .aspectFill
+    //
+    //            // Present the scene
+    //            if let view = self.view as! SKView? {
+    //                view.presentScene(sceneNode)
+    //
+    //                view.ignoresSiblingOrder = true
+    //
+    //                view.showsFPS = true
+    //                view.showsNodeCount = true
+    //            }
+    //        }
+    //    }
     
     // MARK: Load Splash Screen Scene
     
@@ -88,10 +88,10 @@ class GameViewController: UIViewController {
                 }
             }
         }
-    
+        
     }
-
-     // MARK: Load Splash Screen Scene
+    
+    // MARK: Load Splash Screen Scene
     
     func loadBattleScene(){
         if let scene = GKScene(fileNamed: "BattleScene") {
@@ -116,6 +116,6 @@ class GameViewController: UIViewController {
         }
         
     }
-
+    
     
 }
