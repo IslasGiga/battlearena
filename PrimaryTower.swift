@@ -11,12 +11,13 @@ import GameplayKit
 class PrimaryTower: GKEntity {
 
     init(level: Int, healthPoints: Int, atack: GKComponent) {
+    
+        super.init()
         
         self.addComponent(HealthComponent(healthPoints: healthPoints))
         
         self.addComponent(atack)
-        
-        
+
     }
     
     required init?(coder aDecoder: NSCoder) {

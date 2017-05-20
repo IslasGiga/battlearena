@@ -14,7 +14,7 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadSpashScreenScene()
+        self.loadBattleScene()
         
         
     }
