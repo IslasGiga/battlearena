@@ -45,7 +45,7 @@ class BattleScene: SKScene {
     
     override func didMove(to view: SKView) {
         //loading battle space, mana and menu elements
-        if let menuScene = SKScene(fileNamed: "MenuScene") as? SKScene{
+        if let menuScene = SKScene(fileNamed: "MenuScene"){
             let newNode = menuScene.childNode(withName: "themenu")
             newNode?.removeFromParent()
             self.addChild(newNode!)
@@ -66,7 +66,7 @@ class BattleScene: SKScene {
             
             if let barNode = menuScene.childNode(withName: "Bar") as? SKSpriteNode{
                 self.maxManaSize = barNode.size.height
-                self.manaBar = barNode.childNode(withName: "Mana") as! SKSpriteNode
+                self.manaBar = barNode.childNode(withName: "Mana") as? SKSpriteNode
                 barNode.removeFromParent()
                 self.addChild(barNode)
             }
