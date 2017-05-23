@@ -49,8 +49,10 @@ class CharacterCard: Card {
         
         self.battleScene = battleScene
         
-        self.spriteNode = SKSpriteNode.init(color: UIColor.brown, size: CGSize(width: 25, height: 25))
+        //self.spriteNode = SKSpriteNode.init(color: UIColor.brown, size: CGSize(width: 25, height: 25))
         
+        
+        self.spriteNode = SKSpriteNode(imageNamed: "character")
         if teamId == 1{
             self.spriteNode.color = UIColor.lightGray
         }
