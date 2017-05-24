@@ -59,6 +59,7 @@ class BattleScene: SKScene {
             
             if let battleNode = menuScene.childNode(withName: "BattleArea") as? SKSpriteNode {
                 self.battleNode = battleNode
+                //self.battleNode?.color = UIColor.clear
                 battleNode.removeFromParent()
                 self.addChild(battleNode)
                 
@@ -70,9 +71,11 @@ class BattleScene: SKScene {
                 barNode.removeFromParent()
                 self.addChild(barNode)
             }
-            
-            
         }
+        
+        //loading Towers
+        loadTowers()
+        
         
     }
     
@@ -157,7 +160,7 @@ class BattleScene: SKScene {
     }
     
     func summonCharacter(type: Int, id: Int, team: Int, pos: CGPoint){
-        let character = CharacterCard(image: #imageLiteral(resourceName: "Spaceship"), name: "CharType:\(type) id:\(id)", cardDescription: "Will be obtained from db", manaCost: type, summoningTime: 1, level: 1, xp: 0, atackPoints: type * 10, atackSpeed: (5.0 - CGFloat(type))*0.25, atackArea: 1, atackRange: 100.0 - CGFloat(type*10), speed: 10, healthPoints: 50*type, battleScene: self, teamId: team)
+        let character = CharacterCard(image: #imageLiteral(resourceName: "character"), name: "CharType:\(type) id:\(id)", cardDescription: "Will be obtained from db", manaCost: type, summoningTime: 1, level: 1, xp: 0, atackPoints: type * 10, atackSpeed: (5.0 - CGFloat(type))*0.25, atackArea: 1, atackRange: 100.0 - CGFloat(type*10), speed: 10, healthPoints: 50*type, battleScene: self, teamId: team)
         let manaCost = character.getManaCost()*10.0
         if self.mana >= manaCost {
             self.characters.append(character)
@@ -175,6 +178,57 @@ class BattleScene: SKScene {
         }else{
             print("not enough mana")
         }
+        
+    }
+    
+    //MARK: Instance Towers
+    func loadTowers(){
+        //Default Range for all towers
+        let towerRange = self.battleNode!.size.width/3
+        
+        //Primary Towers
+        let primaryTowerA = PrimaryTower(image: #imageLiteral(resourceName: "turret"), name: "PrimaryTower", cardDescription: "You lose if this tower gets destroyed", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 25, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 2000, battleScene: self, teamId: 0)
+        primaryTowerA.spriteNode.position = self.battleNode!.position
+        primaryTowerA.spriteNode.position.y -= self.battleNode!.size.height/2 - primaryTowerA.spriteNode.size.height/2
+        primaryTowerA.spriteNode.zPosition = 3
+        self.characters.append(primaryTowerA)
+        self.addChild(primaryTowerA.spriteNode)
+        
+        let primaryTowerB = PrimaryTower(image: #imageLiteral(resourceName: "turret"), name: "PrimaryTower", cardDescription: "You lose if this tower gets destroyed", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 25, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 2000, battleScene: self, teamId: 1)
+        primaryTowerB.spriteNode.position = self.battleNode!.position
+        primaryTowerB.spriteNode.position.y += self.battleNode!.size.height/2 - primaryTowerB.spriteNode.size.height/2
+        primaryTowerB.spriteNode.zPosition = 3
+        self.characters.append(primaryTowerB)
+        self.addChild(primaryTowerB.spriteNode)
+        
+        for i in 0...2{
+            let secundaryTower = SecundaryTower(image: #imageLiteral(resourceName: "turret"), name: "SecundaryTower", cardDescription: "Main sefenses of your territory", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 20, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 1000, battleScene: self, teamId: 0)
+            
+            secundaryTower.spriteNode.position = self.battleNode!.position
+            secundaryTower.spriteNode.position.y -= self.battleNode!.size.height/2 - 4 * primaryTowerA.spriteNode.size.height/2
+            secundaryTower.spriteNode.zPosition = 3
+            
+            secundaryTower.spriteNode.position.x -= CGFloat(1 - i) * self.battleNode!.size.width / 3
+            
+            self.characters.append(secundaryTower)
+            self.addChild(secundaryTower.spriteNode)
+        }
+        
+        for i in 0...2{
+            let secundaryTower = SecundaryTower(image: #imageLiteral(resourceName: "turret"), name: "SecundaryTower", cardDescription: "Main sefenses of your territory", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 20, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 1000, battleScene: self, teamId: 1)
+            
+            secundaryTower.spriteNode.position = self.battleNode!.position
+            secundaryTower.spriteNode.position.y += self.battleNode!.size.height/2 - 4 * primaryTowerA.spriteNode.size.height/2
+            secundaryTower.spriteNode.zPosition = 3
+            
+            secundaryTower.spriteNode.position.x -= CGFloat(1 - i) * self.battleNode!.size.width / 3
+            
+            self.characters.append(secundaryTower)
+            self.addChild(secundaryTower.spriteNode)
+        }
+    }
+    
+    func loadSecundaryTowers(){
         
     }
 }

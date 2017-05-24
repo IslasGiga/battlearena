@@ -57,6 +57,8 @@ class CharacterCard: Card {
             self.spriteNode.color = UIColor.lightGray
         }
         
+        self.spriteNode.texture = SKTexture(image: image)
+        
         self.teamId = teamId
     }
     
