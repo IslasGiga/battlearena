@@ -26,13 +26,15 @@ class LifeBar: SKSpriteNode {
         
         let sprite = SKScene(fileNamed: "LifeBar")!.childNode(withName: "parent") as! SKSpriteNode
         
-        super.init(texture: nil, color: UIColor.clear, size: sprite.size)
-
         sprite.removeFromParent()
         
-        let child = sprite.childNode(withName: "child") as SKSpriteNode
+        let child = sprite.childNode(withName: "child") as! SKSpriteNode
         self.life = child
         
+        super.init(texture: nil, color: UIColor.clear, size: sprite.size)
+        
+        addChild(sprite)
+        addChild(life)
     }
     
     required init?(coder aDecoder: NSCoder) {
