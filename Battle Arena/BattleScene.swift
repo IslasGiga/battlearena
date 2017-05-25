@@ -71,6 +71,7 @@ class BattleScene: SKScene {
                 barNode.removeFromParent()
                 self.addChild(barNode)
             }
+            
         }
         
         //loading Towers
