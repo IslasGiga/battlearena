@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2351AB8D1ED3466800C09B1E /* TargetIndexComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2351AB8C1ED3466800C09B1E /* TargetIndexComponent.swift */; };
 		2351AB8F1ED3477F00C09B1E /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2351AB8E1ED3477F00C09B1E /* MenuScene.sks */; };
+		77947E9F1ED60BCE00DFD6F8 /* LifeBar.sks in Resources */ = {isa = PBXBuildFile; fileRef = 77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */; };
+		77947EA11ED60F5700DFD6F8 /* LifeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77947EA01ED60F5700DFD6F8 /* LifeBar.swift */; };
 		77A5DB691EC910EE00816306 /* battlearena.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77A5DB671EC910EE00816306 /* battlearena.xcdatamodeld */; };
 		794840111EC09C7800239F64 /* ScenarioTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 794840101EC09C7800239F64 /* ScenarioTiles.sks */; };
 		7971C2E51EC9E6BB0030A9A9 /* SecundaryTower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971C2E41EC9E6BB0030A9A9 /* SecundaryTower.swift */; };
@@ -39,6 +41,8 @@
 /* Begin PBXFileReference section */
 		2351AB8C1ED3466800C09B1E /* TargetIndexComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetIndexComponent.swift; sourceTree = "<group>"; };
 		2351AB8E1ED3477F00C09B1E /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
+		77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LifeBar.sks; sourceTree = "<group>"; };
+		77947EA01ED60F5700DFD6F8 /* LifeBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifeBar.swift; sourceTree = "<group>"; };
 		77A5DB681EC910EE00816306 /* battlearena.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = battlearena.xcdatamodel; sourceTree = "<group>"; };
 		794840101EC09C7800239F64 /* ScenarioTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ScenarioTiles.sks; sourceTree = "<group>"; };
 		7971C2E41EC9E6BB0030A9A9 /* SecundaryTower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecundaryTower.swift; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 				2351AB8E1ED3477F00C09B1E /* MenuScene.sks */,
 				798D5EFB1EC5F9BD009EEA2E /* SplashScreenScene.sks */,
 				798D5EFD1EC5FCF2009EEA2E /* SplashScreenScene.swift */,
+				77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 				798D5EF31EC5D7F3009EEA2E /* InfoCardComponent.swift */,
 				798D5EF51EC5D8ED009EEA2E /* SpriteComponent.swift */,
 				2351AB8C1ED3466800C09B1E /* TargetIndexComponent.swift */,
+				77947EA01ED60F5700DFD6F8 /* LifeBar.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -246,6 +252,7 @@
 				79DE87BD1EC0953900CAE28D /* Actions.sks in Resources */,
 				794840111EC09C7800239F64 /* ScenarioTiles.sks in Resources */,
 				798D5EFC1EC5F9BD009EEA2E /* SplashScreenScene.sks in Resources */,
+				77947E9F1ED60BCE00DFD6F8 /* LifeBar.sks in Resources */,
 				2351AB8F1ED3477F00C09B1E /* MenuScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +277,7 @@
 				79DE87C11EC0953900CAE28D /* GameViewController.swift in Sources */,
 				7971C2E71EC9E8A40030A9A9 /* PrimaryTower.swift in Sources */,
 				2351AB8D1ED3466800C09B1E /* TargetIndexComponent.swift in Sources */,
+				77947EA11ED60F5700DFD6F8 /* LifeBar.swift in Sources */,
 				798D5EFE1EC5FCF2009EEA2E /* SplashScreenScene.swift in Sources */,
 				79DE87B91EC0953900CAE28D /* AppDelegate.swift in Sources */,
 				7971C2E51EC9E6BB0030A9A9 /* SecundaryTower.swift in Sources */,

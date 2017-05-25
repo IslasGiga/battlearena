@@ -53,6 +53,7 @@ class BattleScene: SKScene {
             newNode?.removeFromParent()
             self.addChild(newNode!)
             
+            
             for i in 0...4{
                 if let cardNode = newNode!.childNode(withName: "Card\(i)") as? SKSpriteNode{
                     self.cards.append(cardNode)
@@ -74,6 +75,7 @@ class BattleScene: SKScene {
                 barNode.removeFromParent()
                 self.addChild(barNode)
             }
+            
         }
         
         //loading Towers
