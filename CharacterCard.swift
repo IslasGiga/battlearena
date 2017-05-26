@@ -26,13 +26,16 @@ class CharacterCard: Card {
     
     
     //the team identifier of the monster
-    var teamId: Int!
+    var teamId : Int!
     
     //reference to the game scene
     var battleScene : BattleScene!
     
     //moving flag
     var isNotBusy : Bool = true
+    
+    //LifeBarSprite
+    var lifeBar : LifeBar?
     
     init(image: UIImage, name: String, cardDescription: String, manaCost: Int, summoningTime: Int, level: Int, xp: Int, atackPoints: Int, atackSpeed: CGFloat, atackArea: Int, atackRange: CGFloat, speed: Int, healthPoints: Int , battleScene: BattleScene, teamId: Int) {
         
@@ -60,6 +63,12 @@ class CharacterCard: Card {
         self.spriteNode.texture = SKTexture(image: image)
         
         self.teamId = teamId
+        
+        //MARK: Setting character life bar
+        self.lifeBar = LifeBar(forCharacter: self)
+        
+        self.spriteNode.addChild(self.lifeBar!)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -130,6 +139,8 @@ class CharacterCard: Card {
                 
                 self.spriteNode.run(SKAction.scale(by: 1, duration: TimeInterval(atackTime)), completion: {
                     enemie.component(ofType: HealthComponent.self)?.healthPoints -= (self.component(ofType: AtackComponent.self)?.atackPoints)!
+                    enemie.lifeBar?.take(damage: (self.component(ofType: AtackComponent.self)?.atackPoints)!)
+                    
                     if (enemie.component(ofType: HealthComponent.self)?.healthPoints)! <= 0 {
                         self.state = .idle
                         self.component(ofType: TargetIndexComponent.self)?.targetIndex = nil

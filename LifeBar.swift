@@ -11,37 +11,55 @@ import SpriteKit
 
 class LifeBar: SKSpriteNode {
 
-    let max: Int
-    var currentLife: Int
+    var maxHP: Int!
+    var currentLife: Int!
+    var lifeSprite: SKSpriteNode!
+    var isTakingDame = false
     
-    var life: SKSpriteNode
-    
-    convenience init() {
-        self.init(withMax: 100)
-    }
-    
-    init(withMax max: Int) {
-        self.max = max
-        currentLife = max
+    init(forCharacter character: CharacterCard){
+        super.init(texture: nil, color: UIColor.black, size: CGSize(width: character.spriteNode.size.width, height: character.spriteNode.size.width/5))
         
-        let sprite = SKScene(fileNamed: "LifeBar")!.childNode(withName: "parent") as! SKSpriteNode
+        self.maxHP = (character.component(ofType: HealthComponent.self)?.healthPoints)!
+        self.currentLife = self.maxHP
         
-        super.init(texture: nil, color: UIColor.clear, size: sprite.size)
-
-        sprite.removeFromParent()
+        self.position.y += character.spriteNode.size.height / 2 + self.size.height / 2
         
-        let child = sprite.childNode(withName: "child") as SKSpriteNode
-        self.life = child
+        //Red part that moves
+        self.lifeSprite = SKSpriteNode(color: UIColor.red, size: self.size)
+        self.zPosition = character.spriteNode.zPosition + 1
+        self.lifeSprite.zPosition = self.zPosition + 1
+        self.lifeSprite.anchorPoint = CGPoint(x: 0, y: 0.5)
+        self.lifeSprite.position.x -= self.size.width / 2
+        self.addChild(lifeSprite)
+        self.isHidden = true
         
-    }
+        }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func removeLife(amount: Int) {
+    func take(damage: Int){
+        self.isTakingDame = true
+        self.currentLife = self.currentLife - damage
+        self.isHidden = false
+        if currentLife > 0 {
+            self.lifeSprite.run(SKAction.resize(toWidth: self.size.width * (CGFloat(currentLife) / CGFloat(maxHP)), duration: 0.3), completion: {
+                self.isTakingDame = false
+                self.run(SKAction.wait(forDuration: 0.2), completion: {
+                    if !self.isTakingDame {
+                        self.isHidden = true
+                    }
+                    
+                })
+                
+            })
+        }else{
+            self.lifeSprite.run(SKAction.resize(toWidth: 0, duration: 0.3), completion: {
+                self.isHidden = true
+            })
+            
+        }
         
     }
-    
-    
 }

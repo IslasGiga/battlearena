@@ -175,6 +175,9 @@ class BattleScene: SKScene {
             character.spriteNode.position = pos
             self.addChild(character.spriteNode)
             self.nextCharId += 1
+            
+            
+            
             self.mana -= manaCost
             self.manaBar?.run(SKAction.resize(byWidth: 0, height: -manaCost*2, duration: 0.5))
             
