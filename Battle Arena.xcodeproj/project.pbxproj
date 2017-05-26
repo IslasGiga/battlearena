@@ -32,6 +32,8 @@
 		79DE87C41EC0953900CAE28D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79DE87C21EC0953900CAE28D /* Main.storyboard */; };
 		79DE87C61EC0953900CAE28D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79DE87C51EC0953900CAE28D /* Assets.xcassets */; };
 		79DE87C91EC0953900CAE28D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79DE87C71EC0953900CAE28D /* LaunchScreen.storyboard */; };
+		79EE20661ED874A9005BECD0 /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 79EE20641ED87426005BECD0 /* Fipps-Regular.otf */; };
+		79EE20671ED874A9005BECD0 /* Minecraftia-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79EE20651ED8745E005BECD0 /* Minecraftia-Regular.ttf */; };
 		79F4ED991EC49C55008BFEB8 /* AtackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F4ED981EC49C55008BFEB8 /* AtackComponent.swift */; };
 		79F4ED9B1EC49C83008BFEB8 /* LevelCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F4ED9A1EC49C83008BFEB8 /* LevelCardComponent.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +66,8 @@
 		79DE87C51EC0953900CAE28D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79DE87C81EC0953900CAE28D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79DE87CA1EC0953900CAE28D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79EE20641ED87426005BECD0 /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
+		79EE20651ED8745E005BECD0 /* Minecraftia-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Minecraftia-Regular.ttf"; sourceTree = "<group>"; };
 		79F4ED981EC49C55008BFEB8 /* AtackComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtackComponent.swift; sourceTree = "<group>"; };
 		79F4ED9A1EC49C83008BFEB8 /* LevelCardComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelCardComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,6 +168,7 @@
 		79DE87B71EC0953900CAE28D /* Battle Arena */ = {
 			isa = PBXGroup;
 			children = (
+				79EE20621ED873F6005BECD0 /* Fonts */,
 				7948400C1EC09A7100239F64 /* Model */,
 				79DE87B81EC0953900CAE28D /* AppDelegate.swift */,
 				7948400A1EC09A3000239F64 /* Scenes */,
@@ -177,6 +182,15 @@
 				77A5DB671EC910EE00816306 /* battlearena.xcdatamodeld */,
 			);
 			path = "Battle Arena";
+			sourceTree = "<group>";
+		};
+		79EE20621ED873F6005BECD0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				79EE20641ED87426005BECD0 /* Fipps-Regular.otf */,
+				79EE20651ED8745E005BECD0 /* Minecraftia-Regular.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +253,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79EE20661ED874A9005BECD0 /* Fipps-Regular.otf in Resources */,
+				79EE20671ED874A9005BECD0 /* Minecraftia-Regular.ttf in Resources */,
 				79DE87C41EC0953900CAE28D /* Main.storyboard in Resources */,
 				79DE87BB1EC0953900CAE28D /* BattleScene.sks in Resources */,
 				79DE87C61EC0953900CAE28D /* Assets.xcassets in Resources */,
