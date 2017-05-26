@@ -161,7 +161,7 @@ class BattleScene: SKScene {
     }
     
     func summonCharacter(type: Int, id: Int, team: Int, pos: CGPoint){
-        let character = CharacterCard(image: #imageLiteral(resourceName: "character"), name: "CharType:\(type) id:\(id)", cardDescription: "Will be obtained from db", manaCost: type, summoningTime: 1, level: 1, xp: 0, atackPoints: type * 10, atackSpeed: (5.0 - CGFloat(type))*0.25, atackArea: 1, atackRange: 100.0 - CGFloat(type*10), speed: 10, healthPoints: 50*type, battleScene: self, teamId: team)
+        let character = CharacterCard(image: #imageLiteral(resourceName: "satyrtest copy"), name: "CharType:\(type) id:\(id)", cardDescription: "Will be obtained from db", manaCost: type, summoningTime: 1, level: 1, xp: 0, atackPoints: type * 10, atackSpeed: (5.0 - CGFloat(type))*0.25, atackArea: 1, atackRange: 100.0 - CGFloat(type*10), speed: 10, healthPoints: 50*type, battleScene: self, teamId: team)
         let manaCost = character.getManaCost()*10.0
         if self.mana >= manaCost {
             self.characters.append(character)
