@@ -1,0 +1,16 @@
+{
+  "name": "Jovem Sátiro",
+  "id": "",
+  "description": "Metade homem, metade bode, os sátiros são rápidos mas pouco resistentes.",
+   "avatar": "",
+   "manacost": 30,
+   "summoningtime": 1,
+   "attack_area": 0,
+   "attack_points": 50,
+   "attack_speed": 0.5,
+   "attack_range": 1,
+   "type": 1,
+   "targets": [0, 1, 2],
+   "movement_speed": 3,
+   "hp": 200
+}

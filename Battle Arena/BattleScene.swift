@@ -35,6 +35,9 @@ class BattleScene: SKScene {
     //Cards on character menu
     var cards : [SKSpriteNode] = []
     
+    //Player Deck of Cards (as colors for testing)
+    var deck : [UIColor] = [UIColor.black, UIColor.blue, UIColor.orange, UIColor.red, UIColor.yellow, UIColor.green, UIColor.gray, UIColor.purple]
+    
     //current selected card
     var selectedCard = 5
     
@@ -60,7 +63,7 @@ class BattleScene: SKScene {
             
             if let battleNode = menuScene.childNode(withName: "BattleArea") as? SKSpriteNode {
                 self.battleNode = battleNode
-                //self.battleNode?.color = UIColor.clear
+                self.battleNode?.color = UIColor.clear
                 battleNode.removeFromParent()
                 self.addChild(battleNode)
                 
@@ -72,10 +75,14 @@ class BattleScene: SKScene {
                 barNode.removeFromParent()
                 self.addChild(barNode)
             }
+            
         }
         
         //loading Towers
         loadTowers()
+        
+        //loading Cards on menu
+        loadCards()
         
         
     }
@@ -229,7 +236,10 @@ class BattleScene: SKScene {
         }
     }
     
-    func loadSecundaryTowers(){
-        
+    func loadCards(){
+        for i in 0...4{
+            cards[i].color = deck[i]
+        }
     }
+    
 }

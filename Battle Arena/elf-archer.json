@@ -1,0 +1,17 @@
+{
+  "name": "Elfo arqueiro",
+  "id": "",
+  "description": "Um arqueiro com visão de águia treinado em florestas mágicas.",
+   "avatar": "",
+   "manacost": 50,
+   "summoningtime": 1,
+   "attack_area": 0,
+   "attack_points": 100,
+   "attack_speed": 1,
+   "attack_range": 1,
+   "type": 1,
+   "targets": [0, 1, 2],
+   "movement_speed": 4,
+   "hp": 300,
+   "quantity": 1
+}
