@@ -10,6 +10,7 @@
 		2351AB8D1ED3466800C09B1E /* TargetIndexComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2351AB8C1ED3466800C09B1E /* TargetIndexComponent.swift */; };
 		2351AB8F1ED3477F00C09B1E /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2351AB8E1ED3477F00C09B1E /* MenuScene.sks */; };
 		25198CD47270D1A816D1E56F /* Pods_Battle_Arena.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0DFCD1EA8EEC18D25E7BAE /* Pods_Battle_Arena.framework */; };
+		776B63891ED85A0200DBDD0F /* CardLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776B63881ED85A0200DBDD0F /* CardLoader.swift */; };
 		77947E9F1ED60BCE00DFD6F8 /* LifeBar.sks in Resources */ = {isa = PBXBuildFile; fileRef = 77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */; };
 		77947EA11ED60F5700DFD6F8 /* LifeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77947EA01ED60F5700DFD6F8 /* LifeBar.swift */; };
 		77A5DB691EC910EE00816306 /* battlearena.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77A5DB671EC910EE00816306 /* battlearena.xcdatamodeld */; };
@@ -43,6 +44,7 @@
 		2351AB8C1ED3466800C09B1E /* TargetIndexComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetIndexComponent.swift; sourceTree = "<group>"; };
 		2351AB8E1ED3477F00C09B1E /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		5F2179B3E03075B8FFEE0739 /* Pods-Battle Arena.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Battle Arena.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Battle Arena/Pods-Battle Arena.debug.xcconfig"; sourceTree = "<group>"; };
+		776B63881ED85A0200DBDD0F /* CardLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardLoader.swift; sourceTree = "<group>"; };
 		77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LifeBar.sks; sourceTree = "<group>"; };
 		77947EA01ED60F5700DFD6F8 /* LifeBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifeBar.swift; sourceTree = "<group>"; };
 		77A5DB681EC910EE00816306 /* battlearena.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = battlearena.xcdatamodel; sourceTree = "<group>"; };
@@ -103,6 +105,14 @@
 				CB0DFCD1EA8EEC18D25E7BAE /* Pods_Battle_Arena.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		776B63871ED859F700DBDD0F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				776B63881ED85A0200DBDD0F /* CardLoader.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		7948400A1EC09A3000239F64 /* Scenes */ = {
@@ -194,6 +204,7 @@
 		79DE87B71EC0953900CAE28D /* Battle Arena */ = {
 			isa = PBXGroup;
 			children = (
+				776B63871ED859F700DBDD0F /* Helpers */,
 				7948400C1EC09A7100239F64 /* Model */,
 				79DE87B81EC0953900CAE28D /* AppDelegate.swift */,
 				7948400A1EC09A3000239F64 /* Scenes */,
@@ -342,6 +353,7 @@
 				7996F5121EC20D5700044471 /* MovementComponent.swift in Sources */,
 				7996F50A1EC20C5900044471 /* ConstructionCard.swift in Sources */,
 				798D5EF61EC5D8ED009EEA2E /* SpriteComponent.swift in Sources */,
+				776B63891ED85A0200DBDD0F /* CardLoader.swift in Sources */,
 				77A5DB691EC910EE00816306 /* battlearena.xcdatamodeld in Sources */,
 				79F4ED9B1EC49C83008BFEB8 /* LevelCardComponent.swift in Sources */,
 				79F4ED991EC49C55008BFEB8 /* AtackComponent.swift in Sources */,
