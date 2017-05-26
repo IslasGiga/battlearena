@@ -1,0 +1,17 @@
+{
+  "name": "Ciclope",
+  "id": "",
+  "description": "O seu único olho é suficiente para mirar seu porrete.",
+   "avatar": "",
+   "manacost": 60,
+   "summoningtime": 1,
+   "attack_area": 0,
+   "attack_points": 500,
+   "attack_speed": 1.5,
+   "attack_range": 1,
+   "type": 1,
+   "targets": [0, 1, 2],
+   "movement_speed": 3,
+   "hp": 1000,
+   "quantity": 1
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Múmias",
+  "id": "",
+  "description": "Guerreiros mortos que ressuscitaram para derrotar seus inimigos.",
+   "avatar": "",
+   "manacost": 40,
+   "summoningtime": 1,
+   "attack_area": 0,
+   "attack_points": 25,
+   "attack_speed": 1,
+   "attack_range": 1,
+   "type": 1,
+   "targets": [0, 1],
+   "movement_speed": 3,
+   "hp": 50,
+   "quantity": 4
+}
