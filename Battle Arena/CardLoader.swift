@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import SwiftyJSON
+
+class CardLoader {
+    init(path: String) {
+        let resourcePath = Bundle.main.paths(forResourcesOfType: ".json", inDirectory: "Cards")
+        print(resourcePath)
+        
+    }
+}
