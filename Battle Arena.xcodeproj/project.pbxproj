@@ -9,9 +9,13 @@
 /* Begin PBXBuildFile section */
 		2351AB8D1ED3466800C09B1E /* TargetIndexComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2351AB8C1ED3466800C09B1E /* TargetIndexComponent.swift */; };
 		2351AB8F1ED3477F00C09B1E /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2351AB8E1ED3477F00C09B1E /* MenuScene.sks */; };
+
 		2375F9EE1EDC61C00083C954 /* BattleEndWin.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9ED1EDC61C00083C954 /* BattleEndWin.sks */; };
 		2375F9F01EDC61DD0083C954 /* BattleEndLose.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9EF1EDC61DD0083C954 /* BattleEndLose.sks */; };
 		2375F9F21EDC61EF0083C954 /* BattleEndDraw.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9F11EDC61EF0083C954 /* BattleEndDraw.sks */; };
+
+		67A40EA1AB40010B6E642C87 /* Pods_Battle_Arena.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49FCB7EA7CF6F5F484680A3 /* Pods_Battle_Arena.framework */; };
+
 		77947E9F1ED60BCE00DFD6F8 /* LifeBar.sks in Resources */ = {isa = PBXBuildFile; fileRef = 77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */; };
 		77947EA11ED60F5700DFD6F8 /* LifeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77947EA01ED60F5700DFD6F8 /* LifeBar.swift */; };
 		77A5DB691EC910EE00816306 /* battlearena.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77A5DB671EC910EE00816306 /* battlearena.xcdatamodeld */; };
@@ -29,6 +33,9 @@
 		7996F50C1EC20C6800044471 /* MagicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7996F50B1EC20C6800044471 /* MagicCard.swift */; };
 		7996F5101EC20D2100044471 /* HealthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7996F50F1EC20D2100044471 /* HealthComponent.swift */; };
 		7996F5121EC20D5700044471 /* MovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7996F5111EC20D5700044471 /* MovementComponent.swift */; };
+		79AEAE091EDC4D5200B89420 /* Minecraftia-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79AEAE061EDC4C8400B89420 /* Minecraftia-Regular.ttf */; };
+		79AEAE0A1EDC4D5200B89420 /* PressStart2P.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79AEAE081EDC4D1800B89420 /* PressStart2P.ttf */; };
+		79AEAE0B1EDC4D5200B89420 /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 79AEAE071EDC4CE500B89420 /* Fipps-Regular.otf */; };
 		79DE87B91EC0953900CAE28D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE87B81EC0953900CAE28D /* AppDelegate.swift */; };
 		79DE87BB1EC0953900CAE28D /* BattleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79DE87BA1EC0953900CAE28D /* BattleScene.sks */; };
 		79DE87BD1EC0953900CAE28D /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79DE87BC1EC0953900CAE28D /* Actions.sks */; };
@@ -49,6 +56,7 @@
 		2375F9F11EDC61EF0083C954 /* BattleEndDraw.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BattleEndDraw.sks; sourceTree = "<group>"; };
 		77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LifeBar.sks; sourceTree = "<group>"; };
 		77947EA01ED60F5700DFD6F8 /* LifeBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifeBar.swift; sourceTree = "<group>"; };
+		77A15689AC2F3070A3646F73 /* Pods-Battle Arena.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Battle Arena.release.xcconfig"; path = "Pods/Target Support Files/Pods-Battle Arena/Pods-Battle Arena.release.xcconfig"; sourceTree = "<group>"; };
 		77A5DB681EC910EE00816306 /* battlearena.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = battlearena.xcdatamodel; sourceTree = "<group>"; };
 		794840101EC09C7800239F64 /* ScenarioTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ScenarioTiles.sks; sourceTree = "<group>"; };
 		7971C2E41EC9E6BB0030A9A9 /* SecundaryTower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecundaryTower.swift; sourceTree = "<group>"; };
@@ -64,6 +72,9 @@
 		7996F50B1EC20C6800044471 /* MagicCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicCard.swift; sourceTree = "<group>"; };
 		7996F50F1EC20D2100044471 /* HealthComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthComponent.swift; sourceTree = "<group>"; };
 		7996F5111EC20D5700044471 /* MovementComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementComponent.swift; sourceTree = "<group>"; };
+		79AEAE061EDC4C8400B89420 /* Minecraftia-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Minecraftia-Regular.ttf"; sourceTree = "<group>"; };
+		79AEAE071EDC4CE500B89420 /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
+		79AEAE081EDC4D1800B89420 /* PressStart2P.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PressStart2P.ttf; sourceTree = "<group>"; };
 		79DE87B51EC0953900CAE28D /* Battle Arena.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Battle Arena.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79DE87B81EC0953900CAE28D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79DE87BA1EC0953900CAE28D /* BattleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BattleScene.sks; sourceTree = "<group>"; };
@@ -76,6 +87,8 @@
 		79DE87CA1EC0953900CAE28D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79F4ED981EC49C55008BFEB8 /* AtackComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtackComponent.swift; sourceTree = "<group>"; };
 		79F4ED9A1EC49C83008BFEB8 /* LevelCardComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelCardComponent.swift; sourceTree = "<group>"; };
+		89A3B74134BC8BDDA1098E9F /* Pods-Battle Arena.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Battle Arena.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Battle Arena/Pods-Battle Arena.debug.xcconfig"; sourceTree = "<group>"; };
+		D49FCB7EA7CF6F5F484680A3 /* Pods_Battle_Arena.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Battle_Arena.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +96,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67A40EA1AB40010B6E642C87 /* Pods_Battle_Arena.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A3218199F892B82B9560382 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D49FCB7EA7CF6F5F484680A3 /* Pods_Battle_Arena.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7948400A1EC09A3000239F64 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,11 +182,23 @@
 			name = Tiles;
 			sourceTree = "<group>";
 		};
+		79AEAE051EDC4BD800B89420 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				79AEAE061EDC4C8400B89420 /* Minecraftia-Regular.ttf */,
+				79AEAE081EDC4D1800B89420 /* PressStart2P.ttf */,
+				79AEAE071EDC4CE500B89420 /* Fipps-Regular.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		79DE87AC1EC0953900CAE28D = {
 			isa = PBXGroup;
 			children = (
 				79DE87B71EC0953900CAE28D /* Battle Arena */,
 				79DE87B61EC0953900CAE28D /* Products */,
+				F4730949996AC3943CC6E790 /* Pods */,
+				5A3218199F892B82B9560382 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -179,6 +213,7 @@
 		79DE87B71EC0953900CAE28D /* Battle Arena */ = {
 			isa = PBXGroup;
 			children = (
+				79AEAE051EDC4BD800B89420 /* Fonts */,
 				7948400C1EC09A7100239F64 /* Model */,
 				79DE87B81EC0953900CAE28D /* AppDelegate.swift */,
 				7948400A1EC09A3000239F64 /* Scenes */,
@@ -194,6 +229,15 @@
 			path = "Battle Arena";
 			sourceTree = "<group>";
 		};
+		F4730949996AC3943CC6E790 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				89A3B74134BC8BDDA1098E9F /* Pods-Battle Arena.debug.xcconfig */,
+				77A15689AC2F3070A3646F73 /* Pods-Battle Arena.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -201,9 +245,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79DE87CD1EC0953900CAE28D /* Build configuration list for PBXNativeTarget "Battle Arena" */;
 			buildPhases = (
+				DDF180668EA8BBFBD7AB82C9 /* [CP] Check Pods Manifest.lock */,
 				79DE87B11EC0953900CAE28D /* Sources */,
 				79DE87B21EC0953900CAE28D /* Frameworks */,
 				79DE87B31EC0953900CAE28D /* Resources */,
+				22B6F4184A2765BBAAC07B14 /* [CP] Embed Pods Frameworks */,
+				81EE4E7D9AC0DD7555301F7C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -226,7 +273,7 @@
 				TargetAttributes = {
 					79DE87B41EC0953900CAE28D = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = BKWDS645Z7;
+						DevelopmentTeam = 9EGVR395L4;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -254,8 +301,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				2375F9F01EDC61DD0083C954 /* BattleEndLose.sks in Resources */,
 				2375F9EE1EDC61C00083C954 /* BattleEndWin.sks in Resources */,
+
+				79AEAE091EDC4D5200B89420 /* Minecraftia-Regular.ttf in Resources */,
+				79AEAE0A1EDC4D5200B89420 /* PressStart2P.ttf in Resources */,
+				79AEAE0B1EDC4D5200B89420 /* Fipps-Regular.otf in Resources */,
+
 				79DE87C41EC0953900CAE28D /* Main.storyboard in Resources */,
 				79DE87BB1EC0953900CAE28D /* BattleScene.sks in Resources */,
 				79DE87C61EC0953900CAE28D /* Assets.xcassets in Resources */,
@@ -270,6 +323,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		22B6F4184A2765BBAAC07B14 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Battle Arena/Pods-Battle Arena-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81EE4E7D9AC0DD7555301F7C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Battle Arena/Pods-Battle Arena-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDF180668EA8BBFBD7AB82C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		79DE87B11EC0953900CAE28D /* Sources */ = {
@@ -418,9 +519,10 @@
 		};
 		79DE87CE1EC0953900CAE28D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89A3B74134BC8BDDA1098E9F /* Pods-Battle Arena.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BKWDS645Z7;
+				DEVELOPMENT_TEAM = 9EGVR395L4;
 				INFOPLIST_FILE = "Battle Arena/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -432,9 +534,10 @@
 		};
 		79DE87CF1EC0953900CAE28D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77A15689AC2F3070A3646F73 /* Pods-Battle Arena.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BKWDS645Z7;
+				DEVELOPMENT_TEAM = 9EGVR395L4;
 				INFOPLIST_FILE = "Battle Arena/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
