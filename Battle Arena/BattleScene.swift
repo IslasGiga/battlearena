@@ -146,8 +146,17 @@ class BattleScene: SKScene {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
-    
+    //MARK: Scene Update
     override func update(_ currentTime: TimeInterval) {
+        updateMana(currentTime)
+        
+        //update charactes actions
+        for character in characters {
+            character.takeAction()
+        }
+    }
+    
+    func updateMana(_ currentTime: TimeInterval){
         if (self.manaUpdateTime == 0) {
             self.manaUpdateTime = currentTime
         }else{
@@ -159,11 +168,6 @@ class BattleScene: SKScene {
                     self.manaUpadateFlag = false
                 })
             }
-        }
-        
-        //update charactes actions
-        for character in characters {
-            character.takeAction()
         }
     }
     
