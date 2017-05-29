@@ -41,7 +41,11 @@ class BattleScene: SKScene {
     //current selected card
     var selectedCard = 5
     
+    //time passed in game
+    var gameTime : TimeInterval = 0.0
     
+    //time control variable
+    var preveousUpdateTime : TimeInterval = 0
     
     //all characters in game
     var characters : [CharacterCard] = []
@@ -65,6 +69,8 @@ class BattleScene: SKScene {
     }
     
     
+    
+    //MARK: Touch Responses
     func touchDown(atPoint pos : CGPoint) {
         if (self.battleNode?.contains(pos))! {
             if self.selectedCard != 5{
@@ -119,12 +125,22 @@ class BattleScene: SKScene {
     
     //MARK: Scene Update
     override func update(_ currentTime: TimeInterval) {
+        updateGameTime(currentTime)
+        
         updateMana(currentTime)
         
         //update charactes actions
         for character in characters {
             character.takeAction()
         }
+    }
+    
+    func updateGameTime(_ currentTime: TimeInterval){
+        if self.preveousUpdateTime == 0{
+            self.preveousUpdateTime = currentTime
+        }
+        self.gameTime += currentTime - self.preveousUpdateTime
+        self.preveousUpdateTime = currentTime
     }
     
     func updateMana(_ currentTime: TimeInterval){
