@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2351AB8D1ED3466800C09B1E /* TargetIndexComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2351AB8C1ED3466800C09B1E /* TargetIndexComponent.swift */; };
 		2351AB8F1ED3477F00C09B1E /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2351AB8E1ED3477F00C09B1E /* MenuScene.sks */; };
+		2375F9EE1EDC61C00083C954 /* BattleEndWin.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9ED1EDC61C00083C954 /* BattleEndWin.sks */; };
+		2375F9F01EDC61DD0083C954 /* BattleEndLose.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9EF1EDC61DD0083C954 /* BattleEndLose.sks */; };
+		2375F9F21EDC61EF0083C954 /* BattleEndDraw.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9F11EDC61EF0083C954 /* BattleEndDraw.sks */; };
 		77947E9F1ED60BCE00DFD6F8 /* LifeBar.sks in Resources */ = {isa = PBXBuildFile; fileRef = 77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */; };
 		77947EA11ED60F5700DFD6F8 /* LifeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77947EA01ED60F5700DFD6F8 /* LifeBar.swift */; };
 		77A5DB691EC910EE00816306 /* battlearena.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77A5DB671EC910EE00816306 /* battlearena.xcdatamodeld */; };
@@ -41,6 +44,9 @@
 /* Begin PBXFileReference section */
 		2351AB8C1ED3466800C09B1E /* TargetIndexComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetIndexComponent.swift; sourceTree = "<group>"; };
 		2351AB8E1ED3477F00C09B1E /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
+		2375F9ED1EDC61C00083C954 /* BattleEndWin.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BattleEndWin.sks; sourceTree = "<group>"; };
+		2375F9EF1EDC61DD0083C954 /* BattleEndLose.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BattleEndLose.sks; sourceTree = "<group>"; };
+		2375F9F11EDC61EF0083C954 /* BattleEndDraw.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BattleEndDraw.sks; sourceTree = "<group>"; };
 		77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LifeBar.sks; sourceTree = "<group>"; };
 		77947EA01ED60F5700DFD6F8 /* LifeBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifeBar.swift; sourceTree = "<group>"; };
 		77A5DB681EC910EE00816306 /* battlearena.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = battlearena.xcdatamodel; sourceTree = "<group>"; };
@@ -92,6 +98,9 @@
 				798D5EFB1EC5F9BD009EEA2E /* SplashScreenScene.sks */,
 				798D5EFD1EC5FCF2009EEA2E /* SplashScreenScene.swift */,
 				77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */,
+				2375F9ED1EDC61C00083C954 /* BattleEndWin.sks */,
+				2375F9EF1EDC61DD0083C954 /* BattleEndLose.sks */,
+				2375F9F11EDC61EF0083C954 /* BattleEndDraw.sks */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -245,6 +254,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2375F9F01EDC61DD0083C954 /* BattleEndLose.sks in Resources */,
+				2375F9EE1EDC61C00083C954 /* BattleEndWin.sks in Resources */,
 				79DE87C41EC0953900CAE28D /* Main.storyboard in Resources */,
 				79DE87BB1EC0953900CAE28D /* BattleScene.sks in Resources */,
 				79DE87C61EC0953900CAE28D /* Assets.xcassets in Resources */,
@@ -252,6 +263,7 @@
 				79DE87BD1EC0953900CAE28D /* Actions.sks in Resources */,
 				794840111EC09C7800239F64 /* ScenarioTiles.sks in Resources */,
 				798D5EFC1EC5F9BD009EEA2E /* SplashScreenScene.sks in Resources */,
+				2375F9F21EDC61EF0083C954 /* BattleEndDraw.sks in Resources */,
 				77947E9F1ED60BCE00DFD6F8 /* LifeBar.sks in Resources */,
 				2351AB8F1ED3477F00C09B1E /* MenuScene.sks in Resources */,
 			);
