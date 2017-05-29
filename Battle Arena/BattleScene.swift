@@ -46,51 +46,22 @@ class BattleScene: SKScene {
     //all characters in game
     var characters : [CharacterCard] = []
     
+    
+    //MARK: SceneDidLoad/DidMoveToScene
+    
     override func didMove(to view: SKView) {
         //loading battle space, mana and menu elements
-        if let menuScene = SKScene(fileNamed: "MenuScene"){
-            let newNode = menuScene.childNode(withName: "themenu")
-            newNode?.removeFromParent()
-            self.addChild(newNode!)
-            
-            
-            for i in 0...4{
-                if let cardNode = newNode!.childNode(withName: "Card\(i)") as? SKSpriteNode{
-                    self.cards.append(cardNode)
-                }
-                
-            }
-            
-            if let battleNode = menuScene.childNode(withName: "BattleArea") as? SKSpriteNode {
-                self.battleNode = battleNode
-                self.battleNode?.color = UIColor.clear
-                battleNode.removeFromParent()
-                self.addChild(battleNode)
-                
-            }
-            
-            if let barNode = menuScene.childNode(withName: "Bar") as? SKSpriteNode{
-                self.maxManaSize = barNode.size.height
-                self.manaBar = barNode.childNode(withName: "Mana") as? SKSpriteNode
-                barNode.removeFromParent()
-                self.addChild(barNode)
-            }
-            
-        }
+        loadUI()
         
         //loading Towers
         loadTowers()
         
         //loading Cards on menu
         loadCards()
-        
-        
     }
     
     //runs twice when scene loads, why??
     override func sceneDidLoad() {
-        
-        
     }
     
     
@@ -171,6 +142,8 @@ class BattleScene: SKScene {
         }
     }
     
+    
+    //MARK: Summon Character function
     func summonCharacter(type: Int, id: Int, team: Int, pos: CGPoint){
         let character = CharacterCard(image: #imageLiteral(resourceName: "character"), name: "CharType:\(type) id:\(id)", cardDescription: "Will be obtained from db", manaCost: type, summoningTime: 1, level: 1, xp: 0, atackPoints: type * 10, atackSpeed: (5.0 - CGFloat(type))*0.25, atackArea: 1, atackRange: 100.0 - CGFloat(type*10), speed: 10, healthPoints: 50*type, battleScene: self, teamId: team)
         let manaCost = character.getManaCost()*10.0
@@ -194,6 +167,41 @@ class BattleScene: SKScene {
             print("not enough mana")
         }
         
+    }
+    
+    
+    //MARK: Load UI
+    func loadUI(){
+        if let menuScene = SKScene(fileNamed: "MenuScene"){
+            let newNode = menuScene.childNode(withName: "themenu")
+            newNode?.removeFromParent()
+            self.addChild(newNode!)
+            
+            
+            for i in 0...4{
+                if let cardNode = newNode!.childNode(withName: "Card\(i)") as? SKSpriteNode{
+                    self.cards.append(cardNode)
+                }
+                
+            }
+            
+            if let battleNode = menuScene.childNode(withName: "BattleArea") as? SKSpriteNode {
+                self.battleNode = battleNode
+                self.battleNode?.color = UIColor.clear
+                battleNode.removeFromParent()
+                self.addChild(battleNode)
+                
+            }
+            
+            if let barNode = menuScene.childNode(withName: "Bar") as? SKSpriteNode{
+                self.maxManaSize = barNode.size.height
+                self.manaBar = barNode.childNode(withName: "Mana") as? SKSpriteNode
+                barNode.removeFromParent()
+                self.addChild(barNode)
+            }
+            
+        }
+
     }
     
     //MARK: Instance Towers
