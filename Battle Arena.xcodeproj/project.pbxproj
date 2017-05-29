@@ -26,6 +26,9 @@
 		7996F50C1EC20C6800044471 /* MagicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7996F50B1EC20C6800044471 /* MagicCard.swift */; };
 		7996F5101EC20D2100044471 /* HealthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7996F50F1EC20D2100044471 /* HealthComponent.swift */; };
 		7996F5121EC20D5700044471 /* MovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7996F5111EC20D5700044471 /* MovementComponent.swift */; };
+		79AEAE091EDC4D5200B89420 /* Minecraftia-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79AEAE061EDC4C8400B89420 /* Minecraftia-Regular.ttf */; };
+		79AEAE0A1EDC4D5200B89420 /* PressStart2P.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 79AEAE081EDC4D1800B89420 /* PressStart2P.ttf */; };
+		79AEAE0B1EDC4D5200B89420 /* Fipps-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 79AEAE071EDC4CE500B89420 /* Fipps-Regular.otf */; };
 		79DE87B91EC0953900CAE28D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE87B81EC0953900CAE28D /* AppDelegate.swift */; };
 		79DE87BB1EC0953900CAE28D /* BattleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79DE87BA1EC0953900CAE28D /* BattleScene.sks */; };
 		79DE87BD1EC0953900CAE28D /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 79DE87BC1EC0953900CAE28D /* Actions.sks */; };
@@ -58,6 +61,9 @@
 		7996F50B1EC20C6800044471 /* MagicCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicCard.swift; sourceTree = "<group>"; };
 		7996F50F1EC20D2100044471 /* HealthComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthComponent.swift; sourceTree = "<group>"; };
 		7996F5111EC20D5700044471 /* MovementComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovementComponent.swift; sourceTree = "<group>"; };
+		79AEAE061EDC4C8400B89420 /* Minecraftia-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Minecraftia-Regular.ttf"; sourceTree = "<group>"; };
+		79AEAE071EDC4CE500B89420 /* Fipps-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fipps-Regular.otf"; sourceTree = "<group>"; };
+		79AEAE081EDC4D1800B89420 /* PressStart2P.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PressStart2P.ttf; sourceTree = "<group>"; };
 		79DE87B51EC0953900CAE28D /* Battle Arena.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Battle Arena.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79DE87B81EC0953900CAE28D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79DE87BA1EC0953900CAE28D /* BattleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BattleScene.sks; sourceTree = "<group>"; };
@@ -151,6 +157,16 @@
 			name = Tiles;
 			sourceTree = "<group>";
 		};
+		79AEAE051EDC4BD800B89420 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				79AEAE061EDC4C8400B89420 /* Minecraftia-Regular.ttf */,
+				79AEAE081EDC4D1800B89420 /* PressStart2P.ttf */,
+				79AEAE071EDC4CE500B89420 /* Fipps-Regular.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		79DE87AC1EC0953900CAE28D = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +186,7 @@
 		79DE87B71EC0953900CAE28D /* Battle Arena */ = {
 			isa = PBXGroup;
 			children = (
+				79AEAE051EDC4BD800B89420 /* Fonts */,
 				7948400C1EC09A7100239F64 /* Model */,
 				79DE87B81EC0953900CAE28D /* AppDelegate.swift */,
 				7948400A1EC09A3000239F64 /* Scenes */,
@@ -217,7 +234,7 @@
 				TargetAttributes = {
 					79DE87B41EC0953900CAE28D = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = BKWDS645Z7;
+						DevelopmentTeam = 9EGVR395L4;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -245,6 +262,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79AEAE091EDC4D5200B89420 /* Minecraftia-Regular.ttf in Resources */,
+				79AEAE0A1EDC4D5200B89420 /* PressStart2P.ttf in Resources */,
+				79AEAE0B1EDC4D5200B89420 /* Fipps-Regular.otf in Resources */,
 				79DE87C41EC0953900CAE28D /* Main.storyboard in Resources */,
 				79DE87BB1EC0953900CAE28D /* BattleScene.sks in Resources */,
 				79DE87C61EC0953900CAE28D /* Assets.xcassets in Resources */,
@@ -408,7 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BKWDS645Z7;
+				DEVELOPMENT_TEAM = 9EGVR395L4;
 				INFOPLIST_FILE = "Battle Arena/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -422,7 +442,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BKWDS645Z7;
+				DEVELOPMENT_TEAM = 9EGVR395L4;
 				INFOPLIST_FILE = "Battle Arena/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
