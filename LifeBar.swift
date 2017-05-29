@@ -46,7 +46,7 @@ class LifeBar: SKSpriteNode {
         if currentLife > 0 {
             self.lifeSprite.run(SKAction.resize(toWidth: self.size.width * (CGFloat(currentLife) / CGFloat(maxHP)), duration: 0.3), completion: {
                 self.isTakingDame = false
-                self.run(SKAction.wait(forDuration: 0.2), completion: {
+                self.run(SKAction.wait(forDuration: 0.5), completion: {
                     if !self.isTakingDame {
                         self.isHidden = true
                     }
