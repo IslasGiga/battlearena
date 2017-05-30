@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0830"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5A3A9B16CB48E4051B34CAE13A6A5E52"
-               BuildableName = "Pods_Battle_Arena.framework"
-               BlueprintName = "Pods-Battle Arena"
+               BlueprintIdentifier = "87D7177601C9ACC189BB0ED174A1BA3C"
+               BuildableName = "SwiftyJSON.framework"
+               BlueprintName = "SwiftyJSON"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5A3A9B16CB48E4051B34CAE13A6A5E52"
-            BuildableName = "Pods_Battle_Arena.framework"
-            BlueprintName = "Pods-Battle Arena"
+            BlueprintIdentifier = "87D7177601C9ACC189BB0ED174A1BA3C"
+            BuildableName = "SwiftyJSON.framework"
+            BlueprintName = "SwiftyJSON"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,6 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "87D7177601C9ACC189BB0ED174A1BA3C"
+            BuildableName = "SwiftyJSON.framework"
+            BlueprintName = "SwiftyJSON"
+            ReferencedContainer = "container:Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

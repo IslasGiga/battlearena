@@ -19,6 +19,9 @@
 		77947E9F1ED60BCE00DFD6F8 /* LifeBar.sks in Resources */ = {isa = PBXBuildFile; fileRef = 77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */; };
 		77947EA11ED60F5700DFD6F8 /* LifeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77947EA01ED60F5700DFD6F8 /* LifeBar.swift */; };
 		77A5DB691EC910EE00816306 /* battlearena.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77A5DB671EC910EE00816306 /* battlearena.xcdatamodeld */; };
+		77EE5B7E1EDD96F800B71217 /* CardLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5B7D1EDD96F800B71217 /* CardLoader.swift */; };
+		77EE5B811EDD97AF00B71217 /* dwarf.json in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5B801EDD97AF00B71217 /* dwarf.json */; };
+		77EE5B831EDD97B700B71217 /* cyclope.json in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5B821EDD97B700B71217 /* cyclope.json */; };
 		794840111EC09C7800239F64 /* ScenarioTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 794840101EC09C7800239F64 /* ScenarioTiles.sks */; };
 		7971C2E51EC9E6BB0030A9A9 /* SecundaryTower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971C2E41EC9E6BB0030A9A9 /* SecundaryTower.swift */; };
 		7971C2E71EC9E8A40030A9A9 /* PrimaryTower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971C2E61EC9E8A40030A9A9 /* PrimaryTower.swift */; };
@@ -58,6 +61,9 @@
 		77947EA01ED60F5700DFD6F8 /* LifeBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifeBar.swift; sourceTree = "<group>"; };
 		77A15689AC2F3070A3646F73 /* Pods-Battle Arena.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Battle Arena.release.xcconfig"; path = "Pods/Target Support Files/Pods-Battle Arena/Pods-Battle Arena.release.xcconfig"; sourceTree = "<group>"; };
 		77A5DB681EC910EE00816306 /* battlearena.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = battlearena.xcdatamodel; sourceTree = "<group>"; };
+		77EE5B7D1EDD96F800B71217 /* CardLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardLoader.swift; sourceTree = "<group>"; };
+		77EE5B801EDD97AF00B71217 /* dwarf.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dwarf.json; sourceTree = "<group>"; };
+		77EE5B821EDD97B700B71217 /* cyclope.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cyclope.json; sourceTree = "<group>"; };
 		794840101EC09C7800239F64 /* ScenarioTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ScenarioTiles.sks; sourceTree = "<group>"; };
 		7971C2E41EC9E6BB0030A9A9 /* SecundaryTower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecundaryTower.swift; sourceTree = "<group>"; };
 		7971C2E61EC9E8A40030A9A9 /* PrimaryTower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryTower.swift; sourceTree = "<group>"; };
@@ -111,6 +117,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		77EE5B7F1EDD972100B71217 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				77EE5B801EDD97AF00B71217 /* dwarf.json */,
+				77EE5B821EDD97B700B71217 /* cyclope.json */,
+			);
+			name = Cards;
+			sourceTree = "<group>";
+		};
 		7948400A1EC09A3000239F64 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +156,7 @@
 				7948400E1EC09A9000239F64 /* Components */,
 				7948400D1EC09A7D00239F64 /* Entities */,
 				798D5EF71EC5DCE9009EEA2E /* EntitiesManager.swift */,
+				77EE5B7D1EDD96F800B71217 /* CardLoader.swift */,
 			);
 			name = Model;
 			path = ..;
@@ -213,6 +229,7 @@
 		79DE87B71EC0953900CAE28D /* Battle Arena */ = {
 			isa = PBXGroup;
 			children = (
+				77EE5B7F1EDD972100B71217 /* Cards */,
 				79AEAE051EDC4BD800B89420 /* Fonts */,
 				7948400C1EC09A7100239F64 /* Model */,
 				79DE87B81EC0953900CAE28D /* AppDelegate.swift */,
@@ -273,7 +290,7 @@
 				TargetAttributes = {
 					79DE87B41EC0953900CAE28D = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = 9EGVR395L4;
+						DevelopmentTeam = HYM62FH7NW;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -306,6 +323,8 @@
 				2375F9EE1EDC61C00083C954 /* BattleEndWin.sks in Resources */,
 
 				79AEAE091EDC4D5200B89420 /* Minecraftia-Regular.ttf in Resources */,
+				77EE5B831EDD97B700B71217 /* cyclope.json in Resources */,
+				77EE5B811EDD97AF00B71217 /* dwarf.json in Resources */,
 				79AEAE0A1EDC4D5200B89420 /* PressStart2P.ttf in Resources */,
 				79AEAE0B1EDC4D5200B89420 /* Fipps-Regular.otf in Resources */,
 
@@ -380,6 +399,7 @@
 				7996F5121EC20D5700044471 /* MovementComponent.swift in Sources */,
 				7996F50A1EC20C5900044471 /* ConstructionCard.swift in Sources */,
 				798D5EF61EC5D8ED009EEA2E /* SpriteComponent.swift in Sources */,
+				77EE5B7E1EDD96F800B71217 /* CardLoader.swift in Sources */,
 				77A5DB691EC910EE00816306 /* battlearena.xcdatamodeld in Sources */,
 				79F4ED9B1EC49C83008BFEB8 /* LevelCardComponent.swift in Sources */,
 				79F4ED991EC49C55008BFEB8 /* AtackComponent.swift in Sources */,
@@ -522,7 +542,7 @@
 			baseConfigurationReference = 89A3B74134BC8BDDA1098E9F /* Pods-Battle Arena.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9EGVR395L4;
+				DEVELOPMENT_TEAM = HYM62FH7NW;
 				INFOPLIST_FILE = "Battle Arena/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -537,7 +557,7 @@
 			baseConfigurationReference = 77A15689AC2F3070A3646F73 /* Pods-Battle Arena.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9EGVR395L4;
+				DEVELOPMENT_TEAM = HYM62FH7NW;
 				INFOPLIST_FILE = "Battle Arena/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
