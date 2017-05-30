@@ -1,0 +1,17 @@
+{
+  "name": "Anão",
+  "id": "",
+  "description": "Pequeno porém destemido, ataca seus inimigos com um poderoso machado.",
+   "avatar": "",
+   "manacost": 30,
+   "summoningtime": 1,
+   "attack_area": 1,
+   "attack_points": 30,
+   "attack_speed": 1.5,
+   "attack_range": 0,
+   "type": 1,
+   "targets": [0, 1, 2],
+   "movement_speed": 2,
+   "hp": 300,
+   "quantity": 1
+}
