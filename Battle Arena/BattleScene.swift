@@ -50,6 +50,7 @@ class BattleScene: SKScene {
     //all characters in game
     var characters : [CharacterCard] = []
     
+    var gameOver = false
     
     //MARK: SceneDidLoad/DidMoveToScene
     
@@ -125,6 +126,8 @@ class BattleScene: SKScene {
     
     //MARK: Scene Update
     override func update(_ currentTime: TimeInterval) {
+        checkGameEnd()
+        
         updateGameTime(currentTime)
         
         updateMana(currentTime)
@@ -264,6 +267,28 @@ class BattleScene: SKScene {
             
             self.characters.append(secundaryTower)
             self.addChild(secundaryTower.spriteNode)
+        }
+    }
+    
+    func checkGameEnd(){
+        if self.gameTime >= 10 {
+            presentResult("BattleEndDraw")
+        }else{
+            
+        }
+    }
+    
+    func presentResult(_ result: String){
+        if !gameOver{
+            gameOver = true
+            if let endScene = SKScene(fileNamed: result){
+                if let endNode = endScene.childNode(withName: "WinScreen") {
+                    endNode.removeFromParent()
+                    endNode.setScale(0)
+                    self.addChild(endNode)
+                    endNode.run(SKAction.scale(to: 1, duration: 1), completion: {})
+                }
+            }
         }
     }
     
