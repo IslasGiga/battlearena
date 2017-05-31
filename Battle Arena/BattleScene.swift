@@ -76,7 +76,7 @@ class BattleScene: SKScene {
     func touchDown(atPoint pos : CGPoint) {
         if (self.battleNode?.contains(pos))! {
             if self.selectedCard != 5{
-                summonCharacter(type: self.selectedCard, id: self.nextCharId, team: 0, pos: pos)
+                summonCharacter(type: self.selectedCard + 1 , id: self.nextCharId, team: 0, pos: pos)
                 
             }else{
                 summonCharacter(type: 2, id: self.nextCharId, team: 1, pos: pos)
@@ -97,7 +97,7 @@ class BattleScene: SKScene {
             self.touchDown(atPoint: t.location(in: self))
             let location = t.location(in: self)
             if let node : SKSpriteNode = self.atPoint(location) as? SKSpriteNode {
-                for i in 1...4 {
+                for i in 0...3 {
                     if node.name == "Card\(i)"{
                         print("card\(i)")
                         if self.selectedCard != i {
@@ -127,7 +127,7 @@ class BattleScene: SKScene {
     
     //MARK: Scene Update
     override func update(_ currentTime: TimeInterval) {
-        checkGameEnd()
+        //checkGameEnd()
         
         updateGameTime(currentTime)
         
