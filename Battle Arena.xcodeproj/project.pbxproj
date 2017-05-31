@@ -9,13 +9,10 @@
 /* Begin PBXBuildFile section */
 		2351AB8D1ED3466800C09B1E /* TargetIndexComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2351AB8C1ED3466800C09B1E /* TargetIndexComponent.swift */; };
 		2351AB8F1ED3477F00C09B1E /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2351AB8E1ED3477F00C09B1E /* MenuScene.sks */; };
-
 		2375F9EE1EDC61C00083C954 /* BattleEndWin.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9ED1EDC61C00083C954 /* BattleEndWin.sks */; };
 		2375F9F01EDC61DD0083C954 /* BattleEndLose.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9EF1EDC61DD0083C954 /* BattleEndLose.sks */; };
 		2375F9F21EDC61EF0083C954 /* BattleEndDraw.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9F11EDC61EF0083C954 /* BattleEndDraw.sks */; };
-
 		67A40EA1AB40010B6E642C87 /* Pods_Battle_Arena.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49FCB7EA7CF6F5F484680A3 /* Pods_Battle_Arena.framework */; };
-
 		77947E9F1ED60BCE00DFD6F8 /* LifeBar.sks in Resources */ = {isa = PBXBuildFile; fileRef = 77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */; };
 		77947EA11ED60F5700DFD6F8 /* LifeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77947EA01ED60F5700DFD6F8 /* LifeBar.swift */; };
 		77A5DB691EC910EE00816306 /* battlearena.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77A5DB671EC910EE00816306 /* battlearena.xcdatamodeld */; };
@@ -130,8 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				79DE87BA1EC0953900CAE28D /* BattleScene.sks */,
-				79DE87BE1EC0953900CAE28D /* BattleScene.swift */,
 				2351AB8E1ED3477F00C09B1E /* MenuScene.sks */,
+				79DE87BE1EC0953900CAE28D /* BattleScene.swift */,
 				798D5EFB1EC5F9BD009EEA2E /* SplashScreenScene.sks */,
 				798D5EFD1EC5FCF2009EEA2E /* SplashScreenScene.swift */,
 				77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */,
@@ -290,7 +287,7 @@
 				TargetAttributes = {
 					79DE87B41EC0953900CAE28D = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = HYM62FH7NW;
+						DevelopmentTeam = BKWDS645Z7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -318,16 +315,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				2375F9F01EDC61DD0083C954 /* BattleEndLose.sks in Resources */,
 				2375F9EE1EDC61C00083C954 /* BattleEndWin.sks in Resources */,
-
 				79AEAE091EDC4D5200B89420 /* Minecraftia-Regular.ttf in Resources */,
 				77EE5B831EDD97B700B71217 /* cyclope.json in Resources */,
 				77EE5B811EDD97AF00B71217 /* dwarf.json in Resources */,
 				79AEAE0A1EDC4D5200B89420 /* PressStart2P.ttf in Resources */,
 				79AEAE0B1EDC4D5200B89420 /* Fipps-Regular.otf in Resources */,
-
 				79DE87C41EC0953900CAE28D /* Main.storyboard in Resources */,
 				79DE87BB1EC0953900CAE28D /* BattleScene.sks in Resources */,
 				79DE87C61EC0953900CAE28D /* Assets.xcassets in Resources */,
@@ -542,7 +536,7 @@
 			baseConfigurationReference = 89A3B74134BC8BDDA1098E9F /* Pods-Battle Arena.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HYM62FH7NW;
+				DEVELOPMENT_TEAM = BKWDS645Z7;
 				INFOPLIST_FILE = "Battle Arena/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -557,7 +551,7 @@
 			baseConfigurationReference = 77A15689AC2F3070A3646F73 /* Pods-Battle Arena.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HYM62FH7NW;
+				DEVELOPMENT_TEAM = BKWDS645Z7;
 				INFOPLIST_FILE = "Battle Arena/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
