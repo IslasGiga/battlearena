@@ -109,6 +109,9 @@ class BattleScene: SKScene {
                         }
                     }
                 }
+                if node.name == "PlayAgainButton"{
+                    playAgain()
+                }
             }
         }
     }
@@ -123,6 +126,30 @@ class BattleScene: SKScene {
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+    }
+    
+    
+    func playAgain(){
+        if let scene = GKScene(fileNamed: "BattleScene") {
+            
+            // Get the SKScene from the loaded GKScene
+            if let sceneNode = scene.rootNode as! BattleScene? {
+                
+                // Copy gameplay related content over to the scene
+                
+                // Set the scale mode to scale to fit the window
+                sceneNode.scaleMode = .aspectFill
+                // Present the scene
+                if let view = self.view {
+                    view.presentScene(sceneNode)
+                    
+                    view.ignoresSiblingOrder = true
+                    
+                    view.showsFPS = true
+                    view.showsNodeCount = true
+                }
+            }
+        }
     }
     
     //MARK: Scene Update
@@ -271,6 +298,7 @@ class BattleScene: SKScene {
         }
     }
     
+    //check for game end conditions
     func checkGameEnd(){
         if !gameOver{
             if characters[1].state == .dead{
@@ -301,9 +329,7 @@ class BattleScene: SKScene {
         }
     }
     
-        
-    
-    
+    //Shows End of game Menu
     func presentResult(_ result: String){
         gameOver = true
         if let endScene = SKScene(fileNamed: result){
