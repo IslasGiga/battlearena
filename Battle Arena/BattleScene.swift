@@ -76,7 +76,7 @@ class BattleScene: SKScene {
     func touchDown(atPoint pos : CGPoint) {
         if (self.battleNode?.contains(pos))! {
             if self.selectedCard != 5{
-                summonCharacter(type: self.selectedCard, id: self.nextCharId, team: 0, pos: pos)
+                summonCharacter(type: self.selectedCard + 1 , id: self.nextCharId, team: 0, pos: pos)
                 
             }else{
                 summonCharacter(type: 2, id: self.nextCharId, team: 1, pos: pos)
@@ -97,7 +97,7 @@ class BattleScene: SKScene {
             self.touchDown(atPoint: t.location(in: self))
             let location = t.location(in: self)
             if let node : SKSpriteNode = self.atPoint(location) as? SKSpriteNode {
-                for i in 1...4 {
+                for i in 0...3 {
                     if node.name == "Card\(i)"{
                         print("card\(i)")
                         if self.selectedCard != i {
@@ -108,6 +108,9 @@ class BattleScene: SKScene {
                             self.cards[self.selectedCard].run(SKAction.moveBy(x: 0, y: 12, duration: 0.5))
                         }
                     }
+                }
+                if node.name == "PlayAgainButton"{
+                    playAgain()
                 }
             }
         }
@@ -123,6 +126,30 @@ class BattleScene: SKScene {
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+    }
+    
+    
+    func playAgain(){
+        if let scene = GKScene(fileNamed: "BattleScene") {
+            
+            // Get the SKScene from the loaded GKScene
+            if let sceneNode = scene.rootNode as! BattleScene? {
+                
+                // Copy gameplay related content over to the scene
+                
+                // Set the scale mode to scale to fit the window
+                sceneNode.scaleMode = .aspectFill
+                // Present the scene
+                if let view = self.view {
+                    view.presentScene(sceneNode)
+                    
+                    view.ignoresSiblingOrder = true
+                    
+                    view.showsFPS = true
+                    view.showsNodeCount = true
+                }
+            }
+        }
     }
     
     //MARK: Scene Update
@@ -276,24 +303,46 @@ class BattleScene: SKScene {
         }
     }
     
+    //check for game end conditions
     func checkGameEnd(){
-        if self.gameTime >= 10 {
-            presentResult("BattleEndDraw")
-        }else{
-            
+        if !gameOver{
+            if characters[1].state == .dead{
+                presentResult("BattleEndWin")
+            }else if characters[0].state == .dead {
+                presentResult("BattleEndLose")
+            }else if self.gameTime >= 180 {
+                var scoreA = 0
+                var scoreB = 0
+                for i in 2...4{
+                    if characters[i].state == .dead {
+                        scoreB += 1
+                    }
+                    if characters[i+3].state == .dead{
+                        scoreA += 1
+                    }
+                }
+                if scoreA > scoreB {
+                    presentResult("BattleEndWin")
+                }
+                if scoreB > scoreA {
+                    presentResult("BattleEndLose")
+                }
+            }
+            if self.gameTime >= 240 {
+                presentResult("BattleEndDraw")
+            }
         }
     }
     
+    //Shows End of game Menu
     func presentResult(_ result: String){
-        if !gameOver{
-            gameOver = true
-            if let endScene = SKScene(fileNamed: result){
-                if let endNode = endScene.childNode(withName: "WinScreen") {
-                    endNode.removeFromParent()
-                    endNode.setScale(0)
-                    self.addChild(endNode)
-                    endNode.run(SKAction.scale(to: 1, duration: 1), completion: {})
-                }
+        gameOver = true
+        if let endScene = SKScene(fileNamed: result){
+            if let endNode = endScene.childNode(withName: "WinScreen") {
+                endNode.removeFromParent()
+                endNode.setScale(0)
+                self.addChild(endNode)
+                endNode.run(SKAction.scale(to: 1, duration: 1), completion: {})
             }
         }
     }
