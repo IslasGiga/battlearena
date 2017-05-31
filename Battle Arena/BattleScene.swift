@@ -127,7 +127,7 @@ class BattleScene: SKScene {
     
     //MARK: Scene Update
     override func update(_ currentTime: TimeInterval) {
-        //checkGameEnd()
+        checkGameEnd()
         
         updateGameTime(currentTime)
         
@@ -272,23 +272,46 @@ class BattleScene: SKScene {
     }
     
     func checkGameEnd(){
-        if self.gameTime >= 10 {
-            presentResult("BattleEndDraw")
-        }else{
-            
+        if !gameOver{
+            if characters[1].state == .dead{
+                presentResult("BattleEndWin")
+            }else if characters[0].state == .dead {
+                presentResult("BattleEndLose")
+            }else if self.gameTime >= 180 {
+                var scoreA = 0
+                var scoreB = 0
+                for i in 2...4{
+                    if characters[i].state == .dead {
+                        scoreB += 1
+                    }
+                    if characters[i+3].state == .dead{
+                        scoreA += 1
+                    }
+                }
+                if scoreA > scoreB {
+                    presentResult("BattleEndWin")
+                }
+                if scoreB > scoreA {
+                    presentResult("BattleEndLose")
+                }
+            }
+            if self.gameTime >= 240 {
+                presentResult("BattleEndDraw")
+            }
         }
     }
     
+        
+    
+    
     func presentResult(_ result: String){
-        if !gameOver{
-            gameOver = true
-            if let endScene = SKScene(fileNamed: result){
-                if let endNode = endScene.childNode(withName: "WinScreen") {
-                    endNode.removeFromParent()
-                    endNode.setScale(0)
-                    self.addChild(endNode)
-                    endNode.run(SKAction.scale(to: 1, duration: 1), completion: {})
-                }
+        gameOver = true
+        if let endScene = SKScene(fileNamed: result){
+            if let endNode = endScene.childNode(withName: "WinScreen") {
+                endNode.removeFromParent()
+                endNode.setScale(0)
+                self.addChild(endNode)
+                endNode.run(SKAction.scale(to: 1, duration: 1), completion: {})
             }
         }
     }
