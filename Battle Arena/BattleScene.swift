@@ -127,7 +127,7 @@ class BattleScene: SKScene {
     
     //MARK: Scene Update
     override func update(_ currentTime: TimeInterval) {
-        checkGameEnd()
+//        checkGameEnd()
         
         updateGameTime(currentTime)
         
@@ -139,15 +139,15 @@ class BattleScene: SKScene {
         }
     }
     
-    func updateGameTime(_ currentTime: TimeInterval){
-        if self.preveousUpdateTime == 0{
+    func updateGameTime(_ currentTime: TimeInterval) {
+        if self.preveousUpdateTime == 0 {
             self.preveousUpdateTime = currentTime
         }
         self.gameTime += currentTime - self.preveousUpdateTime
         self.preveousUpdateTime = currentTime
     }
     
-    func updateMana(_ currentTime: TimeInterval){
+    func updateMana(_ currentTime: TimeInterval) {
         if (self.manaUpdateTime == 0) {
             self.manaUpdateTime = currentTime
         }else{
@@ -164,7 +164,8 @@ class BattleScene: SKScene {
     
     
     //MARK: Summon Character function
-    func summonCharacter(type: Int, id: Int, team: Int, pos: CGPoint){
+    func summonCharacter(type: Int, id: Int, team: Int, pos: CGPoint) {
+        
         let character = CharacterCard(image: #imageLiteral(resourceName: "character"), name: "CharType:\(type) id:\(id)", cardDescription: "Will be obtained from db", manaCost: type, summoningTime: 1, level: 1, xp: 0, atackPoints: type * 10, atackSpeed: (5.0 - CGFloat(type))*0.25, atackArea: 1, atackRange: 100.0 - CGFloat(type*10), speed: 10, healthPoints: 50*type, battleScene: self, teamId: team)
         let manaCost = character.getManaCost()*10.0
         if self.mana >= manaCost {
@@ -178,12 +179,16 @@ class BattleScene: SKScene {
             self.mana -= manaCost
             self.manaBar?.run(SKAction.resize(byWidth: 0, height: -manaCost*2, duration: 0.5))
             
-            if self.selectedCard != 5{
+            let object = deck[self.selectedCard]
+            deck.remove(at: deck.index(of: object)!)
+            deck.append(object)
+            
+            if self.selectedCard != 5 {
                 //unselect card
                 self.cards[selectedCard].run(SKAction.moveBy(x: 0, y: -12, duration: 0))
                 self.selectedCard = 5
             }
-        }else{
+        } else {
             print("not enough mana")
         }
         
@@ -191,14 +196,14 @@ class BattleScene: SKScene {
     
     
     //MARK: Load UI
-    func loadUI(){
-        if let menuScene = SKScene(fileNamed: "MenuScene"){
+    func loadUI() {
+        if let menuScene = SKScene(fileNamed: "MenuScene") {
             let newNode = menuScene.childNode(withName: "themenu")
             newNode?.removeFromParent()
             self.addChild(newNode!)
             
             
-            for i in 0...4{
+            for i in 0...4 {
                 if let cardNode = newNode!.childNode(withName: "Card\(i)") as? SKSpriteNode{
                     self.cards.append(cardNode)
                 }
