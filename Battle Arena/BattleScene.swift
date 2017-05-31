@@ -63,6 +63,7 @@ class BattleScene: SKScene {
         
         //loading Cards on menu
         loadCards()
+        
     }
     
     //runs twice when scene loads, why??
