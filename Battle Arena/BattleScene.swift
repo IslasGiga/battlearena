@@ -154,7 +154,7 @@ class BattleScene: SKScene {
     
     //MARK: Scene Update
     override func update(_ currentTime: TimeInterval) {
-//        checkGameEnd()
+        checkGameEnd()
         
         updateGameTime(currentTime)
         
@@ -166,15 +166,21 @@ class BattleScene: SKScene {
         }
     }
     
-    func updateGameTime(_ currentTime: TimeInterval) {
-        if self.preveousUpdateTime == 0 {
+
+    //keeps track of time in game, updates gameTime atribute with time spent since the game start
+    func updateGameTime(_ currentTime: TimeInterval){
+        if self.preveousUpdateTime == 0{
+
             self.preveousUpdateTime = currentTime
         }
         self.gameTime += currentTime - self.preveousUpdateTime
         self.preveousUpdateTime = currentTime
     }
     
-    func updateMana(_ currentTime: TimeInterval) {
+
+    //increses mana and mana bar over time
+    func updateMana(_ currentTime: TimeInterval){
+
         if (self.manaUpdateTime == 0) {
             self.manaUpdateTime = currentTime
         }else{
