@@ -16,38 +16,6 @@ enum States {
     case dead
 }
 
-struct AbstractCharacterCard {
-    let image: UIImage
-    let name: String
-    let cardDescription: String
-    let manaCost: Int
-    let summoningTime: Int
-    let level: Int
-    let attackPoints: Int
-    let attackSpeed: CGFloat
-    let attackArea: Int
-    let attackRange: CGFloat
-    let speed: Int
-    let healthPoints: Int
-    let xp: Int
-    
-    init(image: UIImage, name: String, cardDescription: String, manaCost: Int, summoningTime: Int, level: Int, xp: Int, atackPoints: Int, atackSpeed: CGFloat, atackArea: Int, atackRange: CGFloat, speed: Int, healthPoints: Int) {
-        self.image = image
-        self.name = name
-        self.cardDescription = cardDescription
-        self.manaCost = manaCost
-        self.summoningTime = summoningTime
-        self.level = level
-        self.attackPoints = atackPoints
-        self.attackSpeed = atackSpeed
-        self.attackArea = atackArea
-        self.attackRange = atackRange
-        self.speed = speed
-        self.healthPoints = healthPoints
-        self.xp = xp
-    }
-}
-
 class CharacterCard: Card {
     
     //state machine
@@ -94,6 +62,7 @@ class CharacterCard: Card {
         
         if teamId == 1{
             self.spriteNode.color = UIColor.lightGray
+        
         }
         
         self.spriteNode.texture = SKTexture(image: image)
@@ -107,42 +76,42 @@ class CharacterCard: Card {
         
     }
     
-    init(abstractCard: AbstractCharacterCard, battleScene: BattleScene, teamId: Int) {
-        super.init(image: abstractCard.image,
-                   name: abstractCard.name,
-                   cardDescription: abstractCard.cardDescription,
-                   manaCost: abstractCard.manaCost,
-                   summoningTime: abstractCard.summoningTime,
-                   level: abstractCard.level,
-                   xp: abstractCard.xp)
-        
-        self.addComponent(AtackComponent(atackPoints: abstractCard.attackPoints,
-                                         atackSpeed: abstractCard.attackSpeed,
-                                         atackArea: abstractCard.attackArea,
-                                         atackRange: abstractCard.attackRange))
-        
-        self.addComponent(MovementComponent(speed: abstractCard.speed))
-        self.addComponent(HealthComponent(healthPoints: abstractCard.healthPoints))
-        self.addComponent(TargetIndexComponent())
-        
-        self.battleScene = battleScene
-        
-        self.spriteNode = SKSpriteNode(imageNamed: "character")
-        
-        if teamId == 1{
-            self.spriteNode.color = UIColor.lightGray
-        }
-        
-        self.spriteNode.texture = SKTexture(image: abstractCard.image)
-        
-        self.teamId = teamId
-        
-        //MARK: Setting character life bar
-        self.lifeBar = LifeBar(forCharacter: self)
-        
-        self.spriteNode.addChild(self.lifeBar!)
-        
-    }
+//    init(abstractCard: AbstractCharacterCard, battleScene: BattleScene, teamId: Int) {
+//        super.init(image: abstractCard.image,
+//                   name: abstractCard.name,
+//                   cardDescription: abstractCard.cardDescription,
+//                   manaCost: abstractCard.manaCost,
+//                   summoningTime: abstractCard.summoningTime,
+//                   level: abstractCard.level,
+//                   xp: abstractCard.xp)
+//        
+//        self.addComponent(AtackComponent(atackPoints: abstractCard.attackPoints,
+//                                         atackSpeed: abstractCard.attackSpeed,
+//                                         atackArea: abstractCard.attackArea,
+//                                         atackRange: abstractCard.attackRange))
+//        
+//        self.addComponent(MovementComponent(speed: abstractCard.speed))
+//        self.addComponent(HealthComponent(healthPoints: abstractCard.healthPoints))
+//        self.addComponent(TargetIndexComponent())
+//        
+//        self.battleScene = battleScene
+//        
+//        self.spriteNode = SKSpriteNode(imageNamed: "character")
+//        
+//        if teamId == 1{
+//            self.spriteNode.color = UIColor.lightGray
+//        }
+//        
+//        self.spriteNode.texture = SKTexture(image: abstractCard.image)
+//        
+//        self.teamId = teamId
+//        
+//        //MARK: Setting character life bar
+//        self.lifeBar = LifeBar(forCharacter: self)
+//        
+//        self.spriteNode.addChild(self.lifeBar!)
+//        
+//    }
     
     
     

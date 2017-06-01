@@ -11,7 +11,13 @@ import SwiftyJSON
 
 class CardLoader {
     
-    func load(name: String) -> Card? {
+    let scene: BattleScene
+    
+    init(scene: BattleScene) {
+        self.scene = scene
+    }
+    
+    func load(name: String, type: CardType) -> Card? {
         let url = Bundle.main.url(forResource: name, withExtension: ".json")
         
         if let url = url {
@@ -29,7 +35,7 @@ class CardLoader {
             if let data = data {
                 let json = JSON(data)
                 do {
-                    return try setCardAttributes(with: json)
+                    return try setCardAttributes(with: json, for: type)
                 } catch let error {
                     print("Got an error while unpacking the JSON: \(error.localizedDescription)")
                 }
@@ -41,7 +47,7 @@ class CardLoader {
         }
     }
     
-    fileprivate func setCardAttributes(with json: JSON) throws -> Card {
+    fileprivate func setCardAttributes(with json: JSON, for type: CardType) throws -> Card {
         
         var card: Card
         
@@ -50,12 +56,46 @@ class CardLoader {
               let manaCost = json["manacost"].int,
               let summoningTime = json["summoningtime"].int
                 else {
-               throw NSException(name: NSExceptionName(rawValue: "No Card Exception"), reason: "The card could not be initialized with the current info", userInfo: nil) as! Error
+               throw NSException(name: NSExceptionName(rawValue: "No Card Exception"), reason: "The card could not be initialized with the current info - first exit", userInfo: nil) as! Error
         }
         
-        card = Card(image: UIImage(named: "character")!, name: name, cardDescription: description, manaCost: manaCost, summoningTime: summoningTime, level: 1, xp: 1)
+        switch type {
+        case .character:
+            guard let attackPoints = json["attack_points"].int,
+                  let attackSpeed = json["attack_speed"].float,
+                  let attackArea = json["attack_area"].int,
+                  let attackRange = json["attack_range"].float,
+                  let speed = json["speed"].int,
+                  let healthPoints = json["hp"].int else {
+                    throw NSException(name: NSExceptionName(rawValue: "No Info Exception"), reason: "The Character card could not be loaded with the current info", userInfo: nil) as! Error
+            }
+            
+            card = CharacterCard(image: UIImage(named: "character")!,
+                                         name: name,
+                                         cardDescription: description,
+                                         manaCost: manaCost,
+                                         summoningTime: summoningTime,
+                                         level: 1,
+                                         xp: 1,
+                                         atackPoints: attackPoints,
+                                         atackSpeed: CGFloat(attackSpeed),
+                                         atackArea: attackArea,
+                                         atackRange: CGFloat(attackRange),
+                                         speed: speed,
+                                         healthPoints: healthPoints,
+                                         battleScene: scene,
+                                         teamId: 1)
+        default:
+            card = Card(image: UIImage(named: "character")!, name: name, cardDescription: description, manaCost: manaCost, summoningTime: summoningTime, level: 1, xp: 1)
+        }
         
         return card
     }
     
+}
+
+enum CardType {
+    case character
+    case magic
+    case construction
 }
