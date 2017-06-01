@@ -166,6 +166,7 @@ class BattleScene: SKScene {
         }
     }
     
+    //keeps track of time in game, updates gameTime atribute with time spent since the game start
     func updateGameTime(_ currentTime: TimeInterval){
         if self.preveousUpdateTime == 0{
             self.preveousUpdateTime = currentTime
@@ -174,6 +175,7 @@ class BattleScene: SKScene {
         self.preveousUpdateTime = currentTime
     }
     
+    //increses mana and mana bar over time
     func updateMana(_ currentTime: TimeInterval){
         if (self.manaUpdateTime == 0) {
             self.manaUpdateTime = currentTime
