@@ -1,0 +1,17 @@
+{
+  "name": "Elfo",
+  "id": "",
+  "description": "Ataques rápidos e a distância são o seu forte.",
+   "avatar": "",
+   "manacost": 30,
+   "summoningtime": 1,
+   "attack_area": 1,
+   "attack_points": 70,
+   "attack_speed": 1,
+   "attack_range": 80,
+   "type": 1,
+   "targets": [0, 1, 2],
+   "movement_speed": 1,
+   "hp": 300,
+   "quantity": 1
+}

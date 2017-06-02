@@ -1,0 +1,17 @@
+{
+  "name": "Múmia",
+  "id": "",
+  "description": "Metade homem metade bode, os sátiros são rápidos mas pouco resistentes.",
+   "avatar": "",
+   "manacost": 10,
+   "summoningtime": 1,
+   "attack_area": 1,
+   "attack_points": 150,
+   "attack_speed": 1,
+   "attack_range": 70,
+   "type": 1,
+   "targets": [0, 1, 2],
+   "movement_speed": 1,
+   "hp": 250,
+   "quantity": 1
+}
