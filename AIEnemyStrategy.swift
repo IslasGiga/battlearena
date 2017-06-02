@@ -21,10 +21,30 @@ class AIEnemyStrategy {
     let game : BattleScene
     var cards : [Card] = []
     var manaCost : CGFloat = 0.0
-    
+    var cardLoader : CardLoader
     init(type: Strategy, game: BattleScene){
         
         self.game = game
+        self.cardLoader = CardLoader(scene: game)
+        
+        switch type{
+        case .AtackEnemyTurrent:
+            
+            break
+        case .SendSupportToAtack:
+            
+            break
+        case .PlayRandom:
+            
+            break
+        case .GankIncomingAtacker:
+            
+            break
+        case .WaitForMana:
+            
+            break
+        }
+        
         
         for card in cards {
             manaCost += CGFloat((card.component(ofType: InfoCardComponent.self)?.manaCost)!)
@@ -33,5 +53,12 @@ class AIEnemyStrategy {
     
     func value() -> Int{
         return 0
+    }
+    
+    func addCard(_ named: String){
+        if let card = cardLoader.load(name: named, type: .character){
+            self.cards.append(card)
+        }
+        
     }
 }
