@@ -1,0 +1,17 @@
+{
+  "name": "Sacerdote",
+  "id": "",
+  "description": "É capaz de lançar magias a distância.",
+   "avatar": "",
+   "manacost": 50,
+   "summoningtime": 1,
+   "attack_area": 1,
+   "attack_points": 60,
+   "attack_speed": 1,
+   "attack_range": 80,
+   "type": 1,
+   "targets": [0, 1, 2],
+   "movement_speed": 1,
+   "hp": 400,
+   "quantity": 1
+}

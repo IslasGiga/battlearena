@@ -50,6 +50,7 @@ class BattleScene: SKScene {
     //all characters in game
     var characters : [CharacterCard] = []
     
+    var gameOver = false
     
     //MARK: SceneDidLoad/DidMoveToScene
     
@@ -62,6 +63,7 @@ class BattleScene: SKScene {
         
         //loading Cards on menu
         loadCards()
+        
     }
     
     //runs twice when scene loads, why??
@@ -74,7 +76,7 @@ class BattleScene: SKScene {
     func touchDown(atPoint pos : CGPoint) {
         if (self.battleNode?.contains(pos))! {
             if self.selectedCard != 5{
-                summonCharacter(type: self.selectedCard, id: self.nextCharId, team: 0, pos: pos)
+                summonCharacter(type: self.selectedCard + 1 , id: self.nextCharId, team: 0, pos: pos)
                 
             }else{
                 summonCharacter(type: 2, id: self.nextCharId, team: 1, pos: pos)
@@ -95,7 +97,7 @@ class BattleScene: SKScene {
             self.touchDown(atPoint: t.location(in: self))
             let location = t.location(in: self)
             if let node : SKSpriteNode = self.atPoint(location) as? SKSpriteNode {
-                for i in 1...4 {
+                for i in 0...3 {
                     if node.name == "Card\(i)"{
                         print("card\(i)")
                         if self.selectedCard != i {
@@ -106,6 +108,9 @@ class BattleScene: SKScene {
                             self.cards[self.selectedCard].run(SKAction.moveBy(x: 0, y: 12, duration: 0.5))
                         }
                     }
+                }
+                if node.name == "PlayAgainButton"{
+                    playAgain()
                 }
             }
         }
@@ -123,8 +128,34 @@ class BattleScene: SKScene {
         for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
+    
+    func playAgain(){
+        if let scene = GKScene(fileNamed: "BattleScene") {
+            
+            // Get the SKScene from the loaded GKScene
+            if let sceneNode = scene.rootNode as! BattleScene? {
+                
+                // Copy gameplay related content over to the scene
+                
+                // Set the scale mode to scale to fit the window
+                sceneNode.scaleMode = .aspectFill
+                // Present the scene
+                if let view = self.view {
+                    view.presentScene(sceneNode)
+                    
+                    view.ignoresSiblingOrder = true
+                    
+                    view.showsFPS = true
+                    view.showsNodeCount = true
+                }
+            }
+        }
+    }
+    
     //MARK: Scene Update
     override func update(_ currentTime: TimeInterval) {
+        checkGameEnd()
+        
         updateGameTime(currentTime)
         
         updateMana(currentTime)
@@ -135,15 +166,21 @@ class BattleScene: SKScene {
         }
     }
     
+
+    //keeps track of time in game, updates gameTime atribute with time spent since the game start
     func updateGameTime(_ currentTime: TimeInterval){
         if self.preveousUpdateTime == 0{
+
             self.preveousUpdateTime = currentTime
         }
         self.gameTime += currentTime - self.preveousUpdateTime
         self.preveousUpdateTime = currentTime
     }
     
+
+    //increses mana and mana bar over time
     func updateMana(_ currentTime: TimeInterval){
+
         if (self.manaUpdateTime == 0) {
             self.manaUpdateTime = currentTime
         }else{
@@ -160,7 +197,8 @@ class BattleScene: SKScene {
     
     
     //MARK: Summon Character function
-    func summonCharacter(type: Int, id: Int, team: Int, pos: CGPoint){
+    func summonCharacter(type: Int, id: Int, team: Int, pos: CGPoint) {
+        
         let character = CharacterCard(image: #imageLiteral(resourceName: "character"), name: "CharType:\(type) id:\(id)", cardDescription: "Will be obtained from db", manaCost: type, summoningTime: 1, level: 1, xp: 0, atackPoints: type * 10, atackSpeed: (5.0 - CGFloat(type))*0.25, atackArea: 1, atackRange: 100.0 - CGFloat(type*10), speed: 10, healthPoints: 50*type, battleScene: self, teamId: team)
         let manaCost = character.getManaCost()*10.0
         if self.mana >= manaCost {
@@ -174,12 +212,16 @@ class BattleScene: SKScene {
             self.mana -= manaCost
             self.manaBar?.run(SKAction.resize(byWidth: 0, height: -manaCost*2, duration: 0.5))
             
-            if self.selectedCard != 5{
+            let object = deck[self.selectedCard]
+            deck.remove(at: deck.index(of: object)!)
+            deck.append(object)
+            
+            if self.selectedCard != 5 {
                 //unselect card
                 self.cards[selectedCard].run(SKAction.moveBy(x: 0, y: -12, duration: 0))
                 self.selectedCard = 5
             }
-        }else{
+        } else {
             print("not enough mana")
         }
         
@@ -187,14 +229,14 @@ class BattleScene: SKScene {
     
     
     //MARK: Load UI
-    func loadUI(){
-        if let menuScene = SKScene(fileNamed: "MenuScene"){
+    func loadUI() {
+        if let menuScene = SKScene(fileNamed: "MenuScene") {
             let newNode = menuScene.childNode(withName: "themenu")
             newNode?.removeFromParent()
             self.addChild(newNode!)
             
             
-            for i in 0...4{
+            for i in 0...4 {
                 if let cardNode = newNode!.childNode(withName: "Card\(i)") as? SKSpriteNode{
                     self.cards.append(cardNode)
                 }
@@ -264,6 +306,50 @@ class BattleScene: SKScene {
             
             self.characters.append(secundaryTower)
             self.addChild(secundaryTower.spriteNode)
+        }
+    }
+    
+    //check for game end conditions
+    func checkGameEnd(){
+        if !gameOver{
+            if characters[1].state == .dead{
+                presentResult("BattleEndWin")
+            }else if characters[0].state == .dead {
+                presentResult("BattleEndLose")
+            }else if self.gameTime >= 180 {
+                var scoreA = 0
+                var scoreB = 0
+                for i in 2...4{
+                    if characters[i].state == .dead {
+                        scoreB += 1
+                    }
+                    if characters[i+3].state == .dead{
+                        scoreA += 1
+                    }
+                }
+                if scoreA > scoreB {
+                    presentResult("BattleEndWin")
+                }
+                if scoreB > scoreA {
+                    presentResult("BattleEndLose")
+                }
+            }
+            if self.gameTime >= 240 {
+                presentResult("BattleEndDraw")
+            }
+        }
+    }
+    
+    //Shows End of game Menu
+    func presentResult(_ result: String){
+        gameOver = true
+        if let endScene = SKScene(fileNamed: result){
+            if let endNode = endScene.childNode(withName: "WinScreen") {
+                endNode.removeFromParent()
+                endNode.setScale(0)
+                self.addChild(endNode)
+                endNode.run(SKAction.scale(to: 1, duration: 1), completion: {})
+            }
         }
     }
     
