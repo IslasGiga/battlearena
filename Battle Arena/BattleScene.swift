@@ -54,9 +54,20 @@ class BattleScene: SKScene {
     
     var gameOver = false
     
+    let names = ["dwarf",
+                 "cyclope",
+                 "elf",
+                 "priest",
+                 "satyr",
+                 "mummy",
+                 "knight",
+                 "wizard"]
+    
     //MARK: SceneDidLoad/DidMoveToScene
     
     override func didMove(to view: SKView) {
+        loader = CardLoader(scene: self)
+
         //loading battle space, mana and menu elements
         loadUI()
         
@@ -66,7 +77,6 @@ class BattleScene: SKScene {
         //loading Cards on menu
         loadCards()
         
-        loader = CardLoader(scene: self)
         
     }
     
@@ -358,9 +368,20 @@ class BattleScene: SKScene {
     }
     
     func loadCards(){
+        
+        for value in names {
+            let load = loader?.load(name: value, type: .character)
+            if let load = load {
+                let card = load as! CharacterCard
+                deck.append(card)
+            }
+        }
+        
         for i in 0...4{
             cards[i].color = UIColor.blue
+            cards[i].texture = deck[i].spriteNode.texture
         }
+    
     }
     
     

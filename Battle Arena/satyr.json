@@ -13,5 +13,6 @@
    "targets": [0, 1],
    "movement_speed": 1,
    "hp": 200,
-   "quantity": 2
+    "quantity": 2,
+    "image": "char"
 }
