@@ -32,11 +32,13 @@ class BattleScene: SKScene {
     var manaUpadateFlag : Bool = false
     var maxManaSize : CGFloat = 200
     
+    var loader: CardLoader?
+    
     //Cards on character menu
     var cards : [SKSpriteNode] = []
     
     //Player Deck of Cards (as colors for testing)
-    var deck : [UIColor] = [UIColor.black, UIColor.blue, UIColor.orange, UIColor.red, UIColor.yellow, UIColor.green, UIColor.gray, UIColor.purple]
+    var deck : [CharacterCard] = []
     
     //current selected card
     var selectedCard = 5
@@ -48,7 +50,7 @@ class BattleScene: SKScene {
     var preveousUpdateTime : TimeInterval = 0
     
     //all characters in game
-    var characters : [CharacterCard] = []
+    var characters : [CharacterCard] = [] 
     
     var gameOver = false
     
@@ -64,12 +66,13 @@ class BattleScene: SKScene {
         //loading Cards on menu
         loadCards()
         
+        loader = CardLoader(scene: self)
+        
     }
     
     //runs twice when scene loads, why??
     override func sceneDidLoad() {
     }
-    
     
     
     //MARK: Touch Responses
@@ -184,7 +187,7 @@ class BattleScene: SKScene {
         if (self.manaUpdateTime == 0) {
             self.manaUpdateTime = currentTime
         }else{
-            if currentTime - self.manaUpdateTime >= 1 && self.mana < 100.0 && !self.manaUpadateFlag{
+            if currentTime - self.manaUpdateTime >= 1 && self.mana < 100.0 && !self.manaUpadateFlag {
                 self.manaUpadateFlag = true
                 self.manaBar?.run(SKAction.resize(byWidth: 0, height: 20, duration: 1), completion: {
                     self.mana += 10.0
@@ -216,6 +219,8 @@ class BattleScene: SKScene {
             deck.remove(at: deck.index(of: object)!)
             deck.append(object)
             
+            
+            
             if self.selectedCard != 5 {
                 //unselect card
                 self.cards[selectedCard].run(SKAction.moveBy(x: 0, y: -12, duration: 0))
@@ -224,7 +229,6 @@ class BattleScene: SKScene {
         } else {
             print("not enough mana")
         }
-        
     }
     
     
@@ -355,7 +359,9 @@ class BattleScene: SKScene {
     
     func loadCards(){
         for i in 0...4{
-            cards[i].color = deck[i]
+            cards[i].color = UIColor.blue
         }
     }
+    
+    
 }
