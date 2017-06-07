@@ -29,10 +29,10 @@ class AIEnemyStrategy {
         
         switch type{
         case .AtackEnemyTurrent:
-            
+            cards.append(cardLoader.load(name: "Cyclope", type: .character)!)
             break
         case .SendSupportToAtack:
-            
+            cards.append(cardLoader.load(name: "Satyr", type: .character)!)
             break
         case .PlayRandom:
             

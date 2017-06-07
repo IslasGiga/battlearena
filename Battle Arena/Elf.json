@@ -1,17 +1,17 @@
 {
-  "name": "Sacerdote",
+  "name": "Elf",
   "id": "",
-  "description": "É capaz de lançar magias a distância.",
+  "description": "Ataques rápidos e a distância são o seu forte.",
    "avatar": "",
-   "manacost": 50,
+   "manacost": 30,
    "summoningtime": 1,
    "attack_area": 1,
-   "attack_points": 60,
+   "attack_points": 70,
    "attack_speed": 1,
    "attack_range": 80,
    "type": 1,
    "targets": [0, 1, 2],
    "movement_speed": 1,
-   "hp": 400,
+   "hp": 300,
    "quantity": 1
 }

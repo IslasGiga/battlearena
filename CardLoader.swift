@@ -65,7 +65,7 @@ class CardLoader {
                   let attackSpeed = json["attack_speed"].float,
                   let attackArea = json["attack_area"].int,
                   let attackRange = json["attack_range"].float,
-                  let speed = json["speed"].int,
+                  let speed = json["movement_speed"].int,
                   let healthPoints = json["hp"].int else {
                     throw NSException(name: NSExceptionName(rawValue: "No Info Exception"), reason: "The Character card could not be loaded with the current info", userInfo: nil) as! Error
             }

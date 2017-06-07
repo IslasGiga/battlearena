@@ -1,9 +1,9 @@
 {
-  "name": "Múmia",
+  "name": "Wizard",
   "id": "",
   "description": "Metade homem metade bode, os sátiros são rápidos mas pouco resistentes.",
    "avatar": "",
-   "manacost": 10,
+   "manacost": 50,
    "summoningtime": 1,
    "attack_area": 1,
    "attack_points": 150,
