@@ -33,12 +33,14 @@ class AIEnemyStrategy {
             break
         case .SendSupportToAtack:
             cards.append(cardLoader.load(name: "Satyr", type: .character)!)
+            cards.append(cardLoader.load(name: "Dwarf", type: .character)!)
             break
         case .PlayRandom:
             
             break
         case .GankIncomingAtacker:
-            
+            cards.append(cardLoader.load(name: "Knight", type: .character)!)
+            cards.append(cardLoader.load(name: "Elf", type: .character)!)
             break
         case .WaitForMana:
             
