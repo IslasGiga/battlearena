@@ -14,21 +14,14 @@
 		2375F9F21EDC61EF0083C954 /* BattleEndDraw.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9F11EDC61EF0083C954 /* BattleEndDraw.sks */; };
 		2375F9F41EE180160083C954 /* AIEnemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375F9F31EE180160083C954 /* AIEnemy.swift */; };
 		2375F9F61EE180310083C954 /* AIEnemyStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2375F9F51EE180310083C954 /* AIEnemyStrategy.swift */; };
-<<<<<<< HEAD
-		2375F9F81EE18E6D0083C954 /* Elf.json in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9F71EE18E6D0083C954 /* Elf.json */; };
-		2375F9FA1EE1910A0083C954 /* Priest.json in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9F91EE1910A0083C954 /* Priest.json */; };
-		2375F9FC1EE191290083C954 /* Satyr.json in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9FB1EE191290083C954 /* Satyr.json */; };
-		2375F9FE1EE192330083C954 /* Mummy.json in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9FD1EE192330083C954 /* Mummy.json */; };
-		2375FA011EE193A50083C954 /* Knight.json in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9FF1EE193A50083C954 /* Knight.json */; };
-		2375FA021EE193A50083C954 /* Wizard.json in Resources */ = {isa = PBXBuildFile; fileRef = 2375FA001EE193A50083C954 /* Wizard.json */; };
-=======
+
 		2375F9F81EE18E6D0083C954 /* elf.json in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9F71EE18E6D0083C954 /* elf.json */; };
 		2375F9FA1EE1910A0083C954 /* priest.json in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9F91EE1910A0083C954 /* priest.json */; };
 		2375F9FC1EE191290083C954 /* satyr.json in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9FB1EE191290083C954 /* satyr.json */; };
 		2375F9FE1EE192330083C954 /* mummy.json in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9FD1EE192330083C954 /* mummy.json */; };
 		2375FA011EE193A50083C954 /* knight.json in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9FF1EE193A50083C954 /* knight.json */; };
 		2375FA021EE193A50083C954 /* wizard.json in Resources */ = {isa = PBXBuildFile; fileRef = 2375FA001EE193A50083C954 /* wizard.json */; };
->>>>>>> b9e11ec14434bd4d07b93ca88238fa2f74186917
+
 		67A40EA1AB40010B6E642C87 /* Pods_Battle_Arena.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49FCB7EA7CF6F5F484680A3 /* Pods_Battle_Arena.framework */; };
 		77947E9F1ED60BCE00DFD6F8 /* LifeBar.sks in Resources */ = {isa = PBXBuildFile; fileRef = 77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */; };
 		77947EA11ED60F5700DFD6F8 /* LifeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77947EA01ED60F5700DFD6F8 /* LifeBar.swift */; };
@@ -73,21 +66,14 @@
 		2375F9F11EDC61EF0083C954 /* BattleEndDraw.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BattleEndDraw.sks; sourceTree = "<group>"; };
 		2375F9F31EE180160083C954 /* AIEnemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIEnemy.swift; sourceTree = "<group>"; };
 		2375F9F51EE180310083C954 /* AIEnemyStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AIEnemyStrategy.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		2375F9F71EE18E6D0083C954 /* Elf.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Elf.json; sourceTree = "<group>"; };
-		2375F9F91EE1910A0083C954 /* Priest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Priest.json; sourceTree = "<group>"; };
-		2375F9FB1EE191290083C954 /* Satyr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Satyr.json; sourceTree = "<group>"; };
-		2375F9FD1EE192330083C954 /* Mummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Mummy.json; sourceTree = "<group>"; };
-		2375F9FF1EE193A50083C954 /* Knight.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Knight.json; sourceTree = "<group>"; };
-		2375FA001EE193A50083C954 /* Wizard.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Wizard.json; sourceTree = "<group>"; };
-=======
+
 		2375F9F71EE18E6D0083C954 /* elf.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = elf.json; sourceTree = "<group>"; };
 		2375F9F91EE1910A0083C954 /* priest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = priest.json; sourceTree = "<group>"; };
 		2375F9FB1EE191290083C954 /* satyr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = satyr.json; sourceTree = "<group>"; };
 		2375F9FD1EE192330083C954 /* mummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mummy.json; sourceTree = "<group>"; };
 		2375F9FF1EE193A50083C954 /* knight.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = knight.json; sourceTree = "<group>"; };
 		2375FA001EE193A50083C954 /* wizard.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wizard.json; sourceTree = "<group>"; };
->>>>>>> b9e11ec14434bd4d07b93ca88238fa2f74186917
+
 		77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LifeBar.sks; sourceTree = "<group>"; };
 		77947EA01ED60F5700DFD6F8 /* LifeBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifeBar.swift; sourceTree = "<group>"; };
 		77A15689AC2F3070A3646F73 /* Pods-Battle Arena.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Battle Arena.release.xcconfig"; path = "Pods/Target Support Files/Pods-Battle Arena/Pods-Battle Arena.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,16 +137,7 @@
 		77EE5B7F1EDD972100B71217 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				77EE5B801EDD97AF00B71217 /* Dwarf.json */,
-				77EE5B821EDD97B700B71217 /* Cyclope.json */,
-				2375F9F71EE18E6D0083C954 /* Elf.json */,
-				2375F9F91EE1910A0083C954 /* Priest.json */,
-				2375F9FB1EE191290083C954 /* Satyr.json */,
-				2375F9FD1EE192330083C954 /* Mummy.json */,
-				2375F9FF1EE193A50083C954 /* Knight.json */,
-				2375FA001EE193A50083C954 /* Wizard.json */,
-=======
+
 				77EE5B801EDD97AF00B71217 /* dwarf.json */,
 				77EE5B821EDD97B700B71217 /* cyclope.json */,
 				2375F9F71EE18E6D0083C954 /* elf.json */,
@@ -169,7 +146,7 @@
 				2375F9FD1EE192330083C954 /* mummy.json */,
 				2375F9FF1EE193A50083C954 /* knight.json */,
 				2375FA001EE193A50083C954 /* wizard.json */,
->>>>>>> b9e11ec14434bd4d07b93ca88238fa2f74186917
+
 			);
 			name = Cards;
 			sourceTree = "<group>";
@@ -377,16 +354,7 @@
 				79AEAE0A1EDC4D5200B89420 /* PressStart2P.ttf in Resources */,
 				79AEAE0B1EDC4D5200B89420 /* Fipps-Regular.otf in Resources */,
 				79DE87C41EC0953900CAE28D /* Main.storyboard in Resources */,
-<<<<<<< HEAD
-				2375F9FE1EE192330083C954 /* Mummy.json in Resources */,
-				2375FA011EE193A50083C954 /* Knight.json in Resources */,
-				2375F9FC1EE191290083C954 /* Satyr.json in Resources */,
-				79DE87BB1EC0953900CAE28D /* BattleScene.sks in Resources */,
-				79DE87C61EC0953900CAE28D /* Assets.xcassets in Resources */,
-				79DE87C91EC0953900CAE28D /* LaunchScreen.storyboard in Resources */,
-				2375F9F81EE18E6D0083C954 /* Elf.json in Resources */,
-				2375FA021EE193A50083C954 /* Wizard.json in Resources */,
-=======
+
 				2375F9FE1EE192330083C954 /* mummy.json in Resources */,
 				2375FA011EE193A50083C954 /* knight.json in Resources */,
 				2375F9FC1EE191290083C954 /* satyr.json in Resources */,
@@ -395,7 +363,7 @@
 				79DE87C91EC0953900CAE28D /* LaunchScreen.storyboard in Resources */,
 				2375F9F81EE18E6D0083C954 /* elf.json in Resources */,
 				2375FA021EE193A50083C954 /* wizard.json in Resources */,
->>>>>>> b9e11ec14434bd4d07b93ca88238fa2f74186917
+
 				79DE87BD1EC0953900CAE28D /* Actions.sks in Resources */,
 				794840111EC09C7800239F64 /* ScenarioTiles.sks in Resources */,
 				798D5EFC1EC5F9BD009EEA2E /* SplashScreenScene.sks in Resources */,
