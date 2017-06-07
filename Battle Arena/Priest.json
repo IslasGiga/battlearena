@@ -13,10 +13,6 @@
    "targets": [0, 1, 2],
    "movement_speed": 1,
    "hp": 400,
-<<<<<<< HEAD:Battle Arena/Priest.json
-   "quantity": 1
-=======
     "quantity": 1,
     "image": "char"
->>>>>>> b9e11ec14434bd4d07b93ca88238fa2f74186917:Battle Arena/priest.json
 }

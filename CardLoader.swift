@@ -66,7 +66,6 @@ class CardLoader {
                   let attackArea = json["attack_area"].int,
                   let attackRange = json["attack_range"].float,
                   let speed = json["movement_speed"].int,
-
                   let healthPoints = json["hp"].int,
                   let imageName = json["image"].string
                         else {

@@ -55,14 +55,14 @@ class BattleScene: SKScene {
     
     var gameOver = false
     
-    let names = ["dwarf",
-                 "cyclope",
-                 "elf",
-                 "priest",
-                 "satyr",
-                 "mummy",
-                 "knight",
-                 "wizard"]
+    let names = ["Dwarf",
+                 "Cyclope",
+                 "Elf",
+                 "Priest",
+                 "Satyr",
+                 "Mummy",
+                 "Knight",
+                 "Wizard"]
     
     //MARK: SceneDidLoad/DidMoveToScene
     
