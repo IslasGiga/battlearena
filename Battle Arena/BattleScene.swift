@@ -67,12 +67,10 @@ class BattleScene: SKScene {
     //MARK: SceneDidLoad/DidMoveToScene
     
     override func didMove(to view: SKView) {
-<<<<<<< HEAD
-        
-=======
+
         loader = CardLoader(scene: self)
 
->>>>>>> b9e11ec14434bd4d07b93ca88238fa2f74186917
+
         //loading battle space, mana and menu elements
         loadUI()
         
@@ -82,10 +80,9 @@ class BattleScene: SKScene {
         //loading Cards on menu
         loadCards()
         
-<<<<<<< HEAD
+
         enemy = AIEnemy(game: self)
-=======
->>>>>>> b9e11ec14434bd4d07b93ca88238fa2f74186917
+
         
     }
     
