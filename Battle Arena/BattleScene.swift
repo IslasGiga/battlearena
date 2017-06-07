@@ -33,11 +33,13 @@ class BattleScene: SKScene {
     var manaUpadateFlag : Bool = false
     var maxManaSize : CGFloat = 200
     
+    var loader: CardLoader?
+    
     //Cards on character menu
     var cards : [SKSpriteNode] = []
     
     //Player Deck of Cards (as colors for testing)
-    var deck : [UIColor] = [UIColor.black, UIColor.blue, UIColor.orange, UIColor.red, UIColor.yellow, UIColor.green, UIColor.gray, UIColor.purple]
+    var deck : [CharacterCard] = []
     
     //current selected card
     var selectedCard = 5
@@ -49,14 +51,28 @@ class BattleScene: SKScene {
     var preveousUpdateTime : TimeInterval = 0
     
     //all characters in game
-    var characters : [CharacterCard] = []
+    var characters : [CharacterCard] = [] 
     
     var gameOver = false
+    
+    let names = ["dwarf",
+                 "cyclope",
+                 "elf",
+                 "priest",
+                 "satyr",
+                 "mummy",
+                 "knight",
+                 "wizard"]
     
     //MARK: SceneDidLoad/DidMoveToScene
     
     override func didMove(to view: SKView) {
+<<<<<<< HEAD
         
+=======
+        loader = CardLoader(scene: self)
+
+>>>>>>> b9e11ec14434bd4d07b93ca88238fa2f74186917
         //loading battle space, mana and menu elements
         loadUI()
         
@@ -66,14 +82,16 @@ class BattleScene: SKScene {
         //loading Cards on menu
         loadCards()
         
+<<<<<<< HEAD
         enemy = AIEnemy(game: self)
+=======
+>>>>>>> b9e11ec14434bd4d07b93ca88238fa2f74186917
         
     }
     
     //runs twice when scene loads, why??
     override func sceneDidLoad() {
     }
-    
     
     
     //MARK: Touch Responses
@@ -188,7 +206,7 @@ class BattleScene: SKScene {
         if (self.manaUpdateTime == 0) {
             self.manaUpdateTime = currentTime
         }else{
-            if currentTime - self.manaUpdateTime >= 1 && self.mana < 100.0 && !self.manaUpadateFlag{
+            if currentTime - self.manaUpdateTime >= 1 && self.mana < 100.0 && !self.manaUpadateFlag {
                 self.manaUpadateFlag = true
                 self.manaBar?.run(SKAction.resize(byWidth: 0, height: 20, duration: 1), completion: {
                     self.mana += 10.0
@@ -220,6 +238,8 @@ class BattleScene: SKScene {
             deck.remove(at: deck.index(of: object)!)
             deck.append(object)
             
+            
+            
             if self.selectedCard != 5 {
                 //unselect card
                 self.cards[selectedCard].run(SKAction.moveBy(x: 0, y: -12, duration: 0))
@@ -228,7 +248,6 @@ class BattleScene: SKScene {
         } else {
             print("not enough mana")
         }
-        
     }
     
     
@@ -358,8 +377,21 @@ class BattleScene: SKScene {
     }
     
     func loadCards(){
-        for i in 0...4{
-            cards[i].color = deck[i]
+        
+        for value in names {
+            let load = loader?.load(name: value, type: .character)
+            if let load = load {
+                let card = load as! CharacterCard
+                deck.append(card)
+            }
         }
+        
+        for i in 0...4{
+            cards[i].color = UIColor.blue
+            cards[i].texture = deck[i].spriteNode.texture
+        }
+    
     }
+    
+    
 }
