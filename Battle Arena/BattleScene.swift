@@ -226,16 +226,24 @@ class BattleScene: SKScene {
             self.manaBar?.run(SKAction.resize(byWidth: 0, height: -manaCost*2, duration: 0.5))
             
             let object = deck[self.selectedCard]
-            deck.remove(at: deck.index(of: object)!)
-            deck.append(object)
-            
-            
             
             if self.selectedCard != 5 {
                 //unselect card
-                self.cards[selectedCard].run(SKAction.moveBy(x: 0, y: -12, duration: 0))
+                self.cards[selectedCard].run(SKAction.moveBy(x: 0, y: -12, duration: 0), completion: {
+                    //TO DO: animate card changes
+                })
                 self.selectedCard = 5
             }
+            
+            
+            deck.remove(at: deck.index(of: object)!)
+            deck.append(object)
+            
+            loadMenuCards()
+            
+            
+            
+            
         } else {
             print("not enough mana")
         }
@@ -377,12 +385,14 @@ class BattleScene: SKScene {
             }
         }
         
-        for i in 0...4{
-            cards[i].color = UIColor.blue
-            cards[i].texture = deck[i].spriteNode.texture
-        }
-    
+        loadMenuCards()
     }
     
+    func loadMenuCards(){
+        for i in 0...4{
+            //cards[i].color = UIColor.blue
+            cards[i].texture = deck[i].spriteNode.texture
+        }
+    }
     
 }
