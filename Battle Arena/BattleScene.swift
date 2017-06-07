@@ -11,9 +11,10 @@ import GameplayKit
 
 class BattleScene: SKScene {
     
+    var enemy : AIEnemy?
+    
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
-    
     
     //for identifying distincts character nodes
     var nextCharId = 0
@@ -66,7 +67,9 @@ class BattleScene: SKScene {
     //MARK: SceneDidLoad/DidMoveToScene
     
     override func didMove(to view: SKView) {
+
         loader = CardLoader(scene: self)
+
 
         //loading battle space, mana and menu elements
         loadUI()
@@ -77,6 +80,9 @@ class BattleScene: SKScene {
         //loading Cards on menu
         loadCards()
         
+
+        enemy = AIEnemy(game: self)
+
         
     }
     
