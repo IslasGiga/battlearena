@@ -63,4 +63,28 @@ class AIEnemyStrategy {
         }
         
     }
+    func play(_ enemy : AIEnemy){
+        //play random card move
+        let cardIndex = Int(arc4random()%4)
+        if let charCard = enemy.deck[cardIndex] as? CharacterCard {
+            if charCard.getManaCost() < enemy.mana{
+                game.spawnCharacter(fromCard: charCard, atPosition: CGPoint(x: 0, y: 100), team: 1)
+                enemy.mana -= charCard.getManaCost()
+            }
+        }
+
+        enemy.playingStrategy = false
+    }
+    
+    func getAtackPosition(){
+        
+    }
+    
+    func getDefensePosition(){
+        
+    }
+    
+    func getGankPosition(){
+        
+    }
 }

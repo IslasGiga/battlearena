@@ -12,7 +12,7 @@ import SpriteKit
 class InfoCardComponent: GKComponent {
 
     let image: UIImage
-    let name: String
+    var name: String
     let cardDescription: String
     let manaCost: Int
     let summoningTime: Int

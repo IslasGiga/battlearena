@@ -13,7 +13,7 @@ class BattleScene: SKScene {
     
     var enemy : AIEnemy?
     
-    var entities = [GKEntity]()
+    var entitvar = [GKEntity]()
     var graphs = [String : GKGraph]()
     
     //for identifying distincts character nodes
@@ -401,4 +401,18 @@ class BattleScene: SKScene {
         }
     }
     
+    func spawnCharacter(fromCard card: CharacterCard, atPosition pos: CGPoint, team: Int){
+        if let name = (card.component(ofType: InfoCardComponent.self)?.name)! as? String{
+            let cardLoader = CardLoader(scene: self)
+            if let card = cardLoader.load(name: name, type: .character) as? CharacterCard{
+                card.teamId = team
+                card.spriteNode.position = pos
+                card.component(ofType: InfoCardComponent.self)?.name = "\((card.component(ofType: InfoCardComponent.self)?.name)!)\(self.nextCharId)"
+                self.nextCharId += 1
+                self.characters.append(card)
+                card.spriteNode.removeFromParent()
+                self.addChild(card.spriteNode)
+            }
+        }
+    }
 }
