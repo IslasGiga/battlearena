@@ -39,7 +39,7 @@ class AIEnemy {
     
     func pickStrategy() -> Int{
         var max = 0
-        for i in 1...self.strategies.count-1 {
+        for i in 0...self.strategies.count-1 {
             if self.strategies[i].value() > self.strategies[max].value(){
                 max = i
             }

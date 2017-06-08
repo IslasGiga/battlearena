@@ -183,6 +183,8 @@ class BattleScene: SKScene {
         for character in characters {
             character.takeAction()
         }
+        
+        enemy?.playStrategy(atIndex: enemy!.pickStrategy() )
     }
     
 
@@ -203,13 +205,20 @@ class BattleScene: SKScene {
         if (self.manaUpdateTime == 0) {
             self.manaUpdateTime = currentTime
         }else{
-            if currentTime - self.manaUpdateTime >= 1 && self.mana < 100.0 && !self.manaUpadateFlag {
-                self.manaUpadateFlag = true
-                self.manaBar?.run(SKAction.resize(byWidth: 0, height: 20, duration: 1), completion: {
-                    self.mana += 10.0
+            if currentTime - self.manaUpdateTime >= 1 && !self.manaUpadateFlag {
+                if self.mana < 100.0 {
+                    self.manaUpadateFlag = true
+                    self.manaBar?.run(SKAction.resize(byWidth: 0, height: 20, duration: 1), completion: {
+                        self.mana += 10.0
+                        self.manaUpdateTime = 0
+                        self.manaUpadateFlag = false
+                    })
+                }
+                if self.enemy!.mana < 100.0 {
+                    self.enemy?.mana += 10.0
                     self.manaUpdateTime = 0
-                    self.manaUpadateFlag = false
-                })
+                }
+                
             }
         }
     }
@@ -402,7 +411,7 @@ class BattleScene: SKScene {
     }
     
     func spawnCharacter(fromCard card: CharacterCard, atPosition pos: CGPoint, team: Int){
-        if let name = (card.component(ofType: InfoCardComponent.self)?.name)! as? String{
+        if let name = String((card.component(ofType: InfoCardComponent.self)?.name)!) {
             let cardLoader = CardLoader(scene: self)
             if let card = cardLoader.load(name: name, type: .character) as? CharacterCard{
                 card.teamId = team
