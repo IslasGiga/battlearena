@@ -17,7 +17,12 @@ class AIEnemy {
     var playingStrategy = false
     init(game: BattleScene){
         self.game = game
+
         self.strategies.append(AIEnemyStrategy(type: .PlayRandom, game: game))
+        self.strategies.append(AIEnemyStrategy(type: .GankIncomingAtacker, game: game))
+        self.strategies.append(AIEnemyStrategy(type: .AtackEnemyTurrent, game: game))
+        self.strategies.append(AIEnemyStrategy(type: .SendSupportToAtack, game: game))
+        self.strategies.append(AIEnemyStrategy(type: .WaitForMana, game: game))
         
         self.loader = CardLoader(scene: game)
         let names = ["Dwarf",
@@ -28,6 +33,7 @@ class AIEnemy {
                      "Mummy",
                      "Knight",
                      "Wizard"]
+        
         for value in names {
             let load = loader?.load(name: value, type: .character)
             if let load = load {
@@ -40,7 +46,7 @@ class AIEnemy {
     func pickStrategy() -> Int{
         var max = 0
         for i in 0...self.strategies.count-1 {
-            if self.strategies[i].value() > self.strategies[max].value(){
+            if self.strategies[i].valueCheck() > self.strategies[max].valueCheck(){
                 max = i
             }
         }
@@ -51,7 +57,7 @@ class AIEnemy {
         if !playingStrategy{
             if mana >= self.strategies[i].manaCost{
                 playingStrategy = true
-                self.strategies[i].play(self)
+                self.strategies[i].enemyMove(self)
             }
         }
     }

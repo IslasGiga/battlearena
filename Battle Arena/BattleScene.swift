@@ -405,7 +405,6 @@ class BattleScene: SKScene {
     
     func loadMenuCards(){
         for i in 0...4{
-            //cards[i].color = UIColor.blue
             cards[i].texture = deck[i].spriteNode.texture
         }
     }
@@ -423,5 +422,132 @@ class BattleScene: SKScene {
                 self.addChild(card.spriteNode)
             }
         }
+    }
+    
+    //MARK: Functions for AIEnemy measures
+    
+    func getAtackPosition() -> CGPoint{
+        var lowerHpIndex = 0
+        
+        for i in 2...4 {
+            let currentLowersHP = (self.characters[lowerHpIndex].component(ofType: HealthComponent.self)?.healthPoints)!
+            let checkedHP = (self.characters[i].component(ofType: HealthComponent.self)?.healthPoints)!
+            if checkedHP < currentLowersHP {
+                lowerHpIndex = i
+            }
+        }
+        
+        var pos = self.battleNode!.position
+        pos.y += 25
+        
+        if lowerHpIndex == 2 {
+            pos.x -= self.battleNode!.size.width / 4
+        }
+        
+        if lowerHpIndex == 4 {
+            pos.x += self.battleNode!.size.width / 4
+        }
+        
+        return pos
+    }
+    
+    //returns a point near to the closest turrent to an enemy
+    func getDefensePosition() -> CGPoint{
+        var pos = CGPoint(x: 0, y: 0)
+        
+        if let enemyAtacker = playerAliveCharacter() {
+            let atackedTowerIndex = nearestTower(toCharacter: enemyAtacker)
+            pos = self.characters[atackedTowerIndex].spriteNode.position
+            pos.x += 20
+            pos.y -= 20
+        }
+        
+        return pos
+    }
+    
+    //return a point to summon a character to gank an atack
+    func getGankPosition() -> CGPoint?{
+        var pos : CGPoint
+        if let gankableCharacter = playerAliveGankableCharacter() {
+            let closestTurrent = self.characters[nearestTower(toCharacter: gankableCharacter)]
+            pos = closestTurrent.spriteNode.position
+            pos.x += 20
+            pos.y -= 10
+            return pos
+        }
+        
+        return nil
+    }
+    
+    //returns a player alive character or nil in case of unexistent
+    func playerAliveCharacter() -> CharacterCard? {
+        if self.characters.count > 8 {
+            for i in 8...(self.characters.count - 1) {
+                if isPlayerCharacterAndAlive(character: self.characters[i]) {
+                    return self.characters[i]
+                }
+            }
+        }
+        return nil
+    }
+    
+    //return an enemy's alive character if any or nil
+    func enemyAliveCharacter() -> CharacterCard? {
+        if self.characters.count > 8 {
+            for i in 8...(self.characters.count - 1) {
+                if isEnemyCharacterAndAlive(self.characters[i]) {
+                    return self.characters[i]
+                }
+            }
+        }
+        return nil
+    }
+    
+    func isEnemyCharacterAndAlive(_ character: CharacterCard) -> Bool{
+        return character.state != .dead && character.teamId == 1
+    }
+    
+    //verufies if characer is alive and in the players team
+    func isPlayerCharacterAndAlive(character: CharacterCard) -> Bool{
+        return character.state != .dead && character.teamId == 0
+    }
+    
+    //verifies if character is close enought to a tourrent for a gank
+    func isPlayerCharacterGankable(character: CharacterCard) -> Bool{
+        var closeToATurrent = false
+        
+        let nearestTurretIndex = nearestTower(toCharacter: character)
+        let nearestTurret = self.characters[nearestTurretIndex]
+        let nearestTurretRange =  (nearestTurret.component(ofType: AtackComponent.self)?.atackRange)!
+        if character.distanceFromCharacter(character: nearestTurret) < nearestTurretRange + 50.0 {
+            closeToATurrent = true
+        }
+        
+        return isPlayerCharacterAndAlive(character: character) && closeToATurrent
+    }
+    
+    //return a gankable character or nill in inexistance
+    func playerAliveGankableCharacter() -> CharacterCard? {
+        var char : CharacterCard? = nil
+        if self.characters.count > 8 {
+            for i in 8...self.characters.count - 1 {
+                if isPlayerCharacterGankable(character: self.characters[i]) {
+                    char = self.characters[i]
+                }
+            }
+        }
+        
+        return char
+    }
+    
+    //return enemy tower index closest to the character
+    func nearestTower(toCharacter character: CharacterCard) -> Int {
+        var closest = 1
+        for i in 5...7 {
+            if character.distanceFromCharacter(character: self.characters[i]) < character.distanceFromCharacter(character: self.characters[closest]){
+                closest = i
+            }
+        }
+        return closest
     }
 }
