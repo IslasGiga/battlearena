@@ -128,7 +128,7 @@ class BattleScene: SKScene {
                         }
                     }
                 }
-                if node.name == "PlayAgainButton"{
+                if node.name == "OKButtonCover"{
                     playAgain()
                 }
             }
@@ -173,18 +173,23 @@ class BattleScene: SKScene {
     
     //MARK: Scene Update
     override func update(_ currentTime: TimeInterval) {
-        checkGameEnd()
         
-        updateGameTime(currentTime)
+        //What happens inside this if stops when game is over
+        if !gameOver {
+            checkGameEnd()
+            
+            updateGameTime(currentTime)
+            
+            //update charactes actions
+            for character in characters {
+                character.takeAction()
+            }
+            
+            enemy?.playStrategy(atIndex: enemy!.pickStrategy() )
+        }
         
         updateMana(currentTime)
         
-        //update charactes actions
-        for character in characters {
-            character.takeAction()
-        }
-        
-        enemy?.playStrategy(atIndex: enemy!.pickStrategy() )
     }
     
 
@@ -372,7 +377,7 @@ class BattleScene: SKScene {
                 }
             }
             if self.gameTime >= 240 {
-                presentResult("BattleEndDraw")
+                presentResult("BattleEndWin")
             }
         }
     }
@@ -381,11 +386,14 @@ class BattleScene: SKScene {
     func presentResult(_ result: String){
         gameOver = true
         if let endScene = SKScene(fileNamed: result){
-            if let endNode = endScene.childNode(withName: "WinScreen") {
+            if let endNode = endScene.childNode(withName: "EndScreen") {
                 endNode.removeFromParent()
                 endNode.setScale(0)
+                endNode.position.y += 50
                 self.addChild(endNode)
-                endNode.run(SKAction.scale(to: 1, duration: 1), completion: {})
+                endNode.run(SKAction.scale(to: 0.4, duration: 1), completion: {})
+                //endNode.run(SKAction.playSoundFileNamed("EndGameSound", waitForCompletion: false))
+                
             }
         }
     }
