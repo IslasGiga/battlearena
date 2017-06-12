@@ -389,7 +389,7 @@ class BattleScene: SKScene {
             if let endNode = endScene.childNode(withName: "EndScreen") {
                 endNode.removeFromParent()
                 endNode.setScale(0)
-                endNode.position.y += 50
+
                 self.addChild(endNode)
                 endNode.run(SKAction.scale(to: 0.4, duration: 1), completion: {})
                 //endNode.run(SKAction.playSoundFileNamed("EndGameSound", waitForCompletion: false))
