@@ -37,6 +37,16 @@ class CharacterCard: Card {
     //LifeBarSprite
     var lifeBar : LifeBar?
     
+    var walkingEastAnimationTextures = [SKTexture]()
+    var walkingWestAnimationTextures = [SKTexture]()
+    var walkingNorthAnimationTextures = [SKTexture]()
+    var walkingSouthAnimationTextures = [SKTexture]()
+    var walkingSouthEastAnimationTextures = [SKTexture]()
+    var walkingSouthWestAnimationTextures = [SKTexture]()
+    var walkingNorthWestAnimationTextures = [SKTexture]()
+    var walkingNorthEastAnimationTextures = [SKTexture]()
+    
+    
     init(image: UIImage, name: String, cardDescription: String, manaCost: Int, summoningTime: Int, level: Int, xp: Int, atackPoints: Int, atackSpeed: CGFloat, atackArea: Int, atackRange: CGFloat, speed: Int, healthPoints: Int , battleScene: BattleScene, teamId: Int) {
         
         
@@ -141,6 +151,10 @@ class CharacterCard: Card {
                 }
             }
         }
+        
+        
+        
+        
     }
     
     //character moves towards target it's speed por 0.2 seconds
@@ -235,10 +249,13 @@ class CharacterCard: Card {
             }
         case .move:
             self.findNearestTargetAndAtack()
+            
+            
+            
             //print("\(self.monsterName) \(self.id) is moving")
             let target = (self.component(ofType: TargetIndexComponent.self)?.targetIndex)!
             
-            //Islas: Acho q o melhor lugar pra animar o movimento é dentro dessa função de movimento
+           
             self.moveTowardsTarget(characters[target])
         case .dead:
             //print("\(self.monsterName) \(self.id) is dead")
@@ -246,7 +263,7 @@ class CharacterCard: Card {
             //
             //MARK: maybe this needs a flag for not repeating
             //
-            //Islas: Animas morte aqui, para garantir que a animação não será interrompida e coloca pra ser removido do parent no fim da animação com um completion handler da animação. Acho q tem q fazer uma flag pra isso não se repetir tbm
+            //Islas: Animar morte aqui, para garantir que a animação não será interrompida e coloca pra ser removido do parent no fim da animação com um completion handler da animação. Acho q tem q fazer uma flag pra isso não se repetir tbm
             self.spriteNode.removeFromParent()
         }
     }
