@@ -354,44 +354,83 @@ class BattleScene: SKScene {
     //check for game end conditions
     func checkGameEnd(){
         if !gameOver{
-            if characters[1].state == .dead{
-                presentResult("BattleEndWin")
-            }else if characters[0].state == .dead {
-                presentResult("BattleEndLose")
-            }else if self.gameTime >= 180 {
-                var scoreA = 0
-                var scoreB = 0
-                for i in 2...4{
-                    if characters[i].state == .dead {
-                        scoreB += 1
-                    }
-                    if characters[i+3].state == .dead{
-                        scoreA += 1
-                    }
+            
+            var scoreA = 0
+            var scoreB = 0
+            
+            for i in 2...4{
+                if characters[i].state == .dead {
+                    scoreB += 1
                 }
+                if characters[i+3].state == .dead{
+                    scoreA += 1
+                }
+            }
+            
+            if characters[1].state == .dead{
+                presentResult("BattleEndWin", scoreA: 4, scoreB: scoreB)
+            }else if characters[0].state == .dead {
+                presentResult("BattleEndLose", scoreA: scoreA, scoreB: 4)
+            }else if self.gameTime >= 180 {
                 if scoreA > scoreB {
-                    presentResult("BattleEndWin")
+                    presentResult("BattleEndWin", scoreA: scoreA, scoreB: scoreB)
                 }
                 if scoreB > scoreA {
-                    presentResult("BattleEndLose")
+                    presentResult("BattleEndLose", scoreA: scoreA, scoreB: scoreB)
                 }
             }
             if self.gameTime >= 240 {
-                presentResult("BattleEndWin")
+                presentResult("BattleEndWin", scoreA: scoreA, scoreB: scoreB)
             }
         }
     }
     
     //Shows End of game Menu
-    func presentResult(_ result: String){
+    func presentResult(_ result: String, scoreA: Int, scoreB: Int){
         gameOver = true
         if let endScene = SKScene(fileNamed: result){
             if let endNode = endScene.childNode(withName: "EndScreen") {
                 endNode.removeFromParent()
                 endNode.setScale(0)
-
+                
+                
+                let starAction = SKAction.group([SKAction.rotate(byAngle: 720.0, duration: 1),SKAction.scale(to: 0.5, duration: 1)])
+                
+                var stars : [SKNode] = []
+                
+                var enemyStars : [SKNode] = []
+                
+                for i in 1...4 {
+                    if let star = endNode.childNode(withName: "PlayerWin\(i)"){
+                        star.setScale(0.0)
+                        stars.append(star)
+                    }
+                    if let enemyStar = endNode.childNode(withName: "EnemyWin\(i)"){
+                        enemyStar.setScale(0.0)
+                        enemyStars.append(enemyStar)
+                    }
+                }
+                
                 self.addChild(endNode)
-                endNode.run(SKAction.scale(to: 0.4, duration: 1), completion: {})
+                
+                endNode.run(SKAction.scale(to: 0.4, duration: 1), completion: {
+                    
+                    if scoreB > 0 {
+                        for i in 0...scoreB - 1 {
+                            enemyStars[i].run(SKAction.wait(forDuration: 0.5 * Double(i) ), completion: {
+                                enemyStars[i].run(starAction)
+                            })
+                        }
+                    }
+                    
+                    if scoreA > 0 {
+                        for i in 0...scoreA - 1 {
+                            stars[i].run(SKAction.wait(forDuration: 0.5 * Double(i) ), completion: {
+                                stars[i].run(starAction)
+                            })
+                        }
+                    }
+                })
                 //endNode.run(SKAction.playSoundFileNamed("EndGameSound", waitForCompletion: false))
                 
             }
