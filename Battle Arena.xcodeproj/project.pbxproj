@@ -25,6 +25,7 @@
 		77947EA11ED60F5700DFD6F8 /* LifeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77947EA01ED60F5700DFD6F8 /* LifeBar.swift */; };
 		77A5DB691EC910EE00816306 /* battlearena.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77A5DB671EC910EE00816306 /* battlearena.xcdatamodeld */; };
 		77E03E9B1EF00424000F574A /* arrow.wav in Resources */ = {isa = PBXBuildFile; fileRef = 77E03E9A1EF00424000F574A /* arrow.wav */; };
+		77E03E9D1EF00A8C000F574A /* battleOrch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 77E03E9C1EF00A8C000F574A /* battleOrch.mp3 */; };
 		77EE5B7E1EDD96F800B71217 /* CardLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE5B7D1EDD96F800B71217 /* CardLoader.swift */; };
 		77EE5B811EDD97AF00B71217 /* Dwarf.json in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5B801EDD97AF00B71217 /* Dwarf.json */; };
 		77EE5B831EDD97B700B71217 /* Cyclope.json in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5B821EDD97B700B71217 /* Cyclope.json */; };
@@ -76,6 +77,7 @@
 		77A15689AC2F3070A3646F73 /* Pods-Battle Arena.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Battle Arena.release.xcconfig"; path = "Pods/Target Support Files/Pods-Battle Arena/Pods-Battle Arena.release.xcconfig"; sourceTree = "<group>"; };
 		77A5DB681EC910EE00816306 /* battlearena.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = battlearena.xcdatamodel; sourceTree = "<group>"; };
 		77E03E9A1EF00424000F574A /* arrow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = arrow.wav; sourceTree = "<group>"; };
+		77E03E9C1EF00A8C000F574A /* battleOrch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = battleOrch.mp3; sourceTree = "<group>"; };
 		77EE5B7D1EDD96F800B71217 /* CardLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardLoader.swift; sourceTree = "<group>"; };
 		77EE5B801EDD97AF00B71217 /* Dwarf.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Dwarf.json; sourceTree = "<group>"; };
 		77EE5B821EDD97B700B71217 /* Cyclope.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cyclope.json; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 		79DE87B71EC0953900CAE28D /* Battle Arena */ = {
 			isa = PBXGroup;
 			children = (
+				77E03E9C1EF00A8C000F574A /* battleOrch.mp3 */,
 				77E03E9A1EF00424000F574A /* arrow.wav */,
 				77EE5B7F1EDD972100B71217 /* Cards */,
 				79AEAE051EDC4BD800B89420 /* Fonts */,
@@ -353,6 +356,7 @@
 				79DE87C41EC0953900CAE28D /* Main.storyboard in Resources */,
 				2375F9FE1EE192330083C954 /* Mummy.json in Resources */,
 				2375FA011EE193A50083C954 /* Knight.json in Resources */,
+				77E03E9D1EF00A8C000F574A /* battleOrch.mp3 in Resources */,
 				2375F9FC1EE191290083C954 /* Satyr.json in Resources */,
 				79DE87BB1EC0953900CAE28D /* BattleScene.sks in Resources */,
 				79DE87C61EC0953900CAE28D /* Assets.xcassets in Resources */,

@@ -41,8 +41,19 @@ class CharacterCard: Card {
     
     let audioPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: "\(Bundle.main.resourcePath!)/arrow.wav"))
 
+
+    var cardImage : UIImage!
     
-    init(image: UIImage, name: String, cardDescription: String, manaCost: Int, summoningTime: Int, level: Int, xp: Int, atackPoints: Int, atackSpeed: CGFloat, atackArea: Int, atackRange: CGFloat, speed: Int, healthPoints: Int , battleScene: BattleScene, teamId: Int) {
+    init(image: UIImage, name: String, cardDescription: String, manaCost: Int, summoningTime: Int, level: Int, xp: Int, atackPoints: Int, atackSpeed: CGFloat, atackArea: Int, atackRange: CGFloat, speed: Int, healthPoints: Int , battleScene: BattleScene, teamId: Int, cardImage: UIImage) {
+
+//    var walkingEastAnimationTextures = [SKTexture]()
+//    var walkingWestAnimationTextures = [SKTexture]()
+//    var walkingNorthAnimationTextures = [SKTexture]()
+//    var walkingSouthAnimationTextures = [SKTexture]()
+//    var walkingSouthEastAnimationTextures = [SKTexture]()
+//    var walkingSouthWestAnimationTextures = [SKTexture]()
+//    var walkingNorthWestAnimationTextures = [SKTexture]()
+//    var walkingNorthEastAnimationTextures = [SKTexture]()
         
         
         super.init(image: image,
@@ -65,10 +76,7 @@ class CharacterCard: Card {
         
         self.spriteNode = SKSpriteNode(imageNamed: "character")
         
-        if teamId == 1{
-            self.spriteNode.color = UIColor.lightGray
-        
-        }
+        self.cardImage = cardImage
         
         self.spriteNode.texture = SKTexture(image: image)
         
@@ -146,6 +154,10 @@ class CharacterCard: Card {
                 }
             }
         }
+        
+        
+        
+        
     }
     
     //character moves towards target it's speed por 0.2 seconds
@@ -204,10 +216,13 @@ class CharacterCard: Card {
         }
     }
     
+    
+    //MARK: Function called for each character at the scene update for they to take actions based on their state
     func takeAction(){
         let characters : [CharacterCard] = self.battleScene.characters
         if (self.component(ofType: HealthComponent.self)?.healthPoints)! <= 0 {
             self.state = .dead
+            
         }else{
             if let target = self.component(ofType: TargetIndexComponent.self)?.targetIndex {
                 if (characters[target].component(ofType: HealthComponent.self)?.healthPoints)! <= 0 {
@@ -220,6 +235,7 @@ class CharacterCard: Card {
         switch self.state {
         case .idle:
             //            print("\(self.monsterName) \(self.id) is idle")
+            //Islas: Aqui pode ser onde reseta a imagem pra uma parada ou uma animação de respirando, mas acho q ela só seria vista se parassemos tudo no fim do jogo
             self.findNearestTargetAndAtack()
         case .atack:
             let target = (self.component(ofType: TargetIndexComponent.self)?.targetIndex)!
@@ -229,6 +245,8 @@ class CharacterCard: Card {
                 
                 //print("\(self.monsterName) \(self.id) atacks \(monsters[self.target!].monsterName) \(monsters[self.target!].id)")
                 
+                
+                //Islas: colocar dentro da função atack a animação de ataque
                 self.atack()
                 
             }else{
@@ -236,8 +254,13 @@ class CharacterCard: Card {
             }
         case .move:
             self.findNearestTargetAndAtack()
+            
+            
+            
             //print("\(self.monsterName) \(self.id) is moving")
             let target = (self.component(ofType: TargetIndexComponent.self)?.targetIndex)!
+            
+           
             self.moveTowardsTarget(characters[target])
         case .dead:
             //print("\(self.monsterName) \(self.id) is dead")
@@ -245,7 +268,7 @@ class CharacterCard: Card {
             //
             //MARK: maybe this needs a flag for not repeating
             //
-            
+            //Islas: Animar morte aqui, para garantir que a animação não será interrompida e coloca pra ser removido do parent no fim da animação com um completion handler da animação. Acho q tem q fazer uma flag pra isso não se repetir tbm
             self.spriteNode.removeFromParent()
         }
     }

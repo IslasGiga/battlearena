@@ -14,7 +14,7 @@ class BattleScene: SKScene {
     
     var enemy : AIEnemy?
     
-    var entities = [GKEntity]()
+    var entitvar = [GKEntity]()
     var graphs = [String : GKGraph]()
     
     //for identifying distincts character nodes
@@ -47,6 +47,8 @@ class BattleScene: SKScene {
     
     //time passed in game
     var gameTime : TimeInterval = 0.0
+    var gameTimeLabel : SKLabelNode!
+    
     
     //time control variable
     var preveousUpdateTime : TimeInterval = 0
@@ -65,6 +67,7 @@ class BattleScene: SKScene {
                  "Knight",
                  "Wizard"]
     
+    let audioPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: "\(Bundle.main.resourcePath!)/battleOrch.mp3"))
     
     //MARK: SceneDidLoad/DidMoveToScene
     
@@ -82,6 +85,7 @@ class BattleScene: SKScene {
         //loading Cards on menu
         loadCards()
         
+        audioPlayer?.play()
 
         enemy = AIEnemy(game: self)
 
@@ -99,8 +103,9 @@ class BattleScene: SKScene {
             if self.selectedCard != 5{
                 summonCharacter(type: self.selectedCard + 1 , id: self.nextCharId, team: 0, pos: pos)
                 
-            }else{
-                summonCharacter(type: 2, id: self.nextCharId, team: 1, pos: pos)
+//            }else{
+//                summonCharacter(type: 2, id: self.nextCharId, team: 1, pos: pos)
+//            }
             }
         }
     }
@@ -130,7 +135,7 @@ class BattleScene: SKScene {
                         }
                     }
                 }
-                if node.name == "PlayAgainButton"{
+                if node.name == "OKButtonCover"{
                     playAgain()
                 }
             }
@@ -152,7 +157,7 @@ class BattleScene: SKScene {
     
     func playAgain(){
         if let scene = GKScene(fileNamed: "BattleScene") {
-            
+
             // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! BattleScene? {
                 
@@ -175,16 +180,23 @@ class BattleScene: SKScene {
     
     //MARK: Scene Update
     override func update(_ currentTime: TimeInterval) {
-        checkGameEnd()
         
-        updateGameTime(currentTime)
+        //What happens inside this if stops when game is over
+        if !gameOver {
+            checkGameEnd()
+            
+            updateGameTime(currentTime)
+            
+            //update charactes actions
+            for character in characters {
+                character.takeAction()
+            }
+            
+            enemy?.playStrategy(atIndex: enemy!.pickStrategy() )
+        }
         
         updateMana(currentTime)
         
-        //update charactes actions
-        for character in characters {
-            character.takeAction()
-        }
     }
     
 
@@ -196,6 +208,14 @@ class BattleScene: SKScene {
         }
         self.gameTime += currentTime - self.preveousUpdateTime
         self.preveousUpdateTime = currentTime
+        if self.gameTime <= 180 {
+            let timer = 180 - Int(self.gameTime)
+            self.gameTimeLabel.text = "\(timer / 60):\(timer % 60)"
+        }else{
+            let timer = 240 - Int(self.gameTime)
+            self.gameTimeLabel.text = "\(timer / 60):\(timer % 60)"
+        }
+        //self.gameTimeLabel.text = "\(Int(self.gameTime) / 60):\(Int(self.gameTime) % 60)"
     }
     
 
@@ -205,13 +225,20 @@ class BattleScene: SKScene {
         if (self.manaUpdateTime == 0) {
             self.manaUpdateTime = currentTime
         }else{
-            if currentTime - self.manaUpdateTime >= 1 && self.mana < 100.0 && !self.manaUpadateFlag {
-                self.manaUpadateFlag = true
-                self.manaBar?.run(SKAction.resize(byWidth: 0, height: 20, duration: 1), completion: {
-                    self.mana += 10.0
+            if currentTime - self.manaUpdateTime >= 1 && !self.manaUpadateFlag {
+                if self.mana < 100.0 {
+                    self.manaUpadateFlag = true
+                    self.manaBar?.run(SKAction.resize(byWidth: 0, height: 20, duration: 1), completion: {
+                        self.mana += 10.0
+                        self.manaUpdateTime = 0
+                        self.manaUpadateFlag = false
+                    })
+                }
+                if self.enemy!.mana < 100.0 {
+                    self.enemy?.mana += 10.0
                     self.manaUpdateTime = 0
-                    self.manaUpadateFlag = false
-                })
+                }
+                
             }
         }
     }
@@ -220,7 +247,7 @@ class BattleScene: SKScene {
     //MARK: Summon Character function
     func summonCharacter(type: Int, id: Int, team: Int, pos: CGPoint) {
         
-        let character = CharacterCard(image: #imageLiteral(resourceName: "character"), name: "CharType:\(type) id:\(id)", cardDescription: "Will be obtained from db", manaCost: type, summoningTime: 1, level: 1, xp: 0, atackPoints: type * 10, atackSpeed: (5.0 - CGFloat(type))*0.25, atackArea: 1, atackRange: 100.0 - CGFloat(type*10), speed: 10, healthPoints: 50*type, battleScene: self, teamId: team)
+        let character = CharacterCard(image: #imageLiteral(resourceName: "character"), name: "CharType:\(type) id:\(id)", cardDescription: "Will be obtained from db", manaCost: type, summoningTime: 1, level: 1, xp: 0, atackPoints: type * 10, atackSpeed: (5.0 - CGFloat(type))*0.25, atackArea: 1, atackRange: 100.0 - CGFloat(type*10), speed: 10, healthPoints: 50*type, battleScene: self, teamId: team, cardImage: #imageLiteral(resourceName: "character"))
         let manaCost = character.getManaCost()*10.0
         if self.mana >= manaCost {
             self.characters.append(character)
@@ -288,6 +315,29 @@ class BattleScene: SKScene {
                 self.addChild(barNode)
             }
             
+            if let timeLabel = menuScene.childNode(withName: "TimeLabel") as? SKLabelNode {
+                self.gameTimeLabel = timeLabel
+                timeLabel.removeFromParent()
+                self.addChild(timeLabel)
+            }
+            
+            if let EnemyName = menuScene.childNode(withName: "EnemyNameLabel") as? SKLabelNode {
+                
+                //EenemyName.texte =?
+                
+                EnemyName.removeFromParent()
+                self.addChild(EnemyName)
+            }
+            
+            if let EnemyTeam = menuScene.childNode(withName: "EnemyTeamLabel") as? SKLabelNode {
+                
+                //EnemyTeam.text =?
+                
+                EnemyTeam.removeFromParent()
+                self.addChild(EnemyTeam)
+            }
+
+            
         }
 
     }
@@ -298,14 +348,14 @@ class BattleScene: SKScene {
         let towerRange = self.battleNode!.size.width/3
         
         //Primary Towers
-        let primaryTowerA = PrimaryTower(image: #imageLiteral(resourceName: "turret"), name: "PrimaryTower", cardDescription: "You lose if this tower gets destroyed", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 25, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 2000, battleScene: self, teamId: 0)
+        let primaryTowerA = PrimaryTower(image: #imageLiteral(resourceName: "turret"), name: "PrimaryTower", cardDescription: "You lose if this tower gets destroyed", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 25, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 2000, battleScene: self, teamId: 0, cardImage: #imageLiteral(resourceName: "turret"))
         primaryTowerA.spriteNode.position = self.battleNode!.position
         primaryTowerA.spriteNode.position.y -= self.battleNode!.size.height/2 - primaryTowerA.spriteNode.size.height/2
         primaryTowerA.spriteNode.zPosition = 3
         self.characters.append(primaryTowerA)
         self.addChild(primaryTowerA.spriteNode)
         
-        let primaryTowerB = PrimaryTower(image: #imageLiteral(resourceName: "turret"), name: "PrimaryTower", cardDescription: "You lose if this tower gets destroyed", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 25, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 2000, battleScene: self, teamId: 1)
+        let primaryTowerB = PrimaryTower(image: #imageLiteral(resourceName: "turret"), name: "PrimaryTower", cardDescription: "You lose if this tower gets destroyed", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 25, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 2000, battleScene: self, teamId: 1, cardImage: #imageLiteral(resourceName: "turret"))
         primaryTowerB.spriteNode.position = self.battleNode!.position
         primaryTowerB.spriteNode.position.y += self.battleNode!.size.height/2 - primaryTowerB.spriteNode.size.height/2
         primaryTowerB.spriteNode.zPosition = 3
@@ -313,7 +363,7 @@ class BattleScene: SKScene {
         self.addChild(primaryTowerB.spriteNode)
         
         for i in 0...2{
-            let secundaryTower = SecundaryTower(image: #imageLiteral(resourceName: "turret"), name: "SecundaryTower", cardDescription: "Main sefenses of your territory", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 20, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 1000, battleScene: self, teamId: 0)
+            let secundaryTower = SecundaryTower(image: #imageLiteral(resourceName: "turret"), name: "SecundaryTower", cardDescription: "Main sefenses of your territory", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 20, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 1000, battleScene: self, teamId: 0, cardImage: #imageLiteral(resourceName: "turret"))
             
             secundaryTower.spriteNode.position = self.battleNode!.position
             secundaryTower.spriteNode.position.y -= self.battleNode!.size.height/2 - 4 * primaryTowerA.spriteNode.size.height/2
@@ -326,7 +376,7 @@ class BattleScene: SKScene {
         }
         
         for i in 0...2{
-            let secundaryTower = SecundaryTower(image: #imageLiteral(resourceName: "turret"), name: "SecundaryTower", cardDescription: "Main sefenses of your territory", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 20, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 1000, battleScene: self, teamId: 1)
+            let secundaryTower = SecundaryTower(image: #imageLiteral(resourceName: "turret"), name: "SecundaryTower", cardDescription: "Main defenses of your territory", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 20, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 1000, battleScene: self, teamId: 1, cardImage: #imageLiteral(resourceName: "turret"))
             
             secundaryTower.spriteNode.position = self.battleNode!.position
             secundaryTower.spriteNode.position.y += self.battleNode!.size.height/2 - 4 * primaryTowerA.spriteNode.size.height/2
@@ -342,43 +392,86 @@ class BattleScene: SKScene {
     //check for game end conditions
     func checkGameEnd(){
         if !gameOver{
-            if characters[1].state == .dead{
-                presentResult("BattleEndWin")
-            }else if characters[0].state == .dead {
-                presentResult("BattleEndLose")
-            }else if self.gameTime >= 180 {
-                var scoreA = 0
-                var scoreB = 0
-                for i in 2...4{
-                    if characters[i].state == .dead {
-                        scoreB += 1
-                    }
-                    if characters[i+3].state == .dead{
-                        scoreA += 1
-                    }
+            
+            var scoreA = 0
+            var scoreB = 0
+            
+            for i in 2...4{
+                if characters[i].state == .dead {
+                    scoreB += 1
                 }
+                if characters[i+3].state == .dead{
+                    scoreA += 1
+                }
+            }
+            
+            if characters[1].state == .dead{
+                presentResult("BattleEndWin", scoreA: 4, scoreB: scoreB)
+            }else if characters[0].state == .dead {
+                presentResult("BattleEndLose", scoreA: scoreA, scoreB: 4)
+            }else if self.gameTime >= 180 {
                 if scoreA > scoreB {
-                    presentResult("BattleEndWin")
+                    presentResult("BattleEndWin", scoreA: scoreA, scoreB: scoreB)
                 }
                 if scoreB > scoreA {
-                    presentResult("BattleEndLose")
+                    presentResult("BattleEndLose", scoreA: scoreA, scoreB: scoreB)
                 }
             }
             if self.gameTime >= 240 {
-                presentResult("BattleEndDraw")
+                presentResult("BattleEndWin", scoreA: scoreA, scoreB: scoreB)
             }
         }
     }
     
     //Shows End of game Menu
-    func presentResult(_ result: String){
+    func presentResult(_ result: String, scoreA: Int, scoreB: Int){
+        audioPlayer?.stop()
         gameOver = true
         if let endScene = SKScene(fileNamed: result){
-            if let endNode = endScene.childNode(withName: "WinScreen") {
+            if let endNode = endScene.childNode(withName: "EndScreen") {
                 endNode.removeFromParent()
                 endNode.setScale(0)
+                
+                
+                let starAction = SKAction.group([SKAction.rotate(byAngle: 720.0, duration: 1),SKAction.scale(to: 0.5, duration: 1)])
+                
+                var stars : [SKNode] = []
+                
+                var enemyStars : [SKNode] = []
+                
+                for i in 1...4 {
+                    if let star = endNode.childNode(withName: "PlayerWin\(i)"){
+                        star.setScale(0.0)
+                        stars.append(star)
+                    }
+                    if let enemyStar = endNode.childNode(withName: "EnemyWin\(i)"){
+                        enemyStar.setScale(0.0)
+                        enemyStars.append(enemyStar)
+                    }
+                }
+                
                 self.addChild(endNode)
-                endNode.run(SKAction.scale(to: 1, duration: 1), completion: {})
+                
+                endNode.run(SKAction.scale(to: 0.4, duration: 1), completion: {
+                    
+                    if scoreB > 0 {
+                        for i in 0...scoreB - 1 {
+                            enemyStars[i].run(SKAction.wait(forDuration: 0.5 * Double(i) ), completion: {
+                                enemyStars[i].run(starAction)
+                            })
+                        }
+                    }
+                    
+                    if scoreA > 0 {
+                        for i in 0...scoreA - 1 {
+                            stars[i].run(SKAction.wait(forDuration: 0.5 * Double(i) ), completion: {
+                                stars[i].run(starAction)
+                            })
+                        }
+                    }
+                })
+                //endNode.run(SKAction.playSoundFileNamed("EndGameSound", waitForCompletion: false))
+                
             }
         }
     }
@@ -398,9 +491,149 @@ class BattleScene: SKScene {
     
     func loadMenuCards(){
         for i in 0...4{
-            //cards[i].color = UIColor.blue
-            cards[i].texture = deck[i].spriteNode.texture
+            cards[i].texture = SKTexture(image: deck[i].cardImage)
         }
     }
     
+    func spawnCharacter(fromCard card: CharacterCard, atPosition pos: CGPoint, team: Int){
+        if let name = String((card.component(ofType: InfoCardComponent.self)?.name)!) {
+            let cardLoader = CardLoader(scene: self)
+            if let card = cardLoader.load(name: name, type: .character) as? CharacterCard{
+                card.teamId = team
+                card.spriteNode.position = pos
+                card.component(ofType: InfoCardComponent.self)?.name = "\((card.component(ofType: InfoCardComponent.self)?.name)!)\(self.nextCharId)"
+                self.nextCharId += 1
+                self.characters.append(card)
+                card.spriteNode.removeFromParent()
+                self.addChild(card.spriteNode)
+            }
+        }
+    }
+    
+    //MARK: Functions for AIEnemy measures
+    
+    func getAtackPosition() -> CGPoint{
+        var lowerHpIndex = 0
+        
+        for i in 2...4 {
+            let currentLowersHP = (self.characters[lowerHpIndex].component(ofType: HealthComponent.self)?.healthPoints)!
+            let checkedHP = (self.characters[i].component(ofType: HealthComponent.self)?.healthPoints)!
+            if checkedHP < currentLowersHP {
+                lowerHpIndex = i
+            }
+        }
+        
+        var pos = self.battleNode!.position
+        pos.y += 25
+        
+        if lowerHpIndex == 2 {
+            pos.x -= self.battleNode!.size.width / 4
+        }
+        
+        if lowerHpIndex == 4 {
+            pos.x += self.battleNode!.size.width / 4
+        }
+        
+        return pos
+    }
+    
+    //returns a point near to the closest turrent to an enemy
+    func getDefensePosition() -> CGPoint{
+        var pos = CGPoint(x: 0, y: 0)
+        
+        if let enemyAtacker = playerAliveCharacter() {
+            let atackedTowerIndex = nearestTower(toCharacter: enemyAtacker)
+            pos = self.characters[atackedTowerIndex].spriteNode.position
+            pos.x += 20
+            pos.y -= 20
+        }
+        
+        return pos
+    }
+    
+    //return a point to summon a character to gank an atack
+    func getGankPosition() -> CGPoint?{
+        var pos : CGPoint
+        if let gankableCharacter = playerAliveGankableCharacter() {
+            let closestTurrent = self.characters[nearestTower(toCharacter: gankableCharacter)]
+            pos = closestTurrent.spriteNode.position
+            pos.x += 20
+            pos.y -= 10
+            return pos
+        }
+        
+        return nil
+    }
+    
+    //returns a player alive character or nil in case of unexistent
+    func playerAliveCharacter() -> CharacterCard? {
+        if self.characters.count > 8 {
+            for i in 8...(self.characters.count - 1) {
+                if isPlayerCharacterAndAlive(character: self.characters[i]) {
+                    return self.characters[i]
+                }
+            }
+        }
+        return nil
+    }
+    
+    //return an enemy's alive character if any or nil
+    func enemyAliveCharacter() -> CharacterCard? {
+        if self.characters.count > 8 {
+            for i in 8...(self.characters.count - 1) {
+                if isEnemyCharacterAndAlive(self.characters[i]) {
+                    return self.characters[i]
+                }
+            }
+        }
+        return nil
+    }
+    
+    func isEnemyCharacterAndAlive(_ character: CharacterCard) -> Bool{
+        return character.state != .dead && character.teamId == 1
+    }
+    
+    //verufies if characer is alive and in the players team
+    func isPlayerCharacterAndAlive(character: CharacterCard) -> Bool{
+        return character.state != .dead && character.teamId == 0
+    }
+    
+    //verifies if character is close enought to a tourrent for a gank
+    func isPlayerCharacterGankable(character: CharacterCard) -> Bool{
+        var closeToATurrent = false
+        
+        let nearestTurretIndex = nearestTower(toCharacter: character)
+        let nearestTurret = self.characters[nearestTurretIndex]
+        let nearestTurretRange =  (nearestTurret.component(ofType: AtackComponent.self)?.atackRange)!
+        if character.distanceFromCharacter(character: nearestTurret) < nearestTurretRange + 50.0 {
+            closeToATurrent = true
+        }
+        
+        return isPlayerCharacterAndAlive(character: character) && closeToATurrent
+    }
+    
+    //return a gankable character or nill in inexistance
+    func playerAliveGankableCharacter() -> CharacterCard? {
+        var char : CharacterCard? = nil
+        if self.characters.count > 8 {
+            for i in 8...self.characters.count - 1 {
+                if isPlayerCharacterGankable(character: self.characters[i]) {
+                    char = self.characters[i]
+                }
+            }
+        }
+        
+        return char
+    }
+    
+    //return enemy tower index closest to the character
+    func nearestTower(toCharacter character: CharacterCard) -> Int {
+        var closest = 1
+        for i in 5...7 {
+            if character.distanceFromCharacter(character: self.characters[i]) < character.distanceFromCharacter(character: self.characters[closest]){
+                closest = i
+            }
+        }
+        return closest
+    }
 }

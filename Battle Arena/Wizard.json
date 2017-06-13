@@ -11,8 +11,9 @@
    "attack_range": 70,
    "type": 1,
    "targets": [0, 1, 2],
-   "movement_speed": 1,
+   "movement_speed": 3,
    "hp": 250,
     "quantity": 1,
-    "image": "char"
+    "image": "purpleWizardWalkingSoutheast01",
+    "card_image" : "test3"
 }

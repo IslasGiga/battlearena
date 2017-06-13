@@ -11,8 +11,9 @@
    "attack_range": 40,
    "type": 1,
    "targets": [0, 1],
-   "movement_speed": 2,
+   "movement_speed": 4,
    "hp": 500,
     "quantity": 1,
-    "image": "char"
+    "image": "character",
+    "card_image" : "test2"
 }
