@@ -11,7 +11,7 @@
    "attack_range": 30,
    "type": 1,
    "targets": [0, 1],
-   "movement_speed": 1,
+   "movement_speed": 5,
    "hp": 200,
     "quantity": 2,
     "image": "character",
