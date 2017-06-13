@@ -8,6 +8,7 @@
 
 import GameplayKit
 import SpriteKit
+import AVFoundation
 
 enum States {
     case idle
@@ -15,6 +16,7 @@ enum States {
     case move
     case dead
 }
+
 
 class CharacterCard: Card {
     
@@ -36,6 +38,9 @@ class CharacterCard: Card {
     
     //LifeBarSprite
     var lifeBar : LifeBar?
+    
+    let audioPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: "\(Bundle.main.resourcePath!)/arrow.wav"))
+
     
     init(image: UIImage, name: String, cardDescription: String, manaCost: Int, summoningTime: Int, level: Int, xp: Int, atackPoints: Int, atackSpeed: CGFloat, atackArea: Int, atackRange: CGFloat, speed: Int, healthPoints: Int , battleScene: BattleScene, teamId: Int) {
         
@@ -167,7 +172,6 @@ class CharacterCard: Card {
             self.isNotBusy = false
             if let target = self.component(ofType: TargetIndexComponent.self)?.targetIndex {
                 let enemie = self.battleScene.characters[target]
-                
                 let atackTime = (self.component(ofType: AtackComponent.self)?.atackSpeed)!
                 //MARK: Add switch case for kind of atack
                 //animateAtack() make character sprite animation on atack
@@ -176,6 +180,9 @@ class CharacterCard: Card {
                 atackSprite.position = self.spriteNode.position
                 atackSprite.zPosition = 5
                 self.battleScene.addChild(atackSprite)
+                
+                audioPlayer?.play()
+                
                 let atackTarget = self.battleScene.characters[target].spriteNode.position
                 atackSprite.run(SKAction.move(to: atackTarget, duration: TimeInterval(atackTime)), completion: {
                     atackSprite.removeFromParent()
