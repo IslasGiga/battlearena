@@ -14,5 +14,6 @@
    "movement_speed": 3,
    "hp": 400,
     "quantity": 1,
-    "image": "char"
+    "image": "youngSatyrCardPixel",
+    "card_image" : "test4"
 }

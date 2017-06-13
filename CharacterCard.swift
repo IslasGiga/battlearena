@@ -37,7 +37,9 @@ class CharacterCard: Card {
     //LifeBarSprite
     var lifeBar : LifeBar?
     
-    init(image: UIImage, name: String, cardDescription: String, manaCost: Int, summoningTime: Int, level: Int, xp: Int, atackPoints: Int, atackSpeed: CGFloat, atackArea: Int, atackRange: CGFloat, speed: Int, healthPoints: Int , battleScene: BattleScene, teamId: Int) {
+    var cardImage : UIImage!
+    
+    init(image: UIImage, name: String, cardDescription: String, manaCost: Int, summoningTime: Int, level: Int, xp: Int, atackPoints: Int, atackSpeed: CGFloat, atackArea: Int, atackRange: CGFloat, speed: Int, healthPoints: Int , battleScene: BattleScene, teamId: Int, cardImage: UIImage) {
         
         
         super.init(image: image,
@@ -60,10 +62,7 @@ class CharacterCard: Card {
         
         self.spriteNode = SKSpriteNode(imageNamed: "character")
         
-        if teamId == 1{
-            self.spriteNode.color = UIColor.lightGray
-        
-        }
+        self.cardImage = cardImage
         
         self.spriteNode.texture = SKTexture(image: image)
         

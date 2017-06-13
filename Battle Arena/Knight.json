@@ -14,5 +14,6 @@
    "movement_speed": 4,
    "hp": 500,
     "quantity": 1,
-    "image": "char"
+    "image": "character",
+    "card_image" : "test2"
 }

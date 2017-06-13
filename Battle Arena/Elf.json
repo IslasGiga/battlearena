@@ -14,5 +14,6 @@
    "movement_speed": 4,
    "hp": 300,
     "quantity": 1,
-    "image": "char"
+    "image": "purpleWizardWalkingSoutheast01",
+    "card_image" : "test3"
 }

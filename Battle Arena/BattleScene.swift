@@ -99,8 +99,9 @@ class BattleScene: SKScene {
             if self.selectedCard != 5{
                 summonCharacter(type: self.selectedCard + 1 , id: self.nextCharId, team: 0, pos: pos)
                 
-            }else{
-                summonCharacter(type: 2, id: self.nextCharId, team: 1, pos: pos)
+//            }else{
+//                summonCharacter(type: 2, id: self.nextCharId, team: 1, pos: pos)
+//            }
             }
         }
     }
@@ -242,7 +243,7 @@ class BattleScene: SKScene {
     //MARK: Summon Character function
     func summonCharacter(type: Int, id: Int, team: Int, pos: CGPoint) {
         
-        let character = CharacterCard(image: #imageLiteral(resourceName: "character"), name: "CharType:\(type) id:\(id)", cardDescription: "Will be obtained from db", manaCost: type, summoningTime: 1, level: 1, xp: 0, atackPoints: type * 10, atackSpeed: (5.0 - CGFloat(type))*0.25, atackArea: 1, atackRange: 100.0 - CGFloat(type*10), speed: 10, healthPoints: 50*type, battleScene: self, teamId: team)
+        let character = CharacterCard(image: #imageLiteral(resourceName: "character"), name: "CharType:\(type) id:\(id)", cardDescription: "Will be obtained from db", manaCost: type, summoningTime: 1, level: 1, xp: 0, atackPoints: type * 10, atackSpeed: (5.0 - CGFloat(type))*0.25, atackArea: 1, atackRange: 100.0 - CGFloat(type*10), speed: 10, healthPoints: 50*type, battleScene: self, teamId: team, cardImage: #imageLiteral(resourceName: "character"))
         let manaCost = character.getManaCost()*10.0
         if self.mana >= manaCost {
             self.characters.append(character)
@@ -343,14 +344,14 @@ class BattleScene: SKScene {
         let towerRange = self.battleNode!.size.width/3
         
         //Primary Towers
-        let primaryTowerA = PrimaryTower(image: #imageLiteral(resourceName: "turret"), name: "PrimaryTower", cardDescription: "You lose if this tower gets destroyed", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 25, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 2000, battleScene: self, teamId: 0)
+        let primaryTowerA = PrimaryTower(image: #imageLiteral(resourceName: "turret"), name: "PrimaryTower", cardDescription: "You lose if this tower gets destroyed", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 25, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 2000, battleScene: self, teamId: 0, cardImage: #imageLiteral(resourceName: "turret"))
         primaryTowerA.spriteNode.position = self.battleNode!.position
         primaryTowerA.spriteNode.position.y -= self.battleNode!.size.height/2 - primaryTowerA.spriteNode.size.height/2
         primaryTowerA.spriteNode.zPosition = 3
         self.characters.append(primaryTowerA)
         self.addChild(primaryTowerA.spriteNode)
         
-        let primaryTowerB = PrimaryTower(image: #imageLiteral(resourceName: "turret"), name: "PrimaryTower", cardDescription: "You lose if this tower gets destroyed", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 25, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 2000, battleScene: self, teamId: 1)
+        let primaryTowerB = PrimaryTower(image: #imageLiteral(resourceName: "turret"), name: "PrimaryTower", cardDescription: "You lose if this tower gets destroyed", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 25, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 2000, battleScene: self, teamId: 1, cardImage: #imageLiteral(resourceName: "turret"))
         primaryTowerB.spriteNode.position = self.battleNode!.position
         primaryTowerB.spriteNode.position.y += self.battleNode!.size.height/2 - primaryTowerB.spriteNode.size.height/2
         primaryTowerB.spriteNode.zPosition = 3
@@ -358,7 +359,7 @@ class BattleScene: SKScene {
         self.addChild(primaryTowerB.spriteNode)
         
         for i in 0...2{
-            let secundaryTower = SecundaryTower(image: #imageLiteral(resourceName: "turret"), name: "SecundaryTower", cardDescription: "Main sefenses of your territory", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 20, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 1000, battleScene: self, teamId: 0)
+            let secundaryTower = SecundaryTower(image: #imageLiteral(resourceName: "turret"), name: "SecundaryTower", cardDescription: "Main sefenses of your territory", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 20, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 1000, battleScene: self, teamId: 0, cardImage: #imageLiteral(resourceName: "turret"))
             
             secundaryTower.spriteNode.position = self.battleNode!.position
             secundaryTower.spriteNode.position.y -= self.battleNode!.size.height/2 - 4 * primaryTowerA.spriteNode.size.height/2
@@ -371,7 +372,7 @@ class BattleScene: SKScene {
         }
         
         for i in 0...2{
-            let secundaryTower = SecundaryTower(image: #imageLiteral(resourceName: "turret"), name: "SecundaryTower", cardDescription: "Main sefenses of your territory", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 20, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 1000, battleScene: self, teamId: 1)
+            let secundaryTower = SecundaryTower(image: #imageLiteral(resourceName: "turret"), name: "SecundaryTower", cardDescription: "Main sefenses of your territory", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 20, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 1000, battleScene: self, teamId: 1, cardImage: #imageLiteral(resourceName: "turret"))
             
             secundaryTower.spriteNode.position = self.battleNode!.position
             secundaryTower.spriteNode.position.y += self.battleNode!.size.height/2 - 4 * primaryTowerA.spriteNode.size.height/2
@@ -485,7 +486,7 @@ class BattleScene: SKScene {
     
     func loadMenuCards(){
         for i in 0...4{
-            cards[i].texture = deck[i].spriteNode.texture
+            cards[i].texture = SKTexture(image: deck[i].cardImage)
         }
     }
     
