@@ -26,6 +26,7 @@ class BattleScene: SKScene {
     //mana bar sprite
     var manaBar : SKSpriteNode?
     var manaBarBase : SKSpriteNode?
+    
     //current mana level percentage
     var mana : CGFloat = 70.0
     
@@ -41,6 +42,9 @@ class BattleScene: SKScene {
     
     //Player Deck of Cards (as colors for testing)
     var deck : [CharacterCard] = []
+    
+    var cardMenu : SKNode!
+    
     
     //current selected card
     var selectedCard = 5
@@ -100,7 +104,7 @@ class BattleScene: SKScene {
     //MARK: Touch Responses
     func touchDown(atPoint pos : CGPoint) {
         if (self.battleNode?.contains(pos))! {
-            if self.selectedCard != 5{
+            if self.selectedCard != 5 && !self.gameOver {
                 summonCharacter(card: self.deck[self.selectedCard], id: self.nextCharId, team: 0, pos: pos)
                 
 //            }else{
@@ -306,6 +310,7 @@ class BattleScene: SKScene {
     func loadUI() {
         if let menuScene = SKScene(fileNamed: "MenuScene") {
             let newNode = menuScene.childNode(withName: "themenu")
+            self.cardMenu = newNode
             newNode?.removeFromParent()
             self.addChild(newNode!)
             
@@ -524,9 +529,13 @@ class BattleScene: SKScene {
     }
     
     func loadMenuCards(){
-        for i in 0...4{
+        for i in 0...3{
             cards[i].texture = SKTexture(image: deck[i].cardImage)
+            if let costLabel = self.cardMenu.childNode(withName: "CardCost\(i)") as? SKLabelNode {
+                costLabel.text = "\(Int(deck[i].getManaCost())/10)"
+            }
         }
+        cards[4].texture = SKTexture(image: deck[4].cardImage)
     }
     
     func spawnCharacter(fromCard card: CharacterCard, atPosition pos: CGPoint, team: Int){
