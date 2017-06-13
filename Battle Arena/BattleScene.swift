@@ -46,6 +46,8 @@ class BattleScene: SKScene {
     
     //time passed in game
     var gameTime : TimeInterval = 0.0
+    var gameTimeLabel : SKLabelNode!
+    
     
     //time control variable
     var preveousUpdateTime : TimeInterval = 0
@@ -201,6 +203,14 @@ class BattleScene: SKScene {
         }
         self.gameTime += currentTime - self.preveousUpdateTime
         self.preveousUpdateTime = currentTime
+        if self.gameTime <= 180 {
+            let timer = 180 - Int(self.gameTime)
+            self.gameTimeLabel.text = "\(timer / 60):\(timer % 60)"
+        }else{
+            let timer = 240 - Int(self.gameTime)
+            self.gameTimeLabel.text = "\(timer / 60):\(timer % 60)"
+        }
+        //self.gameTimeLabel.text = "\(Int(self.gameTime) / 60):\(Int(self.gameTime) % 60)"
     }
     
 
@@ -299,6 +309,29 @@ class BattleScene: SKScene {
                 barNode.removeFromParent()
                 self.addChild(barNode)
             }
+            
+            if let timeLabel = menuScene.childNode(withName: "TimeLabel") as? SKLabelNode {
+                self.gameTimeLabel = timeLabel
+                timeLabel.removeFromParent()
+                self.addChild(timeLabel)
+            }
+            
+            if let EnemyName = menuScene.childNode(withName: "EnemyNameLabel") as? SKLabelNode {
+                
+                //EenemyName.texte =?
+                
+                EnemyName.removeFromParent()
+                self.addChild(EnemyName)
+            }
+            
+            if let EnemyTeam = menuScene.childNode(withName: "EnemyTeamLabel") as? SKLabelNode {
+                
+                //EnemyTeam.text =?
+                
+                EnemyTeam.removeFromParent()
+                self.addChild(EnemyTeam)
+            }
+
             
         }
 
