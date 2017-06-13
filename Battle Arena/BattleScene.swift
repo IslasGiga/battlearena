@@ -208,12 +208,25 @@ class BattleScene: SKScene {
         }
         self.gameTime += currentTime - self.preveousUpdateTime
         self.preveousUpdateTime = currentTime
+        
         if self.gameTime <= 180 {
             let timer = 180 - Int(self.gameTime)
-            self.gameTimeLabel.text = "\(timer / 60):\(timer % 60)"
+            
+            var sec = "\(timer % 60)"
+            if timer % 60 < 10 {
+                sec = "0\(timer % 60)"
+            }
+            
+            self.gameTimeLabel.text = "\(timer / 60):\(sec)"
         }else{
             let timer = 240 - Int(self.gameTime)
-            self.gameTimeLabel.text = "\(timer / 60):\(timer % 60)"
+            
+            var sec = "\(timer % 60)"
+            if timer % 60 < 10 {
+                sec = "0\(timer % 60)"
+            }
+            
+            self.gameTimeLabel.text = "\(timer / 60):\(sec)"
         }
         //self.gameTimeLabel.text = "\(Int(self.gameTime) / 60):\(Int(self.gameTime) % 60)"
     }
@@ -450,6 +463,9 @@ class BattleScene: SKScene {
                 endNode.removeFromParent()
                 endNode.setScale(0)
                 
+                let alphaLayer = endNode.childNode(withName: "alpha")
+                alphaLayer?.setScale(100)
+                alphaLayer?.run(SKAction.fadeAlpha(to: 0.7, duration: 1))
                 
                 let starAction = SKAction.group([SKAction.rotate(byAngle: 720.0, duration: 1),SKAction.scale(to: 0.5, duration: 1)])
                 
