@@ -97,7 +97,7 @@ class BattleScene: SKScene {
     func touchDown(atPoint pos : CGPoint) {
         if (self.battleNode?.contains(pos))! {
             if self.selectedCard != 5{
-                summonCharacter(type: self.selectedCard + 1 , id: self.nextCharId, team: 0, pos: pos)
+                summonCharacter(card: self.deck[self.selectedCard], id: self.nextCharId, team: 0, pos: pos)
                 
 //            }else{
 //                summonCharacter(type: 2, id: self.nextCharId, team: 1, pos: pos)
@@ -241,14 +241,18 @@ class BattleScene: SKScene {
     
     
     //MARK: Summon Character function
-    func summonCharacter(type: Int, id: Int, team: Int, pos: CGPoint) {
+    func summonCharacter(card: CharacterCard, id: Int, team: Int, pos: CGPoint) {
         
-        let character = CharacterCard(image: #imageLiteral(resourceName: "character"), name: "CharType:\(type) id:\(id)", cardDescription: "Will be obtained from db", manaCost: type, summoningTime: 1, level: 1, xp: 0, atackPoints: type * 10, atackSpeed: (5.0 - CGFloat(type))*0.25, atackArea: 1, atackRange: 100.0 - CGFloat(type*10), speed: 10, healthPoints: 50*type, battleScene: self, teamId: team, cardImage: #imageLiteral(resourceName: "character"))
-        let manaCost = character.getManaCost()*10.0
+//        let character = CharacterCard(image: #imageLiteral(resourceName: "character"), name: "CharType:\(type) id:\(id)", cardDescription: "Will be obtained from db", manaCost: type, summoningTime: 1, level: 1, xp: 0, atackPoints: type * 10, atackSpeed: (5.0 - CGFloat(type))*0.25, atackArea: 1, atackRange: 100.0 - CGFloat(type*10), speed: 10, healthPoints: 50*type, battleScene: self, teamId: team, cardImage: #imageLiteral(resourceName: "character"))
+        
+        let character = self.loader?.load(name: (card.component(ofType: InfoCardComponent.self)?.name)!, type: .character) as? CharacterCard
+        character?.teamId = 0
+        
+        let manaCost = CGFloat(character!.getManaCost())
         if self.mana >= manaCost {
-            self.characters.append(character)
-            character.spriteNode.position = pos
-            self.addChild(character.spriteNode)
+            self.characters.append(character!)
+            character?.spriteNode.position = pos
+            self.addChild(character!.spriteNode)
             self.nextCharId += 1
             
             
