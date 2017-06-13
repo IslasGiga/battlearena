@@ -24,7 +24,7 @@ class BattleScene: SKScene {
     
     //mana bar sprite
     var manaBar : SKSpriteNode?
-    
+    var manaBarBase : SKSpriteNode?
     //current mana level percentage
     var mana : CGFloat = 70.0
     
@@ -314,8 +314,22 @@ class BattleScene: SKScene {
             if let timeLabel = menuScene.childNode(withName: "TimeLabel") as? SKLabelNode {
                 self.gameTimeLabel = timeLabel
                 timeLabel.removeFromParent()
+                
+                
+                
+                
                 self.addChild(timeLabel)
             }
+            
+            
+            if let barBase = menuScene.childNode(withName: "BarBase") as? SKSpriteNode{
+                self.manaBarBase = barBase
+                barBase.removeFromParent()
+                self.addChild(manaBarBase!)
+                
+                
+            }
+            
             
             if let EnemyName = menuScene.childNode(withName: "EnemyNameLabel") as? SKLabelNode {
                 
