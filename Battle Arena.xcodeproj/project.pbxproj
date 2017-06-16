@@ -30,6 +30,9 @@
 		77EE5B811EDD97AF00B71217 /* Dwarf.json in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5B801EDD97AF00B71217 /* Dwarf.json */; };
 		77EE5B831EDD97B700B71217 /* Cyclope.json in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5B821EDD97B700B71217 /* Cyclope.json */; };
 		794840111EC09C7800239F64 /* ScenarioTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 794840101EC09C7800239F64 /* ScenarioTiles.sks */; };
+		795814D51EF3F47C00C1595C /* MainMenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 795814D41EF3F47C00C1595C /* MainMenuScene.sks */; };
+		795814D91EF3FD9A00C1595C /* StartBattleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 795814D81EF3FD9A00C1595C /* StartBattleScene.sks */; };
+		795814DF1EF401D900C1595C /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795814DE1EF401D900C1595C /* MainMenuScene.swift */; };
 		7971C2E51EC9E6BB0030A9A9 /* SecundaryTower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971C2E41EC9E6BB0030A9A9 /* SecundaryTower.swift */; };
 		7971C2E71EC9E8A40030A9A9 /* PrimaryTower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971C2E61EC9E8A40030A9A9 /* PrimaryTower.swift */; };
 		798D5EF41EC5D7F3009EEA2E /* InfoCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798D5EF31EC5D7F3009EEA2E /* InfoCardComponent.swift */; };
@@ -87,6 +90,9 @@
 		77EE5B801EDD97AF00B71217 /* Dwarf.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Dwarf.json; sourceTree = "<group>"; };
 		77EE5B821EDD97B700B71217 /* Cyclope.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cyclope.json; sourceTree = "<group>"; };
 		794840101EC09C7800239F64 /* ScenarioTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ScenarioTiles.sks; sourceTree = "<group>"; };
+		795814D41EF3F47C00C1595C /* MainMenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenuScene.sks; sourceTree = "<group>"; };
+		795814D81EF3FD9A00C1595C /* StartBattleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartBattleScene.sks; sourceTree = "<group>"; };
+		795814DE1EF401D900C1595C /* MainMenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 		7971C2E41EC9E6BB0030A9A9 /* SecundaryTower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecundaryTower.swift; sourceTree = "<group>"; };
 		7971C2E61EC9E8A40030A9A9 /* PrimaryTower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryTower.swift; sourceTree = "<group>"; };
 		798D5EF31EC5D7F3009EEA2E /* InfoCardComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCardComponent.swift; sourceTree = "<group>"; };
@@ -159,6 +165,9 @@
 			isa = PBXGroup;
 			children = (
 				79DE87BA1EC0953900CAE28D /* BattleScene.sks */,
+				795814D81EF3FD9A00C1595C /* StartBattleScene.sks */,
+				795814D41EF3F47C00C1595C /* MainMenuScene.sks */,
+				795814DE1EF401D900C1595C /* MainMenuScene.swift */,
 				2351AB8E1ED3477F00C09B1E /* MenuScene.sks */,
 				79DE87BE1EC0953900CAE28D /* BattleScene.swift */,
 				798D5EFB1EC5F9BD009EEA2E /* SplashScreenScene.sks */,
@@ -352,7 +361,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				795814D91EF3FD9A00C1595C /* StartBattleScene.sks in Resources */,
 				798FDC601EF002EF009694B1 /* PressStart2P.ttf in Resources */,
+				795814D51EF3F47C00C1595C /* MainMenuScene.sks in Resources */,
 				798FDC611EF002EF009694B1 /* 04B_30__.TTF in Resources */,
 				798FDC621EF002EF009694B1 /* 8BITWONDER.TTF in Resources */,
 				798FDC631EF002EF009694B1 /* Minecraftia-Regular.ttf in Resources */,
@@ -462,6 +473,7 @@
 				7971C2E51EC9E6BB0030A9A9 /* SecundaryTower.swift in Sources */,
 				7996F50C1EC20C6800044471 /* MagicCard.swift in Sources */,
 				798D5EF41EC5D7F3009EEA2E /* InfoCardComponent.swift in Sources */,
+				795814DF1EF401D900C1595C /* MainMenuScene.swift in Sources */,
 				7996F5061EC20BF600044471 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
