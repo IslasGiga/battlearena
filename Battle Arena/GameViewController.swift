@@ -42,8 +42,8 @@ class GameViewController: UIViewController {
         
         
         super.viewDidLoad()
-        //self.loadBattleScene()
-        self.loadMainMenuScene()
+        self.loadBattleScene()
+        //self.loadMainMenuScene()
         
     }
 
