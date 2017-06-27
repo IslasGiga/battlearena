@@ -25,6 +25,8 @@
 		2375FA091EF80B590083C954 /* BlueBeam.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2375FA081EF80B590083C954 /* BlueBeam.sks */; };
 		2375FA0B1EF810830083C954 /* StrikeDamage.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2375FA0A1EF810830083C954 /* StrikeDamage.sks */; };
 		67A40EA1AB40010B6E642C87 /* Pods_Battle_Arena.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49FCB7EA7CF6F5F484680A3 /* Pods_Battle_Arena.framework */; };
+		7791DE771EF80B10005EA395 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791DE761EF80B10005EA395 /* MenuScene.swift */; };
+		7791DE791EF80B1C005EA395 /* MenuuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7791DE781EF80B1C005EA395 /* MenuuScene.sks */; };
 		77947E9F1ED60BCE00DFD6F8 /* LifeBar.sks in Resources */ = {isa = PBXBuildFile; fileRef = 77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */; };
 		77947EA11ED60F5700DFD6F8 /* LifeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77947EA01ED60F5700DFD6F8 /* LifeBar.swift */; };
 		77A5DB691EC910EE00816306 /* battlearena.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77A5DB671EC910EE00816306 /* battlearena.xcdatamodeld */; };
@@ -34,6 +36,9 @@
 		77EE5B811EDD97AF00B71217 /* Dwarf.json in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5B801EDD97AF00B71217 /* Dwarf.json */; };
 		77EE5B831EDD97B700B71217 /* Cyclope.json in Resources */ = {isa = PBXBuildFile; fileRef = 77EE5B821EDD97B700B71217 /* Cyclope.json */; };
 		794840111EC09C7800239F64 /* ScenarioTiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 794840101EC09C7800239F64 /* ScenarioTiles.sks */; };
+		795814D51EF3F47C00C1595C /* MainMenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 795814D41EF3F47C00C1595C /* MainMenuScene.sks */; };
+		795814D91EF3FD9A00C1595C /* StartBattleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 795814D81EF3FD9A00C1595C /* StartBattleScene.sks */; };
+		795814DF1EF401D900C1595C /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795814DE1EF401D900C1595C /* MainMenuScene.swift */; };
 		7971C2E51EC9E6BB0030A9A9 /* SecundaryTower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971C2E41EC9E6BB0030A9A9 /* SecundaryTower.swift */; };
 		7971C2E71EC9E8A40030A9A9 /* PrimaryTower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7971C2E61EC9E8A40030A9A9 /* PrimaryTower.swift */; };
 		798D5EF41EC5D7F3009EEA2E /* InfoCardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798D5EF31EC5D7F3009EEA2E /* InfoCardComponent.swift */; };
@@ -81,10 +86,15 @@
 		2375F9FD1EE192330083C954 /* Mummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Mummy.json; sourceTree = "<group>"; };
 		2375F9FF1EE193A50083C954 /* Knight.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Knight.json; sourceTree = "<group>"; };
 		2375FA001EE193A50083C954 /* Wizard.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Wizard.json; sourceTree = "<group>"; };
+
 		2375FA041EF808AB0083C954 /* Fireball.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fireball.sks; sourceTree = "<group>"; };
 		2375FA061EF809F20083C954 /* PoisonGas.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PoisonGas.sks; sourceTree = "<group>"; };
 		2375FA081EF80B590083C954 /* BlueBeam.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BlueBeam.sks; sourceTree = "<group>"; };
 		2375FA0A1EF810830083C954 /* StrikeDamage.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StrikeDamage.sks; sourceTree = "<group>"; };
+
+		7791DE761EF80B10005EA395 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		7791DE781EF80B1C005EA395 /* MenuuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuuScene.sks; sourceTree = "<group>"; };
+
 		77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LifeBar.sks; sourceTree = "<group>"; };
 		77947EA01ED60F5700DFD6F8 /* LifeBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifeBar.swift; sourceTree = "<group>"; };
 		77A15689AC2F3070A3646F73 /* Pods-Battle Arena.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Battle Arena.release.xcconfig"; path = "Pods/Target Support Files/Pods-Battle Arena/Pods-Battle Arena.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +105,9 @@
 		77EE5B801EDD97AF00B71217 /* Dwarf.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Dwarf.json; sourceTree = "<group>"; };
 		77EE5B821EDD97B700B71217 /* Cyclope.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Cyclope.json; sourceTree = "<group>"; };
 		794840101EC09C7800239F64 /* ScenarioTiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ScenarioTiles.sks; sourceTree = "<group>"; };
+		795814D41EF3F47C00C1595C /* MainMenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MainMenuScene.sks; sourceTree = "<group>"; };
+		795814D81EF3FD9A00C1595C /* StartBattleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartBattleScene.sks; sourceTree = "<group>"; };
+		795814DE1EF401D900C1595C /* MainMenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 		7971C2E41EC9E6BB0030A9A9 /* SecundaryTower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecundaryTower.swift; sourceTree = "<group>"; };
 		7971C2E61EC9E8A40030A9A9 /* PrimaryTower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryTower.swift; sourceTree = "<group>"; };
 		798D5EF31EC5D7F3009EEA2E /* InfoCardComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCardComponent.swift; sourceTree = "<group>"; };
@@ -178,6 +191,9 @@
 			isa = PBXGroup;
 			children = (
 				79DE87BA1EC0953900CAE28D /* BattleScene.sks */,
+				795814D81EF3FD9A00C1595C /* StartBattleScene.sks */,
+				795814D41EF3F47C00C1595C /* MainMenuScene.sks */,
+				795814DE1EF401D900C1595C /* MainMenuScene.swift */,
 				2351AB8E1ED3477F00C09B1E /* MenuScene.sks */,
 				79DE87BE1EC0953900CAE28D /* BattleScene.swift */,
 				798D5EFB1EC5F9BD009EEA2E /* SplashScreenScene.sks */,
@@ -186,6 +202,8 @@
 				2375F9ED1EDC61C00083C954 /* BattleEndWin.sks */,
 				2375F9EF1EDC61DD0083C954 /* BattleEndLose.sks */,
 				2375F9F11EDC61EF0083C954 /* BattleEndDraw.sks */,
+				7791DE761EF80B10005EA395 /* MenuScene.swift */,
+				7791DE781EF80B1C005EA395 /* MenuuScene.sks */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -344,7 +362,7 @@
 				TargetAttributes = {
 					79DE87B41EC0953900CAE28D = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = BKWDS645Z7;
+						DevelopmentTeam = 9EGVR395L4;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -372,8 +390,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				795814D91EF3FD9A00C1595C /* StartBattleScene.sks in Resources */,
 				798FDC601EF002EF009694B1 /* PressStart2P.ttf in Resources */,
+
 				2375FA091EF80B590083C954 /* BlueBeam.sks in Resources */,
+
+				795814D51EF3F47C00C1595C /* MainMenuScene.sks in Resources */,
+
 				798FDC611EF002EF009694B1 /* 04B_30__.TTF in Resources */,
 				798FDC621EF002EF009694B1 /* 8BITWONDER.TTF in Resources */,
 				798FDC631EF002EF009694B1 /* Minecraftia-Regular.ttf in Resources */,
@@ -392,6 +415,7 @@
 				79DE87C91EC0953900CAE28D /* LaunchScreen.storyboard in Resources */,
 				2375F9F81EE18E6D0083C954 /* Elf.json in Resources */,
 				77E03E9B1EF00424000F574A /* arrow.wav in Resources */,
+				7791DE791EF80B1C005EA395 /* MenuuScene.sks in Resources */,
 				2375FA021EE193A50083C954 /* Wizard.json in Resources */,
 				79DE87BD1EC0953900CAE28D /* Actions.sks in Resources */,
 				2375FA071EF809F20083C954 /* PoisonGas.sks in Resources */,
@@ -461,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				798FDC5C1EF00187009694B1 /* PressStart2P.ttf in Sources */,
+				7791DE771EF80B10005EA395 /* MenuScene.swift in Sources */,
 				798FDC5D1EF00187009694B1 /* 04B_30__.TTF in Sources */,
 				798FDC5E1EF00187009694B1 /* 8BITWONDER.TTF in Sources */,
 				798FDC5F1EF00187009694B1 /* Minecraftia-Regular.ttf in Sources */,
@@ -486,6 +511,7 @@
 				7971C2E51EC9E6BB0030A9A9 /* SecundaryTower.swift in Sources */,
 				7996F50C1EC20C6800044471 /* MagicCard.swift in Sources */,
 				798D5EF41EC5D7F3009EEA2E /* InfoCardComponent.swift in Sources */,
+				795814DF1EF401D900C1595C /* MainMenuScene.swift in Sources */,
 				7996F5061EC20BF600044471 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -612,7 +638,7 @@
 			baseConfigurationReference = 89A3B74134BC8BDDA1098E9F /* Pods-Battle Arena.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BKWDS645Z7;
+				DEVELOPMENT_TEAM = 9EGVR395L4;
 				INFOPLIST_FILE = "Battle Arena/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -627,7 +653,7 @@
 			baseConfigurationReference = 77A15689AC2F3070A3646F73 /* Pods-Battle Arena.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BKWDS645Z7;
+				DEVELOPMENT_TEAM = 9EGVR395L4;
 				INFOPLIST_FILE = "Battle Arena/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
