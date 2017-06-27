@@ -23,13 +23,13 @@ class MainMenuScene: SKScene {
     
         gameViewController.registerView.alpha = 1
         
-        
-        
     }
     
     func loadStartBattleScene(){
         
     }
+    
+    
     
     
 }

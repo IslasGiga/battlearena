@@ -11,8 +11,11 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-
     
+    
+    
+ 
+
     @IBAction func registerUser(_ sender: Any) {
         
         
@@ -152,7 +155,6 @@ class GameViewController: UIViewController {
     
     func loadBattleScene(){
         if let scene = GKScene(fileNamed: "BattleScene") {
-            
             // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! BattleScene? {
                 
@@ -171,12 +173,10 @@ class GameViewController: UIViewController {
                 }
             }
         }
-        
     }
     
     func loadMenuScene(){
         if let scene = GKScene(fileNamed: "MenuuScene") {
-            
             // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! MenuScene? {
                 
@@ -195,8 +195,21 @@ class GameViewController: UIViewController {
                 }
             }
         }
-        
     }
-
     
+    func prepareObserver() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(setAlertController),
+                                               name: NSNotification.Name(rawValue: "setAlertControllerNotification"),
+                                               object: nil)
+    }
+    
+    func setAlertController() {
+        print("HI I'M BORGEZ")
+    }
+    
+    
+
 }
+
+
