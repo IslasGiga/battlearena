@@ -15,5 +15,7 @@
    "hp": 250,
     "quantity": 1,
     "image": "purpleWizardWalkingSoutheast01",
-    "card_image" : "wizardCard"
+    "card_image" : "wizardCard",
+    "atack_sound" : "Fireball",
+    "atack_effect" : "Fireball"
 }

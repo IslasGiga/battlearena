@@ -15,5 +15,7 @@
    "hp": 50,
     "quantity": 4,
     "image": "char",
-    "card_image" : "test"
+    "card_image" : "test",
+    "atack_sound" : "tackle",
+    "atack_effect" : "PoisonGas"
 }

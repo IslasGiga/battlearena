@@ -15,5 +15,7 @@
    "hp": 300,
     "quantity": 1,
     "image": "char",
-    "card_image" : "test3"
+    "card_image" : "test3",
+    "atack_sound" : "arrowhit",
+    "atack_effect" : "arrow"
 }

@@ -15,5 +15,7 @@
    "hp": 400,
     "quantity": 1,
     "image": "char",
-    "card_image" : "test4"
+    "card_image" : "test4",
+    "atack_sound" : "BlueBeam",
+    "atack_effect" : "BlueBeam"
 }

@@ -15,5 +15,7 @@
    "hp": 200,
     "quantity": 2,
     "image": "character",
-    "card_image" : "youngSatyrCardPixel"
+    "card_image" : "youngSatyrCardPixel",
+    "atack_sound" : "tackle",
+    "atack_effect" : ""
 }

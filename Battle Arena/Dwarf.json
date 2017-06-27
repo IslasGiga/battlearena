@@ -15,5 +15,7 @@
    "hp": 500,
    "quantity": 1,
     "image": "char",
-    "card_image" : "test"
+    "card_image" : "test",
+    "atack_sound" : "slash",
+    "atack_effect" : ""
 }

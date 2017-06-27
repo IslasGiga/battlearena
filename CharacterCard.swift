@@ -44,7 +44,9 @@ class CharacterCard: Card {
 
     var cardImage : UIImage!
     
-    init(image: UIImage, name: String, cardDescription: String, manaCost: Int, summoningTime: Int, level: Int, xp: Int, atackPoints: Int, atackSpeed: CGFloat, atackArea: Int, atackRange: CGFloat, speed: Int, healthPoints: Int , battleScene: BattleScene, teamId: Int, cardImage: UIImage) {
+    var atackEffect : String!
+    
+    init(image: UIImage, name: String, cardDescription: String, manaCost: Int, summoningTime: Int, level: Int, xp: Int, atackPoints: Int, atackSpeed: CGFloat, atackArea: Int, atackRange: CGFloat, speed: Int, healthPoints: Int , battleScene: BattleScene, teamId: Int, cardImage: UIImage, atackEffect: String) {
 
 //    var walkingEastAnimationTextures = [SKTexture]()
 //    var walkingWestAnimationTextures = [SKTexture]()
@@ -56,6 +58,7 @@ class CharacterCard: Card {
 //    var walkingNorthEastAnimationTextures = [SKTexture]()
         
         
+        
         super.init(image: image,
                    name: name,
                    cardDescription: cardDescription,
@@ -63,6 +66,8 @@ class CharacterCard: Card {
                    summoningTime: summoningTime,
                    level: level,
                    xp: xp)
+        
+        self.atackEffect = atackEffect
         
         self.addComponent(AtackComponent(atackPoints: atackPoints, atackSpeed: atackSpeed, atackArea: atackArea, atackRange: atackRange))
         
@@ -142,7 +147,7 @@ class CharacterCard: Card {
     
     func findNearestTargetAndAtack(){
         let characters = self.battleScene.characters
-        for i in 00..<characters.count {
+        for i in 0..<characters.count {
             if characters[i].teamId != self.teamId && characters[i].state != .dead {
                 self.state = .atack
                 if let target = self.component(ofType: TargetIndexComponent.self)?.targetIndex {
@@ -188,18 +193,23 @@ class CharacterCard: Card {
                 //MARK: Add switch case for kind of atack
                 //animateAtack() make character sprite animation on atack
                 
-                let atackSprite = SKSpriteNode(color: UIColor.red, size: CGSize(width: 5, height: 5))
-                atackSprite.position = self.spriteNode.position
-                atackSprite.zPosition = 5
-                self.battleScene.addChild(atackSprite)
+//                let atackSprite = SKSpriteNode(color: UIColor.red, size: CGSize(width: 5, height: 5))
+//                atackSprite.position = self.spriteNode.position
+//                atackSprite.zPosition = 5
+//                self.battleScene.addChild(atackSprite)
                 
                 audioPlayer?.play()
+//                
+//                let atackTarget = self.battleScene.characters[target].spriteNode.position
+//                atackSprite.run(SKAction.move(to: atackTarget, duration: TimeInterval(atackTime)), completion: {
+//                    atackSprite.removeFromParent()
+//                })
                 
-                let atackTarget = self.battleScene.characters[target].spriteNode.position
-                atackSprite.run(SKAction.move(to: atackTarget, duration: TimeInterval(atackTime)), completion: {
-                    atackSprite.removeFromParent()
-                })
+//                particleAtack(sksName: "Fireball.sks", particleName: "fireball", target: self.battleScene.characters[target])
                 
+                animateAtack()
+                
+                //MARK: Isso é pura gambearra!!! TODO: FIX
                 self.spriteNode.run(SKAction.scale(by: 1, duration: TimeInterval(atackTime)), completion: {
                     enemie.component(ofType: HealthComponent.self)?.healthPoints -= (self.component(ofType: AtackComponent.self)?.atackPoints)!
                     enemie.lifeBar?.take(damage: (self.component(ofType: AtackComponent.self)?.atackPoints)!)
@@ -214,6 +224,79 @@ class CharacterCard: Card {
                 
             }
         }
+    }
+    
+    func projectileAtack(projectileName: String, target: Int){
+        let atackSprite = SKSpriteNode(imageNamed: projectileName)
+        atackSprite.position = self.spriteNode.position
+        atackSprite.zPosition = 5
+        self.battleScene.addChild(atackSprite)
+        let atackTime = (self.component(ofType: AtackComponent.self)?.atackSpeed)!
+        let atackTarget = self.battleScene.characters[target].spriteNode.position
+        atackSprite.run(SKAction.move(to: atackTarget, duration: TimeInterval(atackTime)), completion: {
+            atackSprite.removeFromParent()
+        })
+    }
+    
+    func particleAtack(sksName: String, particleName: String, target: CharacterCard){
+        let angle = atan2(target.spriteNode.position.x - self.spriteNode.position.x, target.spriteNode.position.y - self.spriteNode.position.y)
+        print(angle)
+    }
+    
+    func animateAtack(){
+        let targetIndex = self.component(ofType: TargetIndexComponent.self)?.targetIndex
+        let target = self.battleScene.characters[targetIndex!].spriteNode.position
+        let angle = atan2(target.x - self.spriteNode.position.x, target.y - self.spriteNode.position.y)
+        
+        
+        if let particle = SKEmitterNode(fileNamed: "\(self.atackEffect!).sks"){
+            particle.position = self.spriteNode.position
+            particle.removeFromParent()
+            particle.emissionAngle = (CGFloat.pi/2) * quad()
+            particle.emissionAngleRange = 0
+            
+            let effectNode = SKEffectNode()
+            effectNode.addChild(particle)
+            self.battleScene.addChild(effectNode)
+            particle.run(SKAction.move(to: target, duration: 1), completion: {
+                particle.removeFromParent()
+            })
+        }else if self.atackEffect != "" {
+            let sprite = SKSpriteNode(imageNamed: self.atackEffect)
+            sprite.position = self.spriteNode.position
+            sprite.run(SKAction.rotate(byAngle: angle , duration: 0))
+            sprite.removeFromParent()
+            self.battleScene.addChild(sprite)
+            sprite.setScale(0.4)
+            sprite.run(SKAction.move(to: target, duration: 1), completion: {
+                sprite.removeFromParent()
+            })
+        }
+
+    }
+    
+    func quad() -> CGFloat {
+        let targetIndex = self.component(ofType: TargetIndexComponent.self)?.targetIndex
+        let target = self.battleScene.characters[targetIndex!].spriteNode.position
+        let pos = self.spriteNode.position
+        
+        let x = target.x - pos.x
+        let y = target.y - pos.x
+        
+        if x >= 0.0 {
+            if y >= 0.0 {
+                return 0.0
+            }else{
+                return 3.0
+            }
+        }else{
+            if y >= 0.0 {
+                return 1.0
+            }else{
+                return 2.0
+            }
+        }
+        
     }
     
     
