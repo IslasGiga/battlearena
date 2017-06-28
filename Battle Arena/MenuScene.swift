@@ -42,8 +42,6 @@ class MenuScene: SKScene {
                     sceneNode.scaleMode = .aspectFill
                     // Present the scene
                     view?.presentScene(sceneNode)
-                        
-                    
                 }
             }
         }

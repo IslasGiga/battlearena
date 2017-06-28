@@ -15,10 +15,10 @@ class SplashScreenScene: SKScene {
     override func didMove(to view: SKView) {
         
         self.run(SKAction.wait(forDuration: 3))
-        if UserDefaults.value(forKey: "PlayerName") != nil{
+        if UserDefaults.value(forKey: "layerName") != nil {
         
             
-        }else{
+        } else {
             
         }
         
