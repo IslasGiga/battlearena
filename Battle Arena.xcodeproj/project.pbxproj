@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2319D3831F02A46B00973136 /* WizardMovement.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2319D3821F02A46B00973136 /* WizardMovement.sks */; };
 		2351AB8D1ED3466800C09B1E /* TargetIndexComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2351AB8C1ED3466800C09B1E /* TargetIndexComponent.swift */; };
 		2351AB8F1ED3477F00C09B1E /* MenuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2351AB8E1ED3477F00C09B1E /* MenuScene.sks */; };
 		2375F9EE1EDC61C00083C954 /* BattleEndWin.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2375F9ED1EDC61C00083C954 /* BattleEndWin.sks */; };
@@ -73,6 +74,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2319D3821F02A46B00973136 /* WizardMovement.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WizardMovement.sks; sourceTree = "<group>"; };
 		2351AB8C1ED3466800C09B1E /* TargetIndexComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetIndexComponent.swift; sourceTree = "<group>"; };
 		2351AB8E1ED3477F00C09B1E /* MenuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuScene.sks; sourceTree = "<group>"; };
 		2375F9ED1EDC61C00083C954 /* BattleEndWin.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BattleEndWin.sks; sourceTree = "<group>"; };
@@ -86,15 +88,12 @@
 		2375F9FD1EE192330083C954 /* Mummy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Mummy.json; sourceTree = "<group>"; };
 		2375F9FF1EE193A50083C954 /* Knight.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Knight.json; sourceTree = "<group>"; };
 		2375FA001EE193A50083C954 /* Wizard.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Wizard.json; sourceTree = "<group>"; };
-
 		2375FA041EF808AB0083C954 /* Fireball.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fireball.sks; sourceTree = "<group>"; };
 		2375FA061EF809F20083C954 /* PoisonGas.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PoisonGas.sks; sourceTree = "<group>"; };
 		2375FA081EF80B590083C954 /* BlueBeam.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BlueBeam.sks; sourceTree = "<group>"; };
 		2375FA0A1EF810830083C954 /* StrikeDamage.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StrikeDamage.sks; sourceTree = "<group>"; };
-
 		7791DE761EF80B10005EA395 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		7791DE781EF80B1C005EA395 /* MenuuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuuScene.sks; sourceTree = "<group>"; };
-
 		77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LifeBar.sks; sourceTree = "<group>"; };
 		77947EA01ED60F5700DFD6F8 /* LifeBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifeBar.swift; sourceTree = "<group>"; };
 		77A15689AC2F3070A3646F73 /* Pods-Battle Arena.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Battle Arena.release.xcconfig"; path = "Pods/Target Support Files/Pods-Battle Arena/Pods-Battle Arena.release.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +152,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2319D3811F02A41C00973136 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				2319D3821F02A46B00973136 /* WizardMovement.sks */,
+			);
+			name = Animation;
+			sourceTree = "<group>";
+		};
 		2375FA031EF808040083C954 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +317,7 @@
 				79DE87C21EC0953900CAE28D /* Main.storyboard */,
 				7948400B1EC09A5200239F64 /* Controllers */,
 				79DE87C51EC0953900CAE28D /* Assets.xcassets */,
+				2319D3811F02A41C00973136 /* Animation */,
 				2375FA031EF808040083C954 /* Particles */,
 				79DE87C71EC0953900CAE28D /* LaunchScreen.storyboard */,
 				79DE87CA1EC0953900CAE28D /* Info.plist */,
@@ -362,7 +370,7 @@
 				TargetAttributes = {
 					79DE87B41EC0953900CAE28D = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = 9EGVR395L4;
+						DevelopmentTeam = BKWDS645Z7;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -392,11 +400,8 @@
 			files = (
 				795814D91EF3FD9A00C1595C /* StartBattleScene.sks in Resources */,
 				798FDC601EF002EF009694B1 /* PressStart2P.ttf in Resources */,
-
 				2375FA091EF80B590083C954 /* BlueBeam.sks in Resources */,
-
 				795814D51EF3F47C00C1595C /* MainMenuScene.sks in Resources */,
-
 				798FDC611EF002EF009694B1 /* 04B_30__.TTF in Resources */,
 				798FDC621EF002EF009694B1 /* 8BITWONDER.TTF in Resources */,
 				798FDC631EF002EF009694B1 /* Minecraftia-Regular.ttf in Resources */,
@@ -414,6 +419,7 @@
 				79DE87C61EC0953900CAE28D /* Assets.xcassets in Resources */,
 				79DE87C91EC0953900CAE28D /* LaunchScreen.storyboard in Resources */,
 				2375F9F81EE18E6D0083C954 /* Elf.json in Resources */,
+				2319D3831F02A46B00973136 /* WizardMovement.sks in Resources */,
 				77E03E9B1EF00424000F574A /* arrow.wav in Resources */,
 				7791DE791EF80B1C005EA395 /* MenuuScene.sks in Resources */,
 				2375FA021EE193A50083C954 /* Wizard.json in Resources */,
@@ -638,7 +644,7 @@
 			baseConfigurationReference = 89A3B74134BC8BDDA1098E9F /* Pods-Battle Arena.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9EGVR395L4;
+				DEVELOPMENT_TEAM = BKWDS645Z7;
 				INFOPLIST_FILE = "Battle Arena/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -653,7 +659,7 @@
 			baseConfigurationReference = 77A15689AC2F3070A3646F73 /* Pods-Battle Arena.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9EGVR395L4;
+				DEVELOPMENT_TEAM = BKWDS645Z7;
 				INFOPLIST_FILE = "Battle Arena/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

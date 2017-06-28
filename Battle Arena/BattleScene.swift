@@ -262,8 +262,6 @@ class BattleScene: SKScene {
     //MARK: Summon Character function
     func summonCharacter(card: CharacterCard, id: Int, team: Int, pos: CGPoint) {
         
-//        let character = CharacterCard(image: #imageLiteral(resourceName: "character"), name: "CharType:\(type) id:\(id)", cardDescription: "Will be obtained from db", manaCost: type, summoningTime: 1, level: 1, xp: 0, atackPoints: type * 10, atackSpeed: (5.0 - CGFloat(type))*0.25, atackArea: 1, atackRange: 100.0 - CGFloat(type*10), speed: 10, healthPoints: 50*type, battleScene: self, teamId: team, cardImage: #imageLiteral(resourceName: "character"))
-        
         let character = self.loader?.load(name: (card.component(ofType: InfoCardComponent.self)?.name)!, type: .character) as? CharacterCard
         character?.teamId = 0
         
@@ -273,8 +271,6 @@ class BattleScene: SKScene {
             character?.spriteNode.position = pos
             self.addChild(character!.spriteNode)
             self.nextCharId += 1
-            
-            
             
             self.mana -= manaCost
             self.manaBar?.run(SKAction.resize(byWidth: 0, height: -manaCost*2, duration: 0.5))
@@ -289,14 +285,10 @@ class BattleScene: SKScene {
                 self.selectedCard = 5
             }
             
-            
             deck.remove(at: deck.index(of: object)!)
             deck.append(object)
             
             loadMenuCards()
-            
-            
-            
             
         } else {
             print("not enough mana")

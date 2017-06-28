@@ -47,16 +47,6 @@ class CharacterCard: Card {
     var atackEffect : String!
     
     init(image: UIImage, name: String, cardDescription: String, manaCost: Int, summoningTime: Int, level: Int, xp: Int, atackPoints: Int, atackSpeed: CGFloat, atackArea: Int, atackRange: CGFloat, speed: Int, healthPoints: Int , battleScene: BattleScene, teamId: Int, cardImage: UIImage, atackEffect: String) {
-
-//    var walkingEastAnimationTextures = [SKTexture]()
-//    var walkingWestAnimationTextures = [SKTexture]()
-//    var walkingNorthAnimationTextures = [SKTexture]()
-//    var walkingSouthAnimationTextures = [SKTexture]()
-//    var walkingSouthEastAnimationTextures = [SKTexture]()
-//    var walkingSouthWestAnimationTextures = [SKTexture]()
-//    var walkingNorthWestAnimationTextures = [SKTexture]()
-//    var walkingNorthEastAnimationTextures = [SKTexture]()
-        
         
         
         super.init(image: image,
@@ -173,6 +163,11 @@ class CharacterCard: Card {
                 let angle = atan2(target.spriteNode.position.x - self.spriteNode.position.x, target.spriteNode.position.y - self.spriteNode.position.y)
                 let xOffset = CGFloat((self.component(ofType: MovementComponent.self)?.speed)!) * sin(angle)
                 let yOffset = CGFloat((self.component(ofType: MovementComponent.self)?.speed)!) * cos(angle)
+                
+                //Mark: Animated Moviment Insertion
+                self.animateMoviment()
+                
+                
                 self.spriteNode.run(SKAction.moveBy(x: xOffset, y: yOffset, duration: 0.2), completion: {self.isNotBusy = true} )
             }
             
@@ -299,6 +294,48 @@ class CharacterCard: Card {
         
     }
     
+    func direction() -> String {
+        let targetIndex = self.component(ofType: TargetIndexComponent.self)?.targetIndex
+        let target = self.battleScene.characters[targetIndex!].spriteNode.position
+        let pos = self.spriteNode.position
+        
+        let x = target.x - pos.x
+        let y = target.y - pos.x
+        
+        if x > 10.0 {
+            if y > 10.0{
+                return "NE"
+            }else if y < -10.0 {
+                return "NW"
+            }else{
+                return "N"
+            }
+        }else if x < 0.0 {
+            if y > 10.0{
+                return "SE"
+            }else if y < -10.0 {
+                return "SW"
+            }else{
+                return "S"
+            }
+        }else{
+            if y > 10.0{
+                return "E"
+            }else if y < -10.0 {
+                return "W"
+            }else{
+                return ""
+            }
+        }
+        
+    }
+    
+    func animateMoviment(){
+        let name = (self.component(ofType: InfoCardComponent.self)?.name)!
+        if let moveAnimation = SKAction(named: "\(name)Walk\(self.direction())"){
+            self.spriteNode.run(moveAnimation)
+        }
+    }
     
     //MARK: Function called for each character at the scene update for they to take actions based on their state
     func takeAction(){
