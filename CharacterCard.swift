@@ -259,7 +259,7 @@ class CharacterCard: Card {
         }else if self.atackEffect != "" {
             let sprite = SKSpriteNode(imageNamed: self.atackEffect)
             sprite.position = self.spriteNode.position
-            sprite.run(SKAction.rotate(byAngle: angle , duration: 0))
+            sprite.run(SKAction.rotate(byAngle: self.angle() - CGFloat.pi/2 , duration: 0))
             sprite.removeFromParent()
             self.battleScene.addChild(sprite)
             sprite.setScale(0.4)
@@ -294,6 +294,17 @@ class CharacterCard: Card {
         
     }
     
+    func angle() -> CGFloat {
+        let targetIndex = self.component(ofType: TargetIndexComponent.self)?.targetIndex
+        let target = self.battleScene.characters[targetIndex!].spriteNode.position
+        let pos = self.spriteNode.position
+        
+        let x = target.x - pos.x
+        let y = target.y - pos.y
+        
+        return CGFloat(atan2f(Float(y), Float(x)))
+    }
+    
     func direction() -> String {
         let targetIndex = self.component(ofType: TargetIndexComponent.self)?.targetIndex
         let target = self.battleScene.characters[targetIndex!].spriteNode.position
@@ -324,7 +335,7 @@ class CharacterCard: Card {
             }else if y < -10.0 {
                 return "W"
             }else{
-                return ""
+                return "N"
             }
         }
         
