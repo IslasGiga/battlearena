@@ -331,10 +331,13 @@ class CharacterCard: Card {
     }
     
     func animateMoviment(){
-        let name = (self.component(ofType: InfoCardComponent.self)?.name)!
-        if let moveAnimation = SKAction(named: "\(name)Walk\(self.direction())"){
-            self.spriteNode.run(moveAnimation)
+        DispatchQueue.main.async {
+            let name = (self.component(ofType: InfoCardComponent.self)?.name)!
+            if let moveAnimation = SKAction(named: "\(name)Walk\(self.direction())"){
+                self.spriteNode.run(moveAnimation)
+            }
         }
+        
     }
     
     //MARK: Function called for each character at the scene update for they to take actions based on their state
