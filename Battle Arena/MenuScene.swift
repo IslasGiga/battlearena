@@ -30,7 +30,7 @@ class MenuScene: SKScene {
         
         for node in listOfNodes {
         
-            if node.name == "battleButton" {
+            if node.name == "singleplayerButton" {
                 if let scene = GKScene(fileNamed: "BattleScene") {
                     
                 // Get the SKScene from the loaded GKScene
