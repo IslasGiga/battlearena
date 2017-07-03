@@ -14,11 +14,14 @@ class GameViewController: UIViewController {
     
     
     
+    @IBOutlet weak var playerNameTextField: UITextField!
  
 
-    @IBAction func registerUser(_ sender: Any) {
+    @IBAction func registerUser(_ sender: UIButton) {
+        let name = playerNameTextField.text!
         
-        
+        UserDefaults.standard.set(name, forKey: "playerName")
+        registerView.alpha = 0
     }
     
     @IBOutlet weak var registerView: UIView!
@@ -28,6 +31,7 @@ class GameViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         let game = BattleScene()
         let cardLoader = CardLoader(scene: game)
@@ -44,11 +48,16 @@ class GameViewController: UIViewController {
         registerView.alpha = 0
         
         
-        super.viewDidLoad()
+        
+        
 //        self.loadBattleScene()
         //self.loadMainMenuScene()
+
         loadMenuScene()
         
+        if !checkForExistingUser() {
+            registerView.alpha = 1
+        }
     }
 
     override var shouldAutorotate: Bool {
@@ -73,7 +82,7 @@ class GameViewController: UIViewController {
     }
     
 //    if let scene = GKScene(fileNamed: "BattleScene") {
-//        
+//
 //        // Get the SKScene from the loaded GKScene
 //        if let sceneNode = scene.rootNode as! BattleScene? {
 //            
@@ -120,7 +129,6 @@ class GameViewController: UIViewController {
                 }
             }
         }
-    
     }
     
     // MARK: Load Splash Screen Scene
@@ -208,6 +216,42 @@ class GameViewController: UIViewController {
         print("HI I'M BORGEZ")
     }
     
+//    func addAlertView(with title: String, and message: String) {
+//        let alertController = UIAlertController(title: title,
+//                                                message: message,
+//                                                preferredStyle: .alert)
+//        let viewController = self
+//        
+//        let registerAction = UIAlertAction(title: "Register", style: .default) { (action) in
+//            
+//            let text = alertController.textFields?[0].text
+//            
+//            if (text?.characters.count)! > 0 {
+//                print("REGISTER")
+//            } else {
+//                let alert = UIAlertController(title: "Invalid name", message: "The name field is empty", preferredStyle: .alert)
+//                
+//            }
+//            
+//        }
+//        
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+//        
+//        alertController.addTextField { textField in
+//            textField.placeholder = "Name"
+//        }
+//        
+//        alertController.addAction(registerAction)
+//        alertController.addAction(cancelAction)
+//        
+//        viewController.present(alertController, animated: true, completion: nil)
+//        }
+    
+    func checkForExistingUser() -> Bool {
+        let playerName = UserDefaults.standard.object(forKey: "playerName")
+        
+        return playerName != nil
+    }
     
 
 }
