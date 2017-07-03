@@ -165,14 +165,15 @@ class CharacterCard: Card {
                 let yOffset = CGFloat((self.component(ofType: MovementComponent.self)?.speed)!) * cos(angle)
                 
                 //Mark: Animated Moviment Insertion
-                self.animateMoviment()
-                
+                //self.animateMoviment()
+                self.animateWalk()
                 
                 self.spriteNode.run(SKAction.moveBy(x: xOffset, y: yOffset, duration: 0.2), completion: {self.isNotBusy = true} )
             }
             
         }
     }
+    
     
     func getManaCost()->CGFloat{
         let manaCost = CGFloat((self.component(ofType: InfoCardComponent.self)?.manaCost)!)
@@ -241,7 +242,7 @@ class CharacterCard: Card {
     func animateAtack(){
         let targetIndex = self.component(ofType: TargetIndexComponent.self)?.targetIndex
         let target = self.battleScene.characters[targetIndex!].spriteNode.position
-        let angle = atan2(target.x - self.spriteNode.position.x, target.y - self.spriteNode.position.y)
+        //let angle = atan2(target.x - self.spriteNode.position.x, target.y - self.spriteNode.position.y)
         
         
         if let particle = SKEmitterNode(fileNamed: "\(self.atackEffect!).sks"){
@@ -341,14 +342,25 @@ class CharacterCard: Card {
         
     }
     
-    func animateMoviment(){
+    
+    //deprecated
+//    func animateMoviment(){
+//        DispatchQueue.main.async {
+//            let name = (self.component(ofType: InfoCardComponent.self)?.name)!
+//            if let moveAnimation = SKAction(named: "\(name)Walk\(self.direction())"){
+//                self.spriteNode.run(moveAnimation)
+//            }
+//        }
+//        
+//    }
+    
+    func animateWalk(){
         DispatchQueue.main.async {
             let name = (self.component(ofType: InfoCardComponent.self)?.name)!
-            if let moveAnimation = SKAction(named: "\(name)Walk\(self.direction())"){
+            if let moveAnimation = self.battleScene.moveAnimations["\(name)\(self.direction())"] {
                 self.spriteNode.run(moveAnimation)
             }
         }
-        
     }
     
     //MARK: Function called for each character at the scene update for they to take actions based on their state

@@ -73,6 +73,9 @@ class BattleScene: SKScene {
     
     let audioPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: "\(Bundle.main.resourcePath!)/battleOrch.mp3"))
     
+    let directions = ["N","S","E","W","NE","NW","SE","SW"]
+    //all move animations must be preloaded to avoid fps drop
+    var moveAnimations : [String : SKAction] = [:]
     //MARK: SceneDidLoad/DidMoveToScene
     
     override func didMove(to view: SKView) {
@@ -88,6 +91,8 @@ class BattleScene: SKScene {
         
         //loading Cards on menu
         loadCards()
+        
+        loadMovementAnimations()
         
         audioPlayer?.play()
 
@@ -526,6 +531,17 @@ class BattleScene: SKScene {
             }
         }
         cards[4].texture = SKTexture(image: deck[4].cardImage)
+    }
+    
+    func loadMovementAnimations(){
+        for card in self.deck{
+            let name = (card.component(ofType: InfoCardComponent.self)?.name)!
+            for direction in self.directions{
+                if let animation = SKAction(named: "\(name)Walk\(direction)"){
+                    self.moveAnimations["\(name)\(direction)"] = animation
+                }
+            }
+        }
     }
     
     func spawnCharacter(fromCard card: CharacterCard, atPosition pos: CGPoint, team: Int){
