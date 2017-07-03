@@ -14,7 +14,7 @@
    "movement_speed": 5,
    "hp": 500,
    "quantity": 1,
-    "image": "char",
+    "image": "dwarfTestFinalized",
     "card_image" : "test",
     "atack_sound" : "slash",
     "atack_effect" : ""

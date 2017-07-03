@@ -14,7 +14,7 @@
    "movement_speed": 4,
    "hp": 1000,
     "quantity": 1,
-    "image": "character",
+    "image": "cyclop",
     "card_image" : "CyclopCard",
     "atack_sound" : "slash",
     "atack_effect" : ""

@@ -14,7 +14,7 @@
    "movement_speed": 5,
    "hp": 200,
     "quantity": 2,
-    "image": "character",
+    "image": "SatyrS",
     "card_image" : "SatyrCard",
     "atack_sound" : "tackle",
     "atack_effect" : ""
