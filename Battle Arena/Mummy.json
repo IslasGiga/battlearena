@@ -8,7 +8,7 @@
    "attack_area": 1,
    "attack_points": 25,
    "attack_speed": 0.5,
-   "attack_range": 20,
+   "attack_range": 2,
    "type": 1,
    "targets": [0, 1],
    "movement_speed": 6,
@@ -17,5 +17,7 @@
     "image": "MummyS",
     "card_image" : "MummyCard",
     "atack_sound" : "tackle",
-    "atack_effect" : "PoisonGas"
+    "atack_effect" : "PoisonGas",
+    "size_width" : 30,
+    "size_height" : 30
 }

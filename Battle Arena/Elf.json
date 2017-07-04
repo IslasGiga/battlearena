@@ -8,7 +8,7 @@
    "attack_area": 1,
    "attack_points": 70,
    "attack_speed": 1,
-   "attack_range": 80,
+   "attack_range": 60,
    "type": 1,
    "targets": [0, 1, 2],
    "movement_speed": 4,
@@ -17,5 +17,7 @@
     "image": "elfS",
     "card_image" : "ElfCard",
     "atack_sound" : "arrowhit",
-    "atack_effect" : "arrow"
+    "atack_effect" : "arrow",
+    "size_width" : 30,
+    "size_height" : 30
 }

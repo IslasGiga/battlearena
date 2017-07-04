@@ -54,12 +54,7 @@ class AIEnemyStrategy {
                 
                 //play random card move
                 let cardIndex = Int(arc4random()%4)
-                if let charCard = enemy.deck[cardIndex] as? CharacterCard {
-                    if charCard.getManaCost() < enemy.mana{
-                        game.spawnCharacter(fromCard: charCard, atPosition: pos, team: 1)
-                        enemy.mana -= charCard.getManaCost()
-                    }
-                }
+                enemy.playCard(atIndex: cardIndex, atPosition: pos)
                 
                 enemy.playingStrategy = false
             }
@@ -88,12 +83,7 @@ class AIEnemyStrategy {
                 
                 //play random card move
                 let cardIndex = Int(arc4random()%4)
-                if let charCard = enemy.deck[cardIndex] as? CharacterCard {
-                    if charCard.getManaCost() < enemy.mana{
-                        game.spawnCharacter(fromCard: charCard, atPosition: pos, team: 1)
-                        enemy.mana -= charCard.getManaCost()
-                    }
-                }
+                enemy.playCard(atIndex: cardIndex, atPosition: pos)
                 
                 enemy.playingStrategy = false
             }
@@ -111,12 +101,7 @@ class AIEnemyStrategy {
                 
                 //play random card move
                 let cardIndex = Int(arc4random()%4)
-                if let charCard = enemy.deck[cardIndex] as? CharacterCard {
-                    if charCard.getManaCost() < enemy.mana{
-                        game.spawnCharacter(fromCard: charCard, atPosition: pos, team: 1)
-                        enemy.mana -= charCard.getManaCost()
-                    }
-                }
+                enemy.playCard(atIndex: cardIndex, atPosition: pos)
                 
                 enemy.playingStrategy = false
 
@@ -145,12 +130,8 @@ class AIEnemyStrategy {
                 
                 //play random card move
                 let cardIndex = Int(arc4random()%4)
-                if let charCard = enemy.deck[cardIndex] as? CharacterCard {
-                    if charCard.getManaCost() < enemy.mana{
-                        game.spawnCharacter(fromCard: charCard, atPosition: pos, team: 1)
-                        enemy.mana -= charCard.getManaCost()
-                    }
-                }
+                
+                enemy.playCard(atIndex: cardIndex, atPosition: pos)
                 
                 enemy.playingStrategy = false
                 

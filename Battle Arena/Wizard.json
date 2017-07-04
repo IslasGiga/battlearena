@@ -8,7 +8,7 @@
    "attack_area": 1,
    "attack_points": 150,
    "attack_speed": 1,
-   "attack_range": 70,
+   "attack_range": 50,
    "type": 1,
    "targets": [0, 1, 2],
    "movement_speed": 4,
@@ -17,5 +17,7 @@
     "image": "purpleWizardWalkingSoutheast01",
     "card_image" : "wizardCard",
     "atack_sound" : "Fireball",
-    "atack_effect" : "Fireball"
+    "atack_effect" : "Fireball",
+    "size_width" : 30,
+    "size_height" : 30
 }

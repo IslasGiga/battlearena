@@ -8,7 +8,7 @@
    "attack_area": 0,
    "attack_points": 150,
    "attack_speed": 1.5,
-   "attack_range": 40,
+   "attack_range": 5,
    "type": 1,
    "targets": [0],
    "movement_speed": 4,
@@ -17,5 +17,7 @@
     "image": "cyclop",
     "card_image" : "CyclopCard",
     "atack_sound" : "slash",
-    "atack_effect" : ""
+    "atack_effect" : "",
+    "size_width" : 30,
+    "size_height" : 30
 }

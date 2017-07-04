@@ -46,7 +46,7 @@ class CharacterCard: Card {
     
     var atackEffect : String!
     
-    init(image: UIImage, name: String, cardDescription: String, manaCost: Int, summoningTime: Int, level: Int, xp: Int, atackPoints: Int, atackSpeed: CGFloat, atackArea: Int, atackRange: CGFloat, speed: Int, healthPoints: Int , battleScene: BattleScene, teamId: Int, cardImage: UIImage, atackEffect: String) {
+    init(image: UIImage, name: String, cardDescription: String, manaCost: Int, summoningTime: Int, level: Int, xp: Int, atackPoints: Int, atackSpeed: CGFloat, atackArea: Int, atackRange: CGFloat, speed: Int, healthPoints: Int , battleScene: BattleScene, teamId: Int, cardImage: UIImage, atackEffect: String, nodeSize: CGSize) {
         
         
         super.init(image: image,
@@ -59,7 +59,11 @@ class CharacterCard: Card {
         
         self.atackEffect = atackEffect
         
-        self.addComponent(AtackComponent(atackPoints: atackPoints, atackSpeed: atackSpeed, atackArea: atackArea, atackRange: atackRange))
+        self.spriteNode = SKSpriteNode(texture: SKTexture(image: image))
+        
+        self.spriteNode.size = nodeSize
+        
+        self.addComponent(AtackComponent(atackPoints: atackPoints, atackSpeed: atackSpeed, atackArea: atackArea, atackRange: self.spriteNode.size.width/4 + self.spriteNode.size.height/4 + atackRange))
         
         self.addComponent(MovementComponent(speed: speed))
         
@@ -69,11 +73,11 @@ class CharacterCard: Card {
         
         self.battleScene = battleScene
         
-        self.spriteNode = SKSpriteNode(imageNamed: "character")
+        
         
         self.cardImage = cardImage
         
-        self.spriteNode.texture = SKTexture(image: image)
+        
         
         self.teamId = teamId
         

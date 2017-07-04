@@ -8,14 +8,16 @@
    "attack_area": 1,
    "attack_points": 80,
    "attack_speed": 1,
-   "attack_range": 40,
+   "attack_range": 5,
    "type": 1,
    "targets": [0, 1],
    "movement_speed": 4,
    "hp": 500,
     "quantity": 1,
-    "image": "character",
+    "image": "knight",
     "card_image" : "test2",
     "atack_sound" : "slash",
-    "atack_effect" : ""
+    "atack_effect" : "",
+    "size_width" : 30,
+    "size_height" : 30
 }

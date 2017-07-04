@@ -62,7 +62,19 @@ class AIEnemy {
         }
     }
     
-    func playCard(atIndex i : Int, atPosition: CGPoint){
-        
+    func playCard(atIndex index : Int, atPosition pos: CGPoint){
+        if let charCard = self.deck[index] as? CharacterCard {
+            if charCard.getManaCost() < self.mana{
+                game.spawnCharacter(fromCard: charCard, atPosition: pos, team: 1)
+                self.mana -= charCard.getManaCost()
+                rotateDeck(playedCardIndex: index)
+            }
+        }
+    }
+    
+    func rotateDeck(playedCardIndex: Int){
+        let card = deck[playedCardIndex]
+        deck.remove(at: playedCardIndex)
+        deck.append(card)
     }
 }

@@ -6,9 +6,9 @@
    "manacost": 20,
    "summoningtime": 1,
    "attack_area": 1,
-   "attack_points": 30,
+   "attack_points": 25,
    "attack_speed": 0.5,
-   "attack_range": 30,
+   "attack_range": 5,
    "type": 1,
    "targets": [0, 1],
    "movement_speed": 5,
@@ -17,5 +17,7 @@
     "image": "SatyrS",
     "card_image" : "SatyrCard",
     "atack_sound" : "tackle",
-    "atack_effect" : ""
+    "atack_effect" : "",
+    "size_width" : 30,
+    "size_height" : 30
 }
