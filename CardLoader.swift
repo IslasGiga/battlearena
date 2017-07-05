@@ -76,6 +76,14 @@ class CardLoader {
                     throw NSException(name: NSExceptionName(rawValue: "No Info Exception"), reason: "The Character card could not be loaded with the current info", userInfo: nil) as! Error
             }
             
+            var sound: String = "arrow"
+            
+            if let soundName = json["atack_sound"].string {
+                if soundName.characters.count != 0 {
+                    sound = soundName
+                }
+            }
+            
             card = CharacterCard(image: UIImage(named: imageName)!,
                                          name: name,
                                          cardDescription: description,
@@ -93,7 +101,9 @@ class CardLoader {
                                          teamId: 1,
                                          cardImage: UIImage(named: cardImage)!,
                                          atackEffect: atackEffect,
-                                         nodeSize: CGSize(width: CGFloat(sizeWidth), height: CGFloat(sizeHeight)))
+                                         nodeSize: CGSize(width: CGFloat(sizeWidth),
+                                         height: CGFloat(sizeHeight)),
+                                         soundName: sound)
             break
         default:
             card = Card(image: UIImage(named: "character")!, name: name, cardDescription: description, manaCost: manaCost, summoningTime: summoningTime, level: 1, xp: 1)

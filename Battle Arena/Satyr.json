@@ -8,7 +8,7 @@
    "attack_area": 1,
    "attack_points": 25,
    "attack_speed": 0.5,
-   "attack_range": 5,
+   "attack_range": 20,
    "type": 1,
    "targets": [0, 1],
    "movement_speed": 5,
@@ -16,7 +16,7 @@
     "quantity": 2,
     "image": "SatyrS",
     "card_image" : "SatyrCard",
-    "atack_sound" : "tackle",
+    "atack_sound" : "",
     "atack_effect" : "",
     "size_width" : 30,
     "size_height" : 30

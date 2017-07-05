@@ -16,7 +16,7 @@
     "quantity": 4,
     "image": "MummyS",
     "card_image" : "MummyCard",
-    "atack_sound" : "tackle",
+    "atack_sound" : "",
     "atack_effect" : "PoisonGas",
     "size_width" : 30,
     "size_height" : 30
