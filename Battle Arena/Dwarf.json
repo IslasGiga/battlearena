@@ -8,7 +8,7 @@
    "attack_area": 1,
    "attack_points": 50,
    "attack_speed": 1,
-   "attack_range": 30,
+   "attack_range": 5,
    "type": 1,
    "targets": [0, 1],
    "movement_speed": 5,
@@ -16,6 +16,8 @@
    "quantity": 1,
     "image": "dwarfTestFinalized",
     "card_image" : "test",
-    "attack_sound" : "slash",
-    "attack_effect" : ""
+    "atack_sound" : "slash",
+    "atack_effect" : "",
+    "size_width" : 30,
+    "size_height" : 30
 }

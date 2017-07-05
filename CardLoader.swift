@@ -69,7 +69,9 @@ class CardLoader {
                   let healthPoints = json["hp"].int,
                   let imageName = json["image"].string,
                   let cardImage = json["card_image"].string,
-                  let atackEffect = json["attack_effect"].string
+                  let atackEffect = json["atack_effect"].string,
+                  let sizeWidth = json["size_width"].float,
+                  let sizeHeight = json["size_height"].float
                         else {
                     throw NSException(name: NSExceptionName(rawValue: "No Info Exception"), reason: "The Character card could not be loaded with the current info", userInfo: nil) as! Error
             }
@@ -96,8 +98,11 @@ class CardLoader {
                                          speed: speed,
                                          healthPoints: healthPoints,
                                          battleScene: scene,
-                                         teamId: 1, cardImage: UIImage(named: cardImage)!,
+                                         teamId: 1,
+                                         cardImage: UIImage(named: cardImage)!,
                                          atackEffect: atackEffect,
+                                         nodeSize: CGSize(width: CGFloat(sizeWidth),
+                                         height: CGFloat(sizeHeight)),
                                          soundName: sound)
             break
         default:
