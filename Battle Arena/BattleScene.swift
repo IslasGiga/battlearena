@@ -39,6 +39,7 @@ class BattleScene: SKScene {
     
     //Cards on character menu
     var cards : [SKSpriteNode] = []
+    var cardCostLabels : [SKLabelNode] = []
     
     //Player Deck of Cards (as colors for testing)
     var deck : [CharacterCard] = []
@@ -109,10 +110,6 @@ class BattleScene: SKScene {
         if (self.battleNode?.contains(pos))! {
             if self.selectedCard != 5 && !self.gameOver {
                 summonCharacter(card: self.deck[self.selectedCard], id: self.nextCharId, team: 0, pos: pos)
-                
-//            }else{
-//                summonCharacter(type: 2, id: self.nextCharId, team: 1, pos: pos)
-//            }
             }
         }
     }
@@ -135,10 +132,15 @@ class BattleScene: SKScene {
                         print("card\(i)")
                         if self.selectedCard != i {
                             if self.selectedCard != 5 {
-                                self.cards[self.selectedCard].run(SKAction.moveBy(x: 0, y: -12, duration: 0.5))
+                                let moveDownAction = SKAction.moveBy(x: 0, y: -12, duration: 0.5)
+                                self.cards[self.selectedCard].run(moveDownAction)
+                                self.cardCostLabels[self.selectedCard].run(moveDownAction)
                             }
                             self.selectedCard = i
-                            self.cards[self.selectedCard].run(SKAction.moveBy(x: 0, y: 12, duration: 0.5))
+                            let moveUpAction = SKAction.moveBy(x: 0, y: 12, duration: 0.5)
+                            self.cards[self.selectedCard].run(moveUpAction)
+                            self.cardCostLabels[self.selectedCard].run(moveUpAction)
+                        
                         }
                     }
                 }
@@ -163,24 +165,16 @@ class BattleScene: SKScene {
     
     
     func playAgain(){
-        if let scene = GKScene(fileNamed: "BattleScene") {
-
-            // Get the SKScene from the loaded GKScene
-            if let sceneNode = scene.rootNode as! BattleScene? {
+        if let scene = SKScene(fileNamed: "MenuuScene") {
+            scene.scaleMode = .aspectFill
+            if let view = self.view {
+//                view.presentScene(scene)
+                view.presentScene(scene, transition: .reveal(with: .up, duration: 1))
                 
-                // Copy gameplay related content over to the scene
+                view.ignoresSiblingOrder = true
                 
-                // Set the scale mode to scale to fit the window
-                sceneNode.scaleMode = .aspectFill
-                // Present the scene
-                if let view = self.view {
-                    view.presentScene(sceneNode)
-                    
-                    view.ignoresSiblingOrder = true
-                    
-                    view.showsFPS = true
-                    view.showsNodeCount = true
-                }
+                view.showsFPS = true
+                view.showsNodeCount = true
             }
         }
     }
@@ -284,7 +278,9 @@ class BattleScene: SKScene {
             
             if self.selectedCard != 5 {
                 //unselect card
-                self.cards[selectedCard].run(SKAction.moveBy(x: 0, y: -12, duration: 0), completion: {
+                let moveDownAction = SKAction.moveBy(x: 0, y: -12, duration: 0)
+                self.cardCostLabels[selectedCard].run(moveDownAction)
+                self.cards[selectedCard].run(moveDownAction, completion: {
                     //TO DO: animate card changes
                 })
                 self.selectedCard = 5
@@ -311,8 +307,13 @@ class BattleScene: SKScene {
             
             
             for i in 0...4 {
-                if let cardNode = newNode!.childNode(withName: "Card\(i)") as? SKSpriteNode{
+                if let cardNode = newNode!.childNode(withName: "Card\(i)") as? SKSpriteNode {
+                    
                     self.cards.append(cardNode)
+                }
+                
+                if let cardCostLabel = self.cardMenu.childNode(withName: "CardCost\(i)") as? SKLabelNode {
+                    self.cardCostLabels.append(cardCostLabel)
                 }
                 
             }
