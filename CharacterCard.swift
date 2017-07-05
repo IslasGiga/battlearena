@@ -63,6 +63,14 @@ class CharacterCard: Card {
         
         self.spriteNode.size = nodeSize
         
+        let physicBody = SKPhysicsBody(texture: self.spriteNode.texture!, size: nodeSize)
+        physicBody.affectedByGravity = false
+        physicBody.categoryBitMask = 1
+        physicBody.allowsRotation = false
+        
+        self.spriteNode.physicsBody = physicBody
+        
+        
         self.addComponent(AtackComponent(atackPoints: atackPoints, atackSpeed: atackSpeed, atackArea: atackArea, atackRange: self.spriteNode.size.width/4 + self.spriteNode.size.height/4 + atackRange))
         
         self.addComponent(MovementComponent(speed: speed))

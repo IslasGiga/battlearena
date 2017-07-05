@@ -163,25 +163,35 @@ class BattleScene: SKScene {
     
     
     func playAgain(){
-        if let scene = GKScene(fileNamed: "BattleScene") {
-
-            // Get the SKScene from the loaded GKScene
-            if let sceneNode = scene.rootNode as! BattleScene? {
+        if let scene = SKScene(fileNamed: "MenuuScene") {
+            scene.scaleMode = .aspectFill
+            if let view = self.view {
+//                view.presentScene(scene)
+                view.presentScene(scene, transition: .reveal(with: .up, duration: 1))
                 
-                // Copy gameplay related content over to the scene
+                view.ignoresSiblingOrder = true
                 
-                // Set the scale mode to scale to fit the window
-                sceneNode.scaleMode = .aspectFill
-                // Present the scene
-                if let view = self.view {
-                    view.presentScene(sceneNode)
-                    
-                    view.ignoresSiblingOrder = true
-                    
-                    view.showsFPS = true
-                    view.showsNodeCount = true
-                }
+                view.showsFPS = true
+                view.showsNodeCount = true
             }
+            
+            // Get the SKScene from the loaded GKScene
+//            if let sceneNode = scene.rootNode as! BattleScene? {
+//                
+//                // Copy gameplay related content over to the scene
+//                
+//                // Set the scale mode to scale to fit the window
+//                sceneNode.scaleMode = .aspectFill
+//                // Present the scene
+//                if let view = self.view {
+//                    view.presentScene(sceneNode)
+//                    
+//                    view.ignoresSiblingOrder = true
+//                    
+//                    view.showsFPS = true
+//                    view.showsNodeCount = true
+//                }
+//            }
         }
     }
     
