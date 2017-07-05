@@ -39,15 +39,16 @@ class CharacterCard: Card {
     //LifeBarSprite
     var lifeBar : LifeBar?
     
-    let audioPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: "\(Bundle.main.resourcePath!)/arrow.wav"))
+    var audioPlayer: AVAudioPlayer
 
 
     var cardImage : UIImage!
     
     var atackEffect : String!
     
-    init(image: UIImage, name: String, cardDescription: String, manaCost: Int, summoningTime: Int, level: Int, xp: Int, atackPoints: Int, atackSpeed: CGFloat, atackArea: Int, atackRange: CGFloat, speed: Int, healthPoints: Int , battleScene: BattleScene, teamId: Int, cardImage: UIImage, atackEffect: String) {
+    init(image: UIImage, name: String, cardDescription: String, manaCost: Int, summoningTime: Int, level: Int, xp: Int, atackPoints: Int, atackSpeed: CGFloat, atackArea: Int, atackRange: CGFloat, speed: Int, healthPoints: Int , battleScene: BattleScene, teamId: Int, cardImage: UIImage, atackEffect: String, soundName: String) {
         
+        self.audioPlayer =  try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: "\(Bundle.main.resourcePath!)/\(soundName).wav"))
         
         super.init(image: image,
                    name: name,
@@ -77,51 +78,13 @@ class CharacterCard: Card {
         
         self.teamId = teamId
         
+        
         //MARK: Setting character life bar
         self.lifeBar = LifeBar(forCharacter: self)
         
         self.spriteNode.addChild(self.lifeBar!)
         
     }
-    
-//    init(abstractCard: AbstractCharacterCard, battleScene: BattleScene, teamId: Int) {
-//        super.init(image: abstractCard.image,
-//                   name: abstractCard.name,
-//                   cardDescription: abstractCard.cardDescription,
-//                   manaCost: abstractCard.manaCost,
-//                   summoningTime: abstractCard.summoningTime,
-//                   level: abstractCard.level,
-//                   xp: abstractCard.xp)
-//        
-//        self.addComponent(AtackComponent(atackPoints: abstractCard.attackPoints,
-//                                         atackSpeed: abstractCard.attackSpeed,
-//                                         atackArea: abstractCard.attackArea,
-//                                         atackRange: abstractCard.attackRange))
-//        
-//        self.addComponent(MovementComponent(speed: abstractCard.speed))
-//        self.addComponent(HealthComponent(healthPoints: abstractCard.healthPoints))
-//        self.addComponent(TargetIndexComponent())
-//        
-//        self.battleScene = battleScene
-//        
-//        self.spriteNode = SKSpriteNode(imageNamed: "character")
-//        
-//        if teamId == 1{
-//            self.spriteNode.color = UIColor.lightGray
-//        }
-//        
-//        self.spriteNode.texture = SKTexture(image: abstractCard.image)
-//        
-//        self.teamId = teamId
-//        
-//        //MARK: Setting character life bar
-//        self.lifeBar = LifeBar(forCharacter: self)
-//        
-//        self.spriteNode.addChild(self.lifeBar!)
-//        
-//    }
-    
-    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -149,10 +112,6 @@ class CharacterCard: Card {
                 }
             }
         }
-        
-        
-        
-        
     }
     
     //character moves towards target it's speed por 0.2 seconds
@@ -174,7 +133,6 @@ class CharacterCard: Card {
         }
     }
     
-    
     func getManaCost()->CGFloat{
         let manaCost = CGFloat((self.component(ofType: InfoCardComponent.self)?.manaCost)!)
         return manaCost
@@ -194,7 +152,7 @@ class CharacterCard: Card {
 //                atackSprite.zPosition = 5
 //                self.battleScene.addChild(atackSprite)
                 
-                audioPlayer?.play()
+                audioPlayer.play()
 //                
 //                let atackTarget = self.battleScene.characters[target].spriteNode.position
 //                atackSprite.run(SKAction.move(to: atackTarget, duration: TimeInterval(atackTime)), completion: {

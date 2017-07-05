@@ -45,13 +45,6 @@ class MenuScene: SKScene {
                 }
             }
         }
-        }
+      }
     }
-    
-    
-    
-    func register(with name: String)  {
-        
-    }
-    
 }

@@ -14,8 +14,8 @@
    "movement_speed": 4,
    "hp": 300,
     "quantity": 1,
-    "image": "elfS",
+    "image": "elf",
     "card_image" : "ElfCard",
-    "atack_sound" : "arrowhit",
-    "atack_effect" : "arrow"
+    "attack_sound" : "arrow",
+    "attack_effect" : "arrow"
 }

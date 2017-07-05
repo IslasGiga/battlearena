@@ -16,6 +16,6 @@
    "quantity": 1,
     "image": "dwarfTestFinalized",
     "card_image" : "test",
-    "atack_sound" : "slash",
-    "atack_effect" : ""
+    "attack_sound" : "slash",
+    "attack_effect" : ""
 }

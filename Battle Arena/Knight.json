@@ -16,6 +16,6 @@
     "quantity": 1,
     "image": "character",
     "card_image" : "test2",
-    "atack_sound" : "slash",
-    "atack_effect" : ""
+    "attack_sound" : "slash",
+    "attack_effect" : ""
 }

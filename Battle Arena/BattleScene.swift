@@ -335,10 +335,6 @@ class BattleScene: SKScene {
             if let timeLabel = menuScene.childNode(withName: "TimeLabel") as? SKLabelNode {
                 self.gameTimeLabel = timeLabel
                 timeLabel.removeFromParent()
-                
-                
-                
-                
                 self.addChild(timeLabel)
             }
             
@@ -379,14 +375,14 @@ class BattleScene: SKScene {
         let towerRange = self.battleNode!.size.width/3
         
         //Primary Towers
-        let primaryTowerA = PrimaryTower(image: #imageLiteral(resourceName: "castelBlue1"), name: "PrimaryTower", cardDescription: "You lose if this tower gets destroyed", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 25, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 2000, battleScene: self, teamId: 0, cardImage: #imageLiteral(resourceName: "turret"), atackEffect: "arrow")
+        let primaryTowerA = PrimaryTower(image: #imageLiteral(resourceName: "castelBlue1"), name: "PrimaryTower", cardDescription: "You lose if this tower gets destroyed", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 25, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 2000, battleScene: self, teamId: 0, cardImage: #imageLiteral(resourceName: "turret"), atackEffect: "arrow", soundName: "arrow")
         primaryTowerA.spriteNode.position = self.battleNode!.position
         primaryTowerA.spriteNode.position.y -= self.battleNode!.size.height/2 - primaryTowerA.spriteNode.size.height/2
         primaryTowerA.spriteNode.zPosition = 3
         self.characters.append(primaryTowerA)
         self.addChild(primaryTowerA.spriteNode)
         
-        let primaryTowerB = PrimaryTower(image: #imageLiteral(resourceName: "castelRed1"), name: "PrimaryTower", cardDescription: "You lose if this tower gets destroyed", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 25, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 2000, battleScene: self, teamId: 1, cardImage: #imageLiteral(resourceName: "turret"), atackEffect: "arrow")
+        let primaryTowerB = PrimaryTower(image: #imageLiteral(resourceName: "castelRed1"), name: "PrimaryTower", cardDescription: "You lose if this tower gets destroyed", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 25, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 2000, battleScene: self, teamId: 1, cardImage: #imageLiteral(resourceName: "turret"), atackEffect: "arrow", soundName: "arrow")
         primaryTowerB.spriteNode.position = self.battleNode!.position
         primaryTowerB.spriteNode.position.y += self.battleNode!.size.height/2 - primaryTowerB.spriteNode.size.height/2
         primaryTowerB.spriteNode.zPosition = 3
@@ -394,7 +390,7 @@ class BattleScene: SKScene {
         self.addChild(primaryTowerB.spriteNode)
         
         for i in 0...2{
-            let secundaryTower = SecundaryTower(image: #imageLiteral(resourceName: "castelBlue2"), name: "SecundaryTower", cardDescription: "Main sefenses of your territory", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 20, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 1000, battleScene: self, teamId: 0, cardImage: #imageLiteral(resourceName: "turret"), atackEffect: "arrow")
+            let secundaryTower = SecundaryTower(image: #imageLiteral(resourceName: "castelBlue2"), name: "SecundaryTower", cardDescription: "Main sefenses of your territory", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 20, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 1000, battleScene: self, teamId: 0, cardImage: #imageLiteral(resourceName: "turret"), atackEffect: "arrow", soundName: "arrow")
             
             secundaryTower.spriteNode.position = self.battleNode!.position
             secundaryTower.spriteNode.position.y -= self.battleNode!.size.height/2 - 4 * primaryTowerA.spriteNode.size.height/2
@@ -407,7 +403,7 @@ class BattleScene: SKScene {
         }
         
         for i in 0...2{
-            let secundaryTower = SecundaryTower(image: #imageLiteral(resourceName: "castelRed2"), name: "SecundaryTower", cardDescription: "Main defenses of your territory", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 20, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 1000, battleScene: self, teamId: 1, cardImage: #imageLiteral(resourceName: "turret"), atackEffect: "arrow")
+            let secundaryTower = SecundaryTower(image: #imageLiteral(resourceName: "castelRed2"), name: "SecundaryTower", cardDescription: "Main defenses of your territory", manaCost: 0, summoningTime: 0, level: 1, xp: 0, atackPoints: 20, atackSpeed: 0.5, atackArea: 1, atackRange: towerRange, speed: 0, healthPoints: 1000, battleScene: self, teamId: 1, cardImage: #imageLiteral(resourceName: "turret"), atackEffect: "arrow", soundName: "arrow")
             
             secundaryTower.spriteNode.position = self.battleNode!.position
             secundaryTower.spriteNode.position.y += self.battleNode!.size.height/2 - 4 * primaryTowerA.spriteNode.size.height/2
@@ -671,7 +667,6 @@ class BattleScene: SKScene {
                 }
             }
         }
-        
         return char
     }
     

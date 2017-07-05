@@ -16,6 +16,6 @@
     "quantity": 2,
     "image": "SatyrS",
     "card_image" : "SatyrCard",
-    "atack_sound" : "tackle",
-    "atack_effect" : ""
+    "attack_sound" : "",
+    "attack_effect" : ""
 }

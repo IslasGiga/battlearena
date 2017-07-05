@@ -26,6 +26,8 @@
 		2375FA091EF80B590083C954 /* BlueBeam.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2375FA081EF80B590083C954 /* BlueBeam.sks */; };
 		2375FA0B1EF810830083C954 /* StrikeDamage.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2375FA0A1EF810830083C954 /* StrikeDamage.sks */; };
 		67A40EA1AB40010B6E642C87 /* Pods_Battle_Arena.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49FCB7EA7CF6F5F484680A3 /* Pods_Battle_Arena.framework */; };
+		773A81D11F0D35170041C617 /* slash.wav in Resources */ = {isa = PBXBuildFile; fileRef = 773A81D01F0D35170041C617 /* slash.wav */; };
+		773A81D31F0D39840041C617 /* magic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 773A81D21F0D39840041C617 /* magic.wav */; };
 		7791DE771EF80B10005EA395 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7791DE761EF80B10005EA395 /* MenuScene.swift */; };
 		7791DE791EF80B1C005EA395 /* MenuuScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7791DE781EF80B1C005EA395 /* MenuuScene.sks */; };
 		77947E9F1ED60BCE00DFD6F8 /* LifeBar.sks in Resources */ = {isa = PBXBuildFile; fileRef = 77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */; };
@@ -92,6 +94,8 @@
 		2375FA061EF809F20083C954 /* PoisonGas.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PoisonGas.sks; sourceTree = "<group>"; };
 		2375FA081EF80B590083C954 /* BlueBeam.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BlueBeam.sks; sourceTree = "<group>"; };
 		2375FA0A1EF810830083C954 /* StrikeDamage.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StrikeDamage.sks; sourceTree = "<group>"; };
+		773A81D01F0D35170041C617 /* slash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = slash.wav; sourceTree = "<group>"; };
+		773A81D21F0D39840041C617 /* magic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic.wav; sourceTree = "<group>"; };
 		7791DE761EF80B10005EA395 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		7791DE781EF80B1C005EA395 /* MenuuScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MenuuScene.sks; sourceTree = "<group>"; };
 		77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LifeBar.sks; sourceTree = "<group>"; };
@@ -177,6 +181,17 @@
 				D49FCB7EA7CF6F5F484680A3 /* Pods_Battle_Arena.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		773A81CD1F0D132C0041C617 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				77E03E9C1EF00A8C000F574A /* battleOrch.mp3 */,
+				77E03E9A1EF00424000F574A /* arrow.wav */,
+				773A81D21F0D39840041C617 /* magic.wav */,
+				773A81D01F0D35170041C617 /* slash.wav */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 		77EE5B7F1EDD972100B71217 /* Cards */ = {
@@ -305,8 +320,7 @@
 		79DE87B71EC0953900CAE28D /* Battle Arena */ = {
 			isa = PBXGroup;
 			children = (
-				77E03E9C1EF00A8C000F574A /* battleOrch.mp3 */,
-				77E03E9A1EF00424000F574A /* arrow.wav */,
+				773A81CD1F0D132C0041C617 /* Sounds */,
 				798FDC571EF000B3009694B1 /* Fonts */,
 				77EE5B7F1EDD972100B71217 /* Cards */,
 				7948400C1EC09A7100239F64 /* Model */,
@@ -416,7 +430,9 @@
 				77E03E9D1EF00A8C000F574A /* battleOrch.mp3 in Resources */,
 				2375F9FC1EE191290083C954 /* Satyr.json in Resources */,
 				79DE87BB1EC0953900CAE28D /* BattleScene.sks in Resources */,
+				773A81D31F0D39840041C617 /* magic.wav in Resources */,
 				79DE87C61EC0953900CAE28D /* Assets.xcassets in Resources */,
+				773A81D11F0D35170041C617 /* slash.wav in Resources */,
 				79DE87C91EC0953900CAE28D /* LaunchScreen.storyboard in Resources */,
 				2375F9F81EE18E6D0083C954 /* Elf.json in Resources */,
 				2319D3831F02A46B00973136 /* WizardMovement.sks in Resources */,

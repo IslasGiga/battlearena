@@ -16,6 +16,6 @@
     "quantity": 1,
     "image": "cyclop",
     "card_image" : "CyclopCard",
-    "atack_sound" : "slash",
-    "atack_effect" : ""
+    "attack_sound" : "slash",
+    "attack_effect" : ""
 }

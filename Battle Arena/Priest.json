@@ -16,6 +16,6 @@
     "quantity": 1,
     "image": "char",
     "card_image" : "test4",
-    "atack_sound" : "BlueBeam",
-    "atack_effect" : "BlueBeam"
+    "attack_sound" : "magic",
+    "attack_effect" : "BlueBeam"
 }
