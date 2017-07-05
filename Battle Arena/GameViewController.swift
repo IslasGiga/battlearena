@@ -18,6 +18,8 @@ class GameViewController: UIViewController {
  
 
     @IBAction func registerUser(_ sender: UIButton) {
+        playerNameTextField.resignFirstResponder()
+        
         let name = playerNameTextField.text!
         
         UserDefaults.standard.set(name, forKey: "playerName")
