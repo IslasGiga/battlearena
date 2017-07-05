@@ -157,22 +157,9 @@ class CharacterCard: Card {
             if let target = self.component(ofType: TargetIndexComponent.self)?.targetIndex {
                 let enemie = self.battleScene.characters[target]
                 let atackTime = (self.component(ofType: AtackComponent.self)?.atackSpeed)!
-                //MARK: Add switch case for kind of atack
-                //animateAtack() make character sprite animation on atack
                 
-//                let atackSprite = SKSpriteNode(color: UIColor.red, size: CGSize(width: 5, height: 5))
-//                atackSprite.position = self.spriteNode.position
-//                atackSprite.zPosition = 5
-//                self.battleScene.addChild(atackSprite)
                 
                 audioPlayer.play()
-//                
-//                let atackTarget = self.battleScene.characters[target].spriteNode.position
-//                atackSprite.run(SKAction.move(to: atackTarget, duration: TimeInterval(atackTime)), completion: {
-//                    atackSprite.removeFromParent()
-//                })
-                
-//                particleAtack(sksName: "Fireball.sks", particleName: "fireball", target: self.battleScene.characters[target])
                 
                 animateAtack()
                 
@@ -313,17 +300,6 @@ class CharacterCard: Card {
         
     }
     
-    
-    //deprecated
-//    func animateMoviment(){
-//        DispatchQueue.main.async {
-//            let name = (self.component(ofType: InfoCardComponent.self)?.name)!
-//            if let moveAnimation = SKAction(named: "\(name)Walk\(self.direction())"){
-//                self.spriteNode.run(moveAnimation)
-//            }
-//        }
-//        
-//    }
     
     func animateWalk(){
         DispatchQueue.main.async {

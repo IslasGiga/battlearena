@@ -25,6 +25,8 @@
 		2375FA071EF809F20083C954 /* PoisonGas.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2375FA061EF809F20083C954 /* PoisonGas.sks */; };
 		2375FA091EF80B590083C954 /* BlueBeam.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2375FA081EF80B590083C954 /* BlueBeam.sks */; };
 		2375FA0B1EF810830083C954 /* StrikeDamage.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2375FA0A1EF810830083C954 /* StrikeDamage.sks */; };
+		237AF7AB1F0D79E100919162 /* MummyMovement.sks in Resources */ = {isa = PBXBuildFile; fileRef = 237AF7AA1F0D79E100919162 /* MummyMovement.sks */; };
+		237AF7AD1F0D7A0E00919162 /* SatyrMovement.sks in Resources */ = {isa = PBXBuildFile; fileRef = 237AF7AC1F0D7A0E00919162 /* SatyrMovement.sks */; };
 		67A40EA1AB40010B6E642C87 /* Pods_Battle_Arena.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49FCB7EA7CF6F5F484680A3 /* Pods_Battle_Arena.framework */; };
 		773A81D11F0D35170041C617 /* slash.wav in Resources */ = {isa = PBXBuildFile; fileRef = 773A81D01F0D35170041C617 /* slash.wav */; };
 		773A81D31F0D39840041C617 /* magic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 773A81D21F0D39840041C617 /* magic.wav */; };
@@ -94,6 +96,8 @@
 		2375FA061EF809F20083C954 /* PoisonGas.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PoisonGas.sks; sourceTree = "<group>"; };
 		2375FA081EF80B590083C954 /* BlueBeam.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BlueBeam.sks; sourceTree = "<group>"; };
 		2375FA0A1EF810830083C954 /* StrikeDamage.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StrikeDamage.sks; sourceTree = "<group>"; };
+		237AF7AA1F0D79E100919162 /* MummyMovement.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MummyMovement.sks; sourceTree = "<group>"; };
+		237AF7AC1F0D7A0E00919162 /* SatyrMovement.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SatyrMovement.sks; sourceTree = "<group>"; };
 		773A81D01F0D35170041C617 /* slash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = slash.wav; sourceTree = "<group>"; };
 		773A81D21F0D39840041C617 /* magic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic.wav; sourceTree = "<group>"; };
 		7791DE761EF80B10005EA395 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				2319D3821F02A46B00973136 /* WizardMovement.sks */,
+				237AF7AA1F0D79E100919162 /* MummyMovement.sks */,
+				237AF7AC1F0D7A0E00919162 /* SatyrMovement.sks */,
 			);
 			name = Animation;
 			sourceTree = "<group>";
@@ -213,11 +219,11 @@
 			isa = PBXGroup;
 			children = (
 				79DE87BA1EC0953900CAE28D /* BattleScene.sks */,
+				79DE87BE1EC0953900CAE28D /* BattleScene.swift */,
 				795814D81EF3FD9A00C1595C /* StartBattleScene.sks */,
 				795814D41EF3F47C00C1595C /* MainMenuScene.sks */,
 				795814DE1EF401D900C1595C /* MainMenuScene.swift */,
 				2351AB8E1ED3477F00C09B1E /* MenuScene.sks */,
-				79DE87BE1EC0953900CAE28D /* BattleScene.swift */,
 				798D5EFB1EC5F9BD009EEA2E /* SplashScreenScene.sks */,
 				798D5EFD1EC5FCF2009EEA2E /* SplashScreenScene.swift */,
 				77947E9E1ED60BCE00DFD6F8 /* LifeBar.sks */,
@@ -433,10 +439,12 @@
 				773A81D31F0D39840041C617 /* magic.wav in Resources */,
 				79DE87C61EC0953900CAE28D /* Assets.xcassets in Resources */,
 				773A81D11F0D35170041C617 /* slash.wav in Resources */,
+				237AF7AB1F0D79E100919162 /* MummyMovement.sks in Resources */,
 				79DE87C91EC0953900CAE28D /* LaunchScreen.storyboard in Resources */,
 				2375F9F81EE18E6D0083C954 /* Elf.json in Resources */,
 				2319D3831F02A46B00973136 /* WizardMovement.sks in Resources */,
 				77E03E9B1EF00424000F574A /* arrow.wav in Resources */,
+				237AF7AD1F0D7A0E00919162 /* SatyrMovement.sks in Resources */,
 				7791DE791EF80B1C005EA395 /* MenuuScene.sks in Resources */,
 				2375FA021EE193A50083C954 /* Wizard.json in Resources */,
 				79DE87BD1EC0953900CAE28D /* Actions.sks in Resources */,
