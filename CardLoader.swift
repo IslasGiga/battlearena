@@ -78,7 +78,7 @@ class CardLoader {
             
             var sound: String = "arrow"
             
-            if let soundName = json["attack_sound"].string {
+            if let soundName = json["atack_sound"].string {
                 if soundName.characters.count != 0 {
                     sound = soundName
                 }

@@ -16,7 +16,6 @@
     "quantity": 1,
     "image": "cleric",
     "card_image" : "test4",
-
     "atack_sound" : "magic",
     "atack_effect" : "BlueBeam",
     "size_width" : 30,
