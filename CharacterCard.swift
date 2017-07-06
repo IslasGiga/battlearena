@@ -272,26 +272,26 @@ class CharacterCard: Card {
         let x = target.x - pos.x
         let y = target.y - pos.x
         
-        if x > 10.0 {
-            if y > 10.0{
+        if x > 2.0 {
+            if y > 2.0{
                 return "NE"
-            }else if y < -10.0 {
+            }else if y < -2.0 {
                 return "NW"
             }else{
                 return "N"
             }
         }else if x < 0.0 {
-            if y > 10.0{
+            if y > 2.0{
                 return "SE"
-            }else if y < -10.0 {
+            }else if y < -2.0 {
                 return "SW"
             }else{
                 return "S"
             }
         }else{
-            if y > 10.0{
+            if y > 2{
                 return "E"
-            }else if y < -10.0 {
+            }else if y < -2.0 {
                 return "W"
             }else{
                 return "N"

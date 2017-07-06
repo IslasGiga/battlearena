@@ -466,7 +466,7 @@ class BattleScene: SKScene {
                 alphaLayer?.setScale(100)
                 alphaLayer?.run(SKAction.fadeAlpha(to: 0.7, duration: 1))
                 
-                let starAction = SKAction.group([SKAction.rotate(byAngle: 720.0, duration: 1),SKAction.scale(to: 0.5, duration: 1)])
+                let starAction = SKAction.group([SKAction.rotate(byAngle: CGFloat.pi * 2, duration: 1),SKAction.scale(to: 0.5, duration: 1)])
                 
                 var stars : [SKNode] = []
                 
@@ -485,7 +485,7 @@ class BattleScene: SKScene {
                 
                 self.addChild(endNode)
                 
-                endNode.run(SKAction.scale(to: 0.4, duration: 1), completion: {
+                endNode.run(SKAction.scale(to: 0.5, duration: 1), completion: {
                     
                     if scoreB > 0 {
                         for i in 0...scoreB - 1 {
@@ -503,7 +503,8 @@ class BattleScene: SKScene {
                         }
                     }
                 })
-                //endNode.run(SKAction.playSoundFileNamed("EndGameSound", waitForCompletion: false))
+                
+                //TODO: Play End Game Sound
                 
             }
         }
