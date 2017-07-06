@@ -25,13 +25,13 @@ class AIEnemy {
         self.strategies.append(AIEnemyStrategy(type: .WaitForMana, game: game))
         
         self.loader = CardLoader(scene: game)
-        let names = ["Dwarf",
-                     "Cyclope",
+        let names = ["Wizard",
+                     "Mummy",
                      "Elf",
-                     "Priest",
+                     "Satyr",
                      "Satyr",
                      "Mummy",
-                     "Knight",
+                     "Elf",
                      "Wizard"]
         
         for value in names {
