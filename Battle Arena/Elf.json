@@ -14,7 +14,7 @@
    "movement_speed": 4,
    "hp": 300,
     "quantity": 1,
-    "image": "elf",
+    "image": "elfWalkingS01",
     "card_image" : "ElfCard",
     "atack_sound" : "arrow",
     "atack_effect" : "arrow",
