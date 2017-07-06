@@ -18,6 +18,6 @@
     "card_image" : "SatyrCard",
     "atack_sound" : "",
     "atack_effect" : "",
-    "size_width" : 30,
-    "size_height" : 30
+    "size_width" : 21,
+    "size_height" : 35
 }

@@ -18,6 +18,6 @@
     "card_image" : "ElfCard",
     "atack_sound" : "arrow",
     "atack_effect" : "arrow",
-    "size_width" : 30,
-    "size_height" : 30
+    "size_width" : 31,
+    "size_height" : 35
 }

@@ -18,6 +18,6 @@
     "card_image" : "wizardCard",
     "atack_sound" : "magic",
     "atack_effect" : "Fireball",
-    "size_width" : 30,
+    "size_width" : 21,
     "size_height" : 30
 }

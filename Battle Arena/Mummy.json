@@ -18,6 +18,6 @@
     "card_image" : "MummyCard",
     "atack_sound" : "",
     "atack_effect" : "PoisonGas",
-    "size_width" : 30,
-    "size_height" : 30
+    "size_width" : 28,
+    "size_height" : 35
 }

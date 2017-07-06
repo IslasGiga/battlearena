@@ -14,10 +14,10 @@
    "movement_speed": 4,
    "hp": 500,
     "quantity": 1,
-    "image": "knight",
+    "image": "char",
     "card_image" : "test2",
     "atack_sound" : "slash",
     "atack_effect" : "",
-    "size_width" : 30,
+    "size_width" : 28,
     "size_height" : 30
 }
