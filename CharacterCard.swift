@@ -163,6 +163,9 @@ class CharacterCard: Card {
                 
                 animateAtack()
                 
+                //temporary atack animation
+                animateWalk()
+                
                 //MARK: Isso é pura gambearra!!! TODO: FIX
                 self.spriteNode.run(SKAction.scale(by: 1, duration: TimeInterval(atackTime)), completion: {
                     enemie.component(ofType: HealthComponent.self)?.healthPoints -= (self.component(ofType: AtackComponent.self)?.atackPoints)!
