@@ -63,13 +63,13 @@ class BattleScene: SKScene {
     
     var gameOver = false
     
-    let names = ["Dwarf",
-                 "Cyclope",
+    let names = ["Wizard",
+                 "Mummy",
                  "Elf",
-                 "Priest",
+                 "Satyr",
                  "Satyr",
                  "Mummy",
-                 "Knight",
+                 "Elf",
                  "Wizard"]
     
     let audioPlayer = try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: "\(Bundle.main.resourcePath!)/battleOrch.mp3"))
