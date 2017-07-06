@@ -29,6 +29,7 @@
 		237AF7AD1F0D7A0E00919162 /* SatyrMovement.sks in Resources */ = {isa = PBXBuildFile; fileRef = 237AF7AC1F0D7A0E00919162 /* SatyrMovement.sks */; };
 		237AF7AF1F0D92F900919162 /* TurrentShotBlue.sks in Resources */ = {isa = PBXBuildFile; fileRef = 237AF7AE1F0D92F900919162 /* TurrentShotBlue.sks */; };
 		237AF7B11F0D940D00919162 /* TurrentShotRed.sks in Resources */ = {isa = PBXBuildFile; fileRef = 237AF7B01F0D940D00919162 /* TurrentShotRed.sks */; };
+		237AF7B31F0DCA6D00919162 /* ElfMovement.sks in Resources */ = {isa = PBXBuildFile; fileRef = 237AF7B21F0DCA6D00919162 /* ElfMovement.sks */; };
 		67A40EA1AB40010B6E642C87 /* Pods_Battle_Arena.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49FCB7EA7CF6F5F484680A3 /* Pods_Battle_Arena.framework */; };
 		773A81D11F0D35170041C617 /* slash.wav in Resources */ = {isa = PBXBuildFile; fileRef = 773A81D01F0D35170041C617 /* slash.wav */; };
 		773A81D31F0D39840041C617 /* magic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 773A81D21F0D39840041C617 /* magic.wav */; };
@@ -102,6 +103,7 @@
 		237AF7AC1F0D7A0E00919162 /* SatyrMovement.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SatyrMovement.sks; sourceTree = "<group>"; };
 		237AF7AE1F0D92F900919162 /* TurrentShotBlue.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TurrentShotBlue.sks; sourceTree = "<group>"; };
 		237AF7B01F0D940D00919162 /* TurrentShotRed.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TurrentShotRed.sks; sourceTree = "<group>"; };
+		237AF7B21F0DCA6D00919162 /* ElfMovement.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ElfMovement.sks; sourceTree = "<group>"; };
 		773A81D01F0D35170041C617 /* slash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = slash.wav; sourceTree = "<group>"; };
 		773A81D21F0D39840041C617 /* magic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magic.wav; sourceTree = "<group>"; };
 		7791DE761EF80B10005EA395 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				2319D3821F02A46B00973136 /* WizardMovement.sks */,
 				237AF7AA1F0D79E100919162 /* MummyMovement.sks */,
 				237AF7AC1F0D7A0E00919162 /* SatyrMovement.sks */,
+				237AF7B21F0DCA6D00919162 /* ElfMovement.sks */,
 			);
 			name = Animation;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				237AF7AB1F0D79E100919162 /* MummyMovement.sks in Resources */,
 				79DE87C91EC0953900CAE28D /* LaunchScreen.storyboard in Resources */,
 				2375F9F81EE18E6D0083C954 /* Elf.json in Resources */,
+				237AF7B31F0DCA6D00919162 /* ElfMovement.sks in Resources */,
 				2319D3831F02A46B00973136 /* WizardMovement.sks in Resources */,
 				77E03E9B1EF00424000F574A /* arrow.wav in Resources */,
 				237AF7AD1F0D7A0E00919162 /* SatyrMovement.sks in Resources */,
