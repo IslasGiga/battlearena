@@ -71,7 +71,8 @@ class CardLoader {
                   let cardImage = json["card_image"].string,
                   let atackEffect = json["atack_effect"].string,
                   let sizeWidth = json["size_width"].float,
-                  let sizeHeight = json["size_height"].float
+                  let sizeHeight = json["size_height"].float,
+                  let summonAmount = json["quantity"].int
                         else {
                     throw NSException(name: NSExceptionName(rawValue: "No Info Exception"), reason: "The Character card could not be loaded with the current info", userInfo: nil) as! Error
             }
@@ -103,7 +104,8 @@ class CardLoader {
                                          atackEffect: atackEffect,
                                          nodeSize: CGSize(width: CGFloat(sizeWidth),
                                          height: CGFloat(sizeHeight)),
-                                         soundName: sound)
+                                         soundName: sound,
+                                         summonAmount: summonAmount)
             break
         default:
             card = Card(image: UIImage(named: "character")!, name: name, cardDescription: description, manaCost: manaCost, summoningTime: summoningTime, level: 1, xp: 1)

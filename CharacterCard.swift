@@ -46,8 +46,10 @@ class CharacterCard: Card {
     
     var atackEffect : String!
     
+    
+    var summonAmount : Int!
 
-    init(image: UIImage, name: String, cardDescription: String, manaCost: Int, summoningTime: Int, level: Int, xp: Int, atackPoints: Int, atackSpeed: CGFloat, atackArea: Int, atackRange: CGFloat, speed: Int, healthPoints: Int , battleScene: BattleScene, teamId: Int, cardImage: UIImage, atackEffect: String, nodeSize: CGSize, soundName: String) {
+    init(image: UIImage, name: String, cardDescription: String, manaCost: Int, summoningTime: Int, level: Int, xp: Int, atackPoints: Int, atackSpeed: CGFloat, atackArea: Int, atackRange: CGFloat, speed: Int, healthPoints: Int , battleScene: BattleScene, teamId: Int, cardImage: UIImage, atackEffect: String, nodeSize: CGSize, soundName: String, summonAmount: Int) {
         
         self.audioPlayer =  try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: "\(Bundle.main.resourcePath!)/\(soundName).wav"))
         
@@ -83,7 +85,7 @@ class CharacterCard: Card {
         
         self.battleScene = battleScene
         
-        
+        self.summonAmount = summonAmount
         
         self.cardImage = cardImage
         

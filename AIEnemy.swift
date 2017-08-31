@@ -86,7 +86,12 @@ class AIEnemy {
     func playCard(atIndex index : Int, atPosition pos: CGPoint){
         if let charCard = self.deck[index] as? CharacterCard {
             if charCard.getManaCost() < self.mana{
-                game.spawnCharacter(fromCard: charCard, atPosition: pos, team: 1)
+                //for _ in 1...charCard.summonAmount{
+                    game.spawnCharacter(fromCard: charCard, atPosition: pos, team: 1)
+                //}
+//                for _ in stride(from: 1, to: charCard.summonAmount, by: 1){
+//                    game.spawnCharacter(fromCard: charCard, atPosition: pos, team: 1)
+//                }
                 self.mana -= charCard.getManaCost()
                 rotateDeck(playedCardIndex: index)
             }
