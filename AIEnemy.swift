@@ -15,17 +15,30 @@ class AIEnemy {
     var mana : CGFloat = 70.0
     var game : BattleScene
     var playingStrategy = false
-    init(game: BattleScene){
+    
+    init(game: BattleScene, level: Int){
         self.game = game
-
-        self.strategies.append(AIEnemyStrategy(type: .PlayRandom, game: game))
-        self.strategies.append(AIEnemyStrategy(type: .GankIncomingAtacker, game: game))
-        self.strategies.append(AIEnemyStrategy(type: .AtackEnemyTurrent, game: game))
-        self.strategies.append(AIEnemyStrategy(type: .SendSupportToAtack, game: game))
-        self.strategies.append(AIEnemyStrategy(type: .WaitForMana, game: game))
         
         self.loader = CardLoader(scene: game)
-        let names = ["Wizard",
+        
+        let names : [String]
+        
+        switch level{
+        case 0:
+            names = ["Mummy",
+                     "Satyr",
+                     "Mummy",
+                     "Satyr",
+                     "Mummy",
+                     "Satyr",
+                     "Mummy",
+                     "Satyr"]
+            
+            self.strategies.append(AIEnemyStrategy(type: .SummonOneOnly, game: game))
+            
+            break
+        default:
+            names = ["Wizard",
                      "Mummy",
                      "Elf",
                      "Satyr",
@@ -33,6 +46,14 @@ class AIEnemy {
                      "Mummy",
                      "Elf",
                      "Wizard"]
+            
+            self.strategies.append(AIEnemyStrategy(type: .PlayRandom, game: game))
+            self.strategies.append(AIEnemyStrategy(type: .GankIncomingAtacker, game: game))
+            self.strategies.append(AIEnemyStrategy(type: .AtackEnemyTurrent, game: game))
+            self.strategies.append(AIEnemyStrategy(type: .SendSupportToAtack, game: game))
+            self.strategies.append(AIEnemyStrategy(type: .WaitForMana, game: game))
+        }
+        
         
         for value in names {
             let load = loader?.load(name: value, type: .character)

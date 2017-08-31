@@ -15,6 +15,7 @@ enum Strategy {
     case SendSupportToAtack
     case WaitForMana
     case AtackEnemyTurrent
+    case SummonOneOnly
 }
 
 class AIEnemyStrategy {
@@ -57,6 +58,28 @@ class AIEnemyStrategy {
                 enemy.playCard(atIndex: cardIndex, atPosition: pos)
                 
                 enemy.playingStrategy = false
+            }
+            
+            break
+        
+        case .SummonOneOnly:
+            //cards.append(cardLoader.load(name: "Cyclope", type: .character)!)
+            
+            valueCheck = { () -> Int in
+                return 100
+            }
+            
+            self.enemyMove = { (_ enemy: AIEnemy) -> () in
+                let pos = CGPoint(x: 0, y: 50)
+                
+                if game.enemyAliveCharacter() == nil && ((game.gameTime - game.lastEnemyMoveTime) >= 5){
+                    //play random card move
+                    let cardIndex = Int(arc4random()%4)
+                    enemy.playCard(atIndex: cardIndex, atPosition: pos)
+                    game.lastEnemyMoveTime = game.gameTime
+                }
+                enemy.playingStrategy = false
+                
             }
             
             break

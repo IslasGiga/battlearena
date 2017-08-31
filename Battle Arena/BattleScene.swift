@@ -57,6 +57,7 @@ class BattleScene: SKScene {
     
     //time control variable
     var preveousUpdateTime : TimeInterval = 0
+    var lastEnemyMoveTime : TimeInterval = 0
     
     //all characters in game
     var characters : [CharacterCard] = [] 
@@ -97,7 +98,7 @@ class BattleScene: SKScene {
         
         audioPlayer?.play()
 
-        enemy = AIEnemy(game: self)
+        enemy = AIEnemy(game: self, level: 0)
     }
     
     //runs twice when scene loads, why??
