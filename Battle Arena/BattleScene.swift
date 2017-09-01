@@ -64,7 +64,7 @@ class BattleScene: SKScene {
     
     var gameOver = false
     
-    let names = ["Wizard",
+    let playerDeck = ["Wizard",
                  "Mummy",
                  "Elf",
                  "Satyr",
@@ -98,7 +98,7 @@ class BattleScene: SKScene {
         
         audioPlayer?.play()
 
-        enemy = AIEnemy(game: self, level: 0)
+        enemy = AIEnemy(game: self, names: ["Wizard","Mummy","Elf","Satyr","Satyr","Mummy","Elf","Wizard"], level: 0)
     }
     
     //runs twice when scene loads, why??
@@ -513,7 +513,7 @@ class BattleScene: SKScene {
     
     func loadCards(){
         
-        for value in names {
+        for value in playerDeck {
             let load = loader?.load(name: value, type: .character)
             if let load = load {
                 let card = load as! CharacterCard

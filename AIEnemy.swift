@@ -16,36 +16,26 @@ class AIEnemy {
     var game : BattleScene
     var playingStrategy = false
     
-    init(game: BattleScene, level: Int){
+    init(game: BattleScene, names: [String], level: Int){
         self.game = game
         
         self.loader = CardLoader(scene: game)
         
-        let names : [String]
-        
         switch level{
         case 0:
-            names = ["Mummy",
-                     "Satyr",
-                     "Mummy",
-                     "Satyr",
-                     "Mummy",
-                     "Satyr",
-                     "Mummy",
-                     "Satyr"]
+//            names = ["Mummy",
+//                     "Satyr",
+//                     "Mummy",
+//                     "Satyr",
+//                     "Mummy",
+//                     "Satyr",
+//                     "Mummy",
+//                     "Satyr"]
             
             self.strategies.append(AIEnemyStrategy(type: .SummonOneOnly, game: game))
             
             break
         default:
-            names = ["Wizard",
-                     "Mummy",
-                     "Elf",
-                     "Satyr",
-                     "Satyr",
-                     "Mummy",
-                     "Elf",
-                     "Wizard"]
             
             self.strategies.append(AIEnemyStrategy(type: .PlayRandom, game: game))
             self.strategies.append(AIEnemyStrategy(type: .GankIncomingAtacker, game: game))
