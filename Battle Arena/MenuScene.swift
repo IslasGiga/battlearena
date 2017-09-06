@@ -52,17 +52,27 @@ class MenuScene: SKScene {
         for node in listOfNodes {
         
             if node.name == "singleplayerButton" {
-                if let scene = GKScene(fileNamed: "BattleScene") {
-                    
-                // Get the SKScene from the loaded GKScene
-                    if let sceneNode = scene.rootNode as! BattleScene? {
-                    
-                    // Copy gameplay related content over to the scene
-                    
-                    // Set the scale mode to scale to fit the window
+//                if let scene = GKScene(fileNamed: "BattleScene") {
+//                    
+//                // Get the SKScene from the loaded GKScene
+//                    if let sceneNode = scene.rootNode as! BattleScene? {
+//                    
+//                    // Copy gameplay related content over to the scene
+//                    
+//                    // Set the scale mode to scale to fit the window
+//                        sceneNode.scaleMode = .aspectFill
+//                    // Present the scene
+//                        view?.presentScene(sceneNode)
+//                    }
+//                }
+                
+                if let scene = GKScene(fileNamed: "DifficultyScene") {
+                    if let sceneNode = scene.rootNode as! DifficultyMenu? {
                         sceneNode.scaleMode = .aspectFill
-                    // Present the scene
-                        view?.presentScene(sceneNode)
+                        
+                        view?.presentScene(sceneNode, transition: .flipVertical(withDuration: 0.4))
+                        
+                        //view?.presentScene(sceneNode, transition: .moveIn(with: .up, duration: 0.4))
                     }
                 }
             }
@@ -134,6 +144,10 @@ class MenuScene: SKScene {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.view?.window?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+    
+    func moveMenuBottonsDown(){
+        //TO DO
     }
 }
 
