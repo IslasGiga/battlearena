@@ -63,9 +63,13 @@ class MenuScene: SKScene {
                         sceneNode.scaleMode = .aspectFill
                     // Present the scene
                         view?.presentScene(sceneNode)
+                    }
                 }
             }
-        }
+            
+            if node.name == "multiplayerButton" {
+                alert(title: "Unavailable", message: "This game mode is not available yet!")
+            }
             
             if (node.name == "inventoryButton" || node.name == "battleButton" || node.name == "storeButton") {
                 let group = MenuScene.GroupFromString(string: (node.name?.replacingOccurrences(of: "Button", with: "Group"))!)
@@ -74,7 +78,7 @@ class MenuScene: SKScene {
                     switchView(fractionToShow: group)
                 }
             }
-    }
+        }
     }
     
     func switchView(fractionToShow: Group) {
@@ -124,6 +128,12 @@ class MenuScene: SKScene {
             i += 1
         }
         return nil
+    }
+    
+    func alert(title: String, message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.view?.window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
 }
 

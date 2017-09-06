@@ -98,7 +98,7 @@ class BattleScene: SKScene {
         
         audioPlayer?.play()
 
-        enemy = AIEnemy(game: self, names: ["Wizard","Mummy","Elf","Satyr","Satyr","Mummy","Elf","Wizard"], level: 0)
+        enemy = AIEnemy(game: self, names: ["Wizard","Mummy","Elf","Satyr","Satyr","Mummy","Elf","Wizard"], level: 1)
     }
     
     //runs twice when scene loads, why??
