@@ -15,7 +15,7 @@ class MainMenuScene: SKScene {
     
     override func didMove(to view: SKView) {
     
-        loadRegisterView()
+        //loadRegisterView()
         
     }
     

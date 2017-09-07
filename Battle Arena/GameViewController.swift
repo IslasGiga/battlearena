@@ -35,17 +35,17 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let game = BattleScene()
-        let cardLoader = CardLoader(scene: game)
-        
-        if let char = cardLoader.load(name: "Mummy", type: .character) {
-            print((char.component(ofType: HealthComponent.self)?.healthPoints)!)
-            print((char.component(ofType: InfoCardComponent.self)?.name)!)
-            print((char.component(ofType: AtackComponent.self)?.atackPoints)!)
-            print((char.component(ofType: MovementComponent.self)?.speed)!)
-            
-            print(char.self)
-        }
+//        let game = BattleScene()
+//        let cardLoader = CardLoader(scene: game)
+//        
+//        if let char = cardLoader.load(name: "Mummy", type: .character) {
+//            print((char.component(ofType: HealthComponent.self)?.healthPoints)!)
+//            print((char.component(ofType: InfoCardComponent.self)?.name)!)
+//            print((char.component(ofType: AtackComponent.self)?.atackPoints)!)
+//            print((char.component(ofType: MovementComponent.self)?.speed)!)
+//            
+//            print(char.self)
+//        }
         
         registerView.alpha = 0
         
@@ -57,9 +57,9 @@ class GameViewController: UIViewController {
 
         loadMenuScene()
         
-        if !checkForExistingUser() {
-            registerView.alpha = 1
-        }
+//        if !checkForExistingUser() {
+//            registerView.alpha = 1
+//        }
     }
 
     override var shouldAutorotate: Bool {
